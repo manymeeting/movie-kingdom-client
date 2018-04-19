@@ -1,2 +1,2 @@
-# MovieKingdom-React
-The React module of Movie Kingdom application
+# MovieKingdom-Client
+Modules (views and client controllers) in a client server of Movie Kingdom application
