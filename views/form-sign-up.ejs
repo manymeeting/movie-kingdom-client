@@ -1,11 +1,18 @@
+<h1> JOIN FANDANGO<span class="mk-sign-up-title-emphasis">VIP</span></h1>
 
-<p> JOIN FANDANGO<span class="mk-sign-up-title-emphasis">VIP</span></p>
 <form>
-    <label for="firstnameinput">First Name</label>
-    <input id="firstname" name="firstnameinput" type="text" placeholder="input your first name">
-    <label for="emailinput">Email Address</label>
-    <input id="email" name="emailinput" type="email" placeholder="input your email address">
-    <label for="passwordinput">Password</label>
-    <input id="password" name="passwordinput" type="text" placeholder="input your password">
-    <input id="submit-btn" type="submit" value="REGISTER" class="mk-sign-up-submit">
+  <div class="form-group">
+    <label for="inputUserName">First Name</label>
+    <input type="text" class="form-control" id="inputUserName" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="inputEmailAddr">Email address</label>
+    <input type="email" class="form-control" id="inputEmailAddr" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">Please input valid email address.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
