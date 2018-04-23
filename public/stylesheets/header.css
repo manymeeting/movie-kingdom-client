@@ -1,0 +1,47 @@
+.mk-registration-header {
+    background-color: rgba(34, 34, 34, 0.8);
+    border-bottom: 2px solid #F15500;
+    height: 74px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.mk-logo {
+    position: relative;
+    width: 222px;
+}
+
+.mk-account-mode {
+    float: right;
+}
+
+.mk-account-wrap {
+    margin-top: 50px;
+    margin-left: 35%;
+    margin-right: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mk-account-wrap > input{
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.mk-account-wrap > label{
+    margin: 2px;
+}
+
+.mk-account-wrap > p {
+    margin: 2px;
+    padding-bottom: 20px;
+}
+
+.mk-account-font-color {
+    color: white;
+}
