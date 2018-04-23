@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
 
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
-    res.render('account-header', { page: 'sign up' });
+    res.render('pg-portal', { page: 'SIGN_UP' });
 });
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-    res.render('account-header', { page: 'log in' });
+    res.render('pg-portal', { page: 'LOGIN' });
 });
 
 module.exports = router;

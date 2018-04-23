@@ -2,10 +2,10 @@
 <html>
     <head>
         <title><%= page %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-        <link rel='stylesheet' href='/stylesheets/header.css' />
-        <link rel='stylesheet' href='/stylesheets/sign-up.css' />
-        <link rel='stylesheet' href='/stylesheets/log-in.css' />
+        <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-sign-up.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-login.css' />
     </head>
     <body class="site-wrap">
         <header class="mk-registration-header">
@@ -13,19 +13,19 @@
                 <img class="mk-logo" src="/assets/images/fandango-logo.svg">
             </a>
             <a class="mk-account-mode">
-                <% if (page === 'sign up') {%>
+                <% if (page === 'SIGN_UP') {%>
                 SIGN IN
-                <%} else if (page === 'log in') {%>
+                <%} else if (page === 'LOGIN') {%>
                 CREATE AN ACCOUNT
                 <% } %>
             </a>
         </header>
         <div>
             <form class="mk-account-wrap mk-account-font-color">
-                <% if (page === 'sign up') {%>
-                <% include ./sign-up-form.ejs %>
-                <%} else if (page === 'log in') {%>
-                <% include ./login-form.ejs %>
+                <% if (page === 'SIGN_UP') {%>
+                <% include ./form-sign-up.ejs %>
+                <%} else if (page === 'LOGIN') {%>
+                <% include ./form-login.ejs %>
                 <% } %>
             </form>
         </div>
