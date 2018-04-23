@@ -1,6 +1,7 @@
 body {
-  background-color: #ebebeb;
+  background-color: #000;
   font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  color: #ebebeb;
 }
 
 a {
@@ -9,4 +10,10 @@ a {
 
 ul {
   margin: 0;
+  padding: 0;
+}
+
+li {
+
+  list-style: none;
 }

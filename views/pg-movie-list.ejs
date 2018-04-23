@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/components.css' />
+        <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="mk-genre-tags-wrapper container mt-4">
+            <p>FILTER BY MOVIE GENRES</p>
+            <div>
+                <ul>
+                    <li class="mk-genre-tags"><a href="#">ACTION</a></li>
+                    <li class="mk-genre-tags"><a href="#">DRAMA</a></li>
+                    <li class="mk-genre-tags"><a href="#">COMEDY</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="container mt-4">
+            <h2 class="mk-sub-title">ACTION MOVIES</h2>
+            <p class="mk-sub-title-desc">Find the biggest, fastest and most intense action-adventure movies to satisfy your craving for high-speed chases, epic stunts and full-blown battle sequences.</p>
+            <div class="mk-movie-list-wrapper">
+                <ul class="mk-movie-list">
+                    <li>
+                        <a href="#">
+                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
+                        </a>
+                        <div>
+                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
+                        </a>
+                        <div>
+                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
+                        </a>
+                        <div>
+                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>
