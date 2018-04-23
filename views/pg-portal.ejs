@@ -5,23 +5,41 @@
         <title><%= title %></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/components.css' />
         <link rel='stylesheet' href='/stylesheets/top-nav.css' />
         <link rel='stylesheet' href='/stylesheets/pg-sign-up.css' />
         <link rel='stylesheet' href='/stylesheets/pg-login.css' />
     </head>
     <body class="site-wrap">
-        <header class="mk-registration-header">
-            <a>
-                <img class="mk-logo" src="/assets/images/fandango-logo.svg">
-            </a>
-            <a class="mk-account-mode">
-                <% if (page === 'SIGN_UP') {%>
-                SIGN IN
-                <%} else if (page === 'LOGIN') {%>
-                CREATE AN ACCOUNT
-                <% } %>
-            </a>
-        </header>
+        <div class="mk-top-info-wrapper">
+            <div class="mk-top-info">
+                <span class="mk-span"><a href="#">Sign In</a></span>
+                <span class="mk-span"><a href="#">Sign Up</a></span>
+            </div>
+        </div>
+        <div class="mk-top-nav-wrapper">
+            <nav class="mk-top-nav navbar navbar-expand-md ">
+                <a>
+                    <img class="mk-logo navbar-brand" src="/assets/images/fandango-logo.svg">
+                </a>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Movie" aria-label="Search">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link mk-nav-links">MOVIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link mk-nav-links">HALLS</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div class="mk-top-nav-wrapper">
+        
         <div>
             <form class="mk-account-wrap mk-account-font-color">
                 <% if (page === 'SIGN_UP') {%>

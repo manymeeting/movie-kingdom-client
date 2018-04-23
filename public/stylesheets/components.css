@@ -1,0 +1,31 @@
+.mk-top-info-wrapper
+{
+	background-color: black;
+    height: 2rem;
+    padding: 0.5rem 0;
+
+    
+    font-size: 0.8rem;
+    color: #CCC;
+}
+
+.mk-top-info
+{
+	float: right;
+	margin-right: 1rem; 
+}
+
+.mk-top-info a
+{
+    color: #CCC;
+}
+.mk-top-info a:hover
+{
+    color: white;
+    text-decoration: none;	
+}
+
+.mk-span
+{
+	margin: 0 0.2rem;
+}

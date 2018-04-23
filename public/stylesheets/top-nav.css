@@ -1,22 +1,28 @@
-.mk-registration-header {
-    background-color: rgba(34, 34, 34, 0.8);
+.mk-top-nav-wrapper
+{
+    background-color: #232323;
     border-bottom: 2px solid #F15500;
-    height: 74px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    
+}
+.mk-top-nav {
+    height: 66px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
 .mk-logo {
-    position: relative;
     width: 222px;
 }
 
-.mk-account-mode {
-    float: right;
+.mk-nav-links 
+{
+    color: #CCC;
+}
+.mk-nav-links:hover
+{
+    color: #FFF;
 }
 
 .mk-account-wrap {
