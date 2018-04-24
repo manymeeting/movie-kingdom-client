@@ -52,5 +52,9 @@ router.get('/profile/edit', function(req, res, next) {
 router.get('/movies', function(req, res, next) {
     res.render('pg-movie-list', { title: 'Movies' });
 });
+/* GET movies page. */
+router.get('/halls', function(req, res, next) {
+    res.render('pg-hall-list', { title: 'Movie Halls' });
+});
 
 module.exports = router;
