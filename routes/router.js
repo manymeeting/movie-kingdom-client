@@ -33,7 +33,7 @@ router.get('/profile', function(req, res, next) {
 });
 
 /* GET profile page. */
-router.get('/profile_edit', function(req, res, next) {
+router.get('/profile/edit', function(req, res, next) {
     let items = [
         'User ID',
         'First Name',
