@@ -29,7 +29,7 @@ router.get('/profile', function(req, res, next) {
         'Phone Number',
         'Email'
     ];
-    res.render('pg-portal', { page: 'PROFILE', title: items });
+    res.render('pg-portal', { page: 'PROFILE', title: items, option: ''});
 });
 
 /* GET profile page. */
