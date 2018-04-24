@@ -9,18 +9,19 @@
         <link rel='stylesheet' href='/stylesheets/top-nav.css' />
         <link rel='stylesheet' href='/stylesheets/pg-sign-up.css' />
         <link rel='stylesheet' href='/stylesheets/pg-login.css' />
+        <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
     </head>
     <body>
         <% include ./header.ejs %>
         
-        <div>
-            <form class="mk-account-wrap mk-account-font-color">
-                <% if (page === 'SIGN_UP') {%>
-                <% include ./form-sign-up.ejs %>
-                <%} else if (page === 'LOGIN') {%>
-                <% include ./form-login.ejs %>
-                <% } %>
-            </form>
+        <div class="mk-account-wrap mk-account-font-color">
+            <% if (page === 'SIGN_UP') { %>
+            <% include ./form-sign-up.ejs %>
+            <% } else if (page === 'LOGIN') { %>
+            <% include ./form-login.ejs %>
+            <% } else if (page === 'PROFILE') { %>
+            <% include ./profile.ejs %>
+            <% } %>
         </div>
         <% include ./lib-url.ejs %>
     </body>

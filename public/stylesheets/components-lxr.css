@@ -1,1 +1,56 @@
 /* Please put your component styles here. Will be merged periodically */
+
+.list-group li
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3rem;
+    background-color: #232323;
+    padding: 1rem;
+}
+
+.list-group form
+{
+    margin-left: 1rem;
+}
+
+.mk-profile-edit-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mk-profile-edit-item
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mk-profile-edit-form input
+{
+    margin-left: 1rem;
+}
+
+.mk-profile-a {
+    width: 12rem;
+    color: #3E8EDE;
+}
+
+#mk-profile-edit-btn
+{
+    float: right;
+    padding-right: 1rem;
+}
+
+#mk-profile
+{
+    background-color: #232323;
+    border-left: 1px solid #F15500;
+    border-right: 1px solid #F15500;
+    display: flex;
+    flex-direction: column;
+}
