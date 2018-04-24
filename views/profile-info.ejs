@@ -1,19 +1,44 @@
 <script src="/scripts/profile.js"></script>
-<div id="mk-profile">
-    <div>
-        <div>
-            <a href="/profile/edit" id="mk-profile-edit-btn">Edit</a>
-        </div>
-        <ul class="list-group">
-            <% items.forEach(function(t) { %>
-                <li><%= t %></li>
-            <% }); %>
-        </ul>
+<div class="mk-profile-wrapper">
+    <label class="mk-literal-margin">User ID</label>
+    <div id="mk-profile-edit-btn">
+        <a href="/profile/edit">Edit</a>
+        <a href="">Delete Account</a>
     </div>
-    <% if (option === 'edit') { %>
-    <% include ./profile-edit.ejs %>
-    <% } %>
-    <div>
-        <a href="" id="mk-profile-edit-btn">Delete Account</a>
+    <div class="mk-profile-content">
+        <div>
+            <div class="form-group">
+                <label>Profile Image</label>
+                <div>
+                    <img src="http://www.dreams.metroeve.com/wp-content/uploads/2017/06/Head-dreams-meaning.jpg"
+                         alt="profile image"
+                         class="mk-profile-img"/>
+                </div>
+            </div>
+            <% items.forEach(function(item) { %>
+                <div class="form-group">
+                    <label for="<%= item %>"><%= item %></label>
+                    <input disabled value="<%= item + 'lxr' %>"
+                           class="form-control form-control-sm input-sm"/>
+                </div>
+            <% }); %>
+            <div class="form-group mk-theme-nested-border">
+                <div>
+                <label>Credit Card Details</label>
+                </div>
+                <label>Card Number</label>
+                <input disabled value="8888 8888 8888 8888"
+                       class="form-control form-control-sm input-sm"/>
+                <label>Expire Date</label>
+                <input disabled value="02/21"
+                       class="form-control form-control-sm input-sm"/>
+                <label>Security Code</label>
+                <input disabled value="777"
+                       class="form-control form-control-sm input-sm"/>
+            </div>
+        </div>
+        <% if (option === 'edit') { %>
+        <% include ./profile-edit.ejs %>
+        <% } %>
     </div>
 </div>

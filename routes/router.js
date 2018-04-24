@@ -1,6 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+let items = [
+    'First Name',
+    'Last Name',
+    'Address',
+    'City',
+    'State',
+    'Zip Code',
+    'Phone Number',
+    'Email'
+];
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.redirect('/login');
@@ -18,33 +29,11 @@ router.get('/login', function(req, res, next) {
 
 /* GET profile page. */
 router.get('/profile', function(req, res, next) {
-    let items = [
-        'User ID',
-        'First Name',
-        'Last Name',
-        'Address',
-        'City',
-        'State',
-        'Zip Code',
-        'Phone Number',
-        'Email'
-    ];
     res.render('profile', { items: items, option: ''});
 });
 
-/* GET profile page. */
+/* GET profile edit component. */
 router.get('/profile/edit', function(req, res, next) {
-    let items = [
-        'User ID',
-        'First Name',
-        'Last Name',
-        'Address',
-        'City',
-        'State',
-        'Zip Code',
-        'Phone Number',
-        'Email'
-    ];
     res.render('profile', { items: items, option: 'edit'});
 });
 

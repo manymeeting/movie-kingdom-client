@@ -1,1 +1,22 @@
 /* Please put your general styles here. Will be merged periodically */
+.mk-profile-img
+{
+    height: 100px;
+    width: 100px;
+}
+
+.mk-literal-margin
+{
+    margin-left: 1rem;
+}
+
+.mk-form-adjust
+{
+    width: 164px;
+}
+
+.mk-theme-nested-border
+{
+    border: 1px solid #F15500;
+    padding: 1rem;
+}
