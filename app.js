@@ -8,6 +8,7 @@ var router = require('./routes/router');
 var apiRouter = require('./routes/api-router');
 
 var app = express();
+var kafkaClientService = require('./kafka/KafkaClientService');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
