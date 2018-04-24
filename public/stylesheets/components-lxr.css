@@ -52,5 +52,5 @@
     border-left: 1px solid #F15500;
     border-right: 1px solid #F15500;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }

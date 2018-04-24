@@ -1,0 +1,19 @@
+<script src="/scripts/profile.js"></script>
+<div id="mk-profile">
+    <div>
+        <div>
+            <a href="/profile/edit" id="mk-profile-edit-btn">Edit</a>
+        </div>
+        <ul class="list-group">
+            <% items.forEach(function(t) { %>
+                <li><%= t %></li>
+            <% }); %>
+        </ul>
+    </div>
+    <% if (option === 'edit') { %>
+    <% include ./profile-edit.ejs %>
+    <% } %>
+    <div>
+        <a href="" id="mk-profile-edit-btn">Delete Account</a>
+    </div>
+</div>

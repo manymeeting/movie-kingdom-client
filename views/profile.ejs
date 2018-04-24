@@ -1,17 +1,22 @@
-<script src="/scripts/profile.js"></script>
-<div id="mk-profile">
-    <div>
-        <a href="/profile_edit" id="mk-profile-edit-btn">Edit</a>
-    </div>
-    <ul class="list-group">
-        <% title.forEach(function(t) { %>
-            <li><%= t %></li>
-        <% }); %>
-    </ul>
-    <% if (option === 'edit') { %>
-    <% include ./profile-edit.ejs %>
-    <% } %>
-    <div>
-        <a href="" id="mk-profile-edit-btn">Delete Account</a>
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/components.css' />
+        <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-sign-up.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-login.css' />
+        <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+
+        <div class="mk-account-font-color">
+            <% include ./profile-info.ejs %>
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

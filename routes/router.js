@@ -29,7 +29,7 @@ router.get('/profile', function(req, res, next) {
         'Phone Number',
         'Email'
     ];
-    res.render('pg-portal', { page: 'PROFILE', title: items, option: ''});
+    res.render('profile', { items: items, option: ''});
 });
 
 /* GET profile page. */
@@ -45,7 +45,7 @@ router.get('/profile/edit', function(req, res, next) {
         'Phone Number',
         'Email'
     ];
-    res.render('pg-portal', { page: 'PROFILE', title: items, option: 'edit'});
+    res.render('profile', { items: items, option: 'edit'});
 });
 
 /* GET movies page. */
