@@ -14,7 +14,13 @@ module.exports.login = function(req, res, next){
 		})
 		.catch(err => {
 			console.log(err);
-			res.status(400).send();
+			res.status(400);
+			res.render('pg-portal', {
+				"page": "LOGIN",
+				"title": "Login",
+				"error": err
+			});
+			
 		});
 	
 }

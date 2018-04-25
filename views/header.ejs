@@ -1,4 +1,12 @@
 <div class="mk-top-info-wrapper">
+    <div class="mk-top-err">
+        <span class="mk-span">
+            <% if(typeof(error) !== 'undefined' ) { %>
+                <% error = JSON.parse(error) %>
+                <%= "Error" + ": " + error.message %>
+            <% } %>
+        </span>
+    </div>
     <div class="mk-top-info">
         <span class="mk-span"><a href="/profile">Profile</a></span>
         <span class="mk-span"><a href="/login">Sign In</a></span>
