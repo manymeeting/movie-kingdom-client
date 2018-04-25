@@ -32,15 +32,7 @@ KafkaClientService.prototype.initialize = function()
 
 KafkaClientService.prototype.getClient = function()
 {
-	var client = new kafka.Client(KafkaClientService.ADDR);
-	client.on('ready', function (){
-        console.log('client ready');
-    })  
-
-    client.on('error', function (err){
-        console.log('client error: ' + err);
-    })
-	return client;
+	return new kafka.Client(KafkaClientService.ADDR);
 }
 
 KafkaClientService.prototype.bindProducerListeners = function()
@@ -131,7 +123,7 @@ KafkaClientService.prototype._setResponseConsumer = function(topicRes)
 		var latestOffset = data[topicRes]['0'][0];
 		console.log("latestOffset: " + latestOffset);
 
-		var consumer = _kafkaClientService.getConsumer(topicRes, partition, latestOffset);
+		var consumer = _kafkaClientService.getConsumer(topicRes, partition, latestOffset-1);
 
 		consumer.on('message', function (message) {
 	        var result = JSON.parse(message.value);
