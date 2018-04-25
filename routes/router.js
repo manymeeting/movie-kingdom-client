@@ -38,9 +38,7 @@ router.get('/signup', function(req, res, next) {
     res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up' });
 });
 
-router.get('/login', function(req, res, next) {
-    res.render('pg-portal', { page: 'LOGIN', title: 'Login' });
-});
+router.get('/login', ctlPortal.getLogin);
 
 
 router.get('/logout', function(req, res, next) {
@@ -70,6 +68,6 @@ router.get('/purchaselist', function(req, res, next) {
     res.render('purchaselist', { records: records });
 });
 
-router.post('/login', ctlPortal.login);
-router.post('/signup', ctlPortal.signUp);
+router.post('/login', ctlPortal.postLogin, ctlPortal.getLogin);
+router.post('/signup', ctlPortal.postSignUp);
 module.exports = router;

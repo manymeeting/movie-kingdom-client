@@ -7,6 +7,7 @@ var config = require('config');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
+var FlashDataHandler = require('./interceptors/FlashDataHandler');
 var router = require('./routes/router');
 var apiRouter = require('./routes/api-router');
 
@@ -31,6 +32,7 @@ app.use(session({
 	})
 }));
 
+app.use('/', FlashDataHandler);
 app.use('/', router);
 app.use('/api', apiRouter);
 
