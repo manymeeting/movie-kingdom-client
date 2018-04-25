@@ -61,3 +61,28 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
+.mk-buyticket-wrapper
+{
+    margin-top: 4rem;
+
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #4c5d60;
+}
+
+.mk-buyticket-wrapper > div
+{
+    padding: 1rem;
+}
+
+.mk-buyticket-credit
+{
+    border-top: 1px solid #F15500;
+    border-bottom: 1px solid #F15500;
+}
+
+.mk-buyticket-btn button
+{
+    float: right;
+}

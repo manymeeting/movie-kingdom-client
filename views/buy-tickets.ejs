@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/components.css' />
+        <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+        <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
+        <link rel='stylesheet' href='/stylesheets/styles-lxr.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+
+        <label>CheckOut</label>
+        <div class="mk-buyticket-wrapper">
+            <div>
+                <strong>HOW MANY TICKETS?</strong>
+                <div class="form-group ">
+                    <label>Number Of Tickets</label>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control form-control-sm input-sm col-sm-1"/>
+                        </td>
+                        <td>
+                            X
+                        </td>
+                        <td>
+                            $12.00
+                        </td>
+                        <td>
+                            =
+                        </td>
+                    </tr>
+                </div>
+            </div>
+            <div class="mk-buyticket-credit">
+                <div>
+                    <label>Credit Card Details</label>
+                </div>
+                <div class="form-group ">
+                    <label>Card Number</label>
+                    <input type="text" class="form-control form-control-sm input-sm col-sm-6" placeholder="Input Card Number"/>
+                </div>
+                <div class="form-group ">
+                    <label>Expire Date</label>
+                    <input type="date" class="form-control form-control-sm input-sm col-sm-6"/>
+                </div>
+                <div class="form-group ">
+                    <label>Security Code</label>
+                    <input type="text" class="form-control form-control-sm input-sm col-sm-6" placeholder="Input Security Code"/>
+                </div>
+            </div>
+            <div>
+                <a href="">
+                    <button class="btn btn-success">Place Order</button>
+                </a>
+            </div>
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

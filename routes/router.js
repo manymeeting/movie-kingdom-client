@@ -51,4 +51,9 @@ router.get('/halls', function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
 
+/* GET buy ticket page. */
+router.get('/buytickets', function(req, res, next) {
+    res.render('buy-tickets');
+});
+
 module.exports = router;
