@@ -51,6 +51,10 @@ router.get('/buytickets', function(req, res, next) {
     res.render('buy-tickets');
 });
 
+router.get('/purchaselist', function(req, res, next) {
+    res.render('purchaselist');
+});
+
 router.post('/login', ctlPortal.login);
 router.post('/signup', ctlPortal.signUp);
 module.exports = router;
