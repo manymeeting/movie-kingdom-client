@@ -29,41 +29,27 @@ let records = [
         numOfTickets: '3'
     }
 ];
-
 router.get('/', function(req, res, next) {
 	res.redirect('/login');
 });
-
 router.get('/signup', function(req, res, next) {
     res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up' });
 });
-
 router.get('/login', ctlPortal.getLogin);
-
-
-router.get('/logout', function(req, res, next) {
-    res.render('pg-portal', { page: 'LOGIN', title: 'Login' });
-});
-
+router.get('/logout', ctlPortal.getLogout);
 router.get('/profile', function(req, res, next) {
     res.render('profile', { items: items, option: ''});
 });
-
 router.get('/profile/edit', function(req, res, next) {
     res.render('profile', { items: items, option: 'edit'});
 });
-
 router.get('/movies', ctlMoviesHalls.movieList);
-
-
 router.get('/halls', function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
-
 router.get('/buytickets', function(req, res, next) {
     res.render('buy-tickets');
 });
-
 router.get('/purchaselist', function(req, res, next) {
     res.render('purchaselist', { records: records });
 });

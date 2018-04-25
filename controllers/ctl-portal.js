@@ -1,5 +1,10 @@
 var clientMessenger = require('../messengers/ClientMessenger');
 
+module.exports.getLogout = function(req, res, next){
+	delete req.session.user;
+	res.redirect('/login');
+}
+
 module.exports.getLogin = function(req, res, next){
 	res.render('pg-portal', { page: 'LOGIN', title: 'Login', error: req.MK.error});
 }
@@ -13,7 +18,8 @@ module.exports.postLogin = function(req, res, next){
 	clientMessenger.sendPOST("/login", "users", params)
 		.then(result => {
 			console.log(result);
-			//TODO save to session
+			// persist user to session
+			req.session.user = result.user;
 			res.redirect('/movies');
 		})
 		.catch(err => {
