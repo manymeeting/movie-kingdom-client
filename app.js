@@ -3,6 +3,9 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('config');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 var router = require('./routes/router');
 var apiRouter = require('./routes/api-router');
@@ -13,12 +16,20 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'Cmpe273',
+    resave: false, //don't save session if unmodified
+    saveUninitialized: false, // don't create session until something stored
+    store: new MongoStore({
+		url: config.mongoDBConfig.connectionStr,
+		ttl: 24 * 60 * 60 // = 1 day
+	})
+}));
 
 app.use('/', router);
 app.use('/api', apiRouter);
