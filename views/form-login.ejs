@@ -1,14 +1,13 @@
 
 <h1>FANDANGO<span class="mk-sign-up-title-emphasis">VIP</span></h1>
-<form>
+<form action="/login" method="POST">
   <div class="form-group">
-    <label for="inputEmailAddr">Email address</label>
-    <input type="email" class="form-control" id="inputEmailAddr" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">Please input valid email address.</small>
+    <label for="inputUsername">Username</label>
+    <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Enter username" required>
   </div>
   <div class="form-group">
     <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
