@@ -133,7 +133,7 @@ KafkaClientService.prototype._setResponseConsumer = function(topicRes)
 	            //retrieve the request entry
 	            var reqEntry = _kafkaClientService.requests[reqID];
 	            clearTimeout(reqEntry.timeout);
-	            reqEntry.callback(null, result.data);
+	            reqEntry.callback(result.error, result.data);
 	            //delete the entry from request pool 
 	            delete _kafkaClientService.requests[reqID];
 	        }
