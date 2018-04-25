@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+    <link rel='stylesheet' href='/stylesheets/components.css' />
+    <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+    <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
+    <link rel='stylesheet' href='/stylesheets/styles-lxr.css' />
+</head>
+<body>
+<% include ./header.ejs %>
+
+<div class="mk-purchase-wrapper">
+    <div>
+        <strong><span id="mk-purchaselist-title">Purchase History</span></strong>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Theatre</th>
+                    <th>Total Price</th>
+                    <th>Number of Tickets</th>
+                </tr>
+            </thead>
+            <tbody>
+        <% records.forEach(function(record) { %>
+            <tr class="info">
+                <td><%= record.movie %></td>
+                <td><%= record.theatre %></td>
+                <td><%= record.totalPrice %></td>
+                <td><%= record.numOfTickets %></td>
+            </tr>
+        <% });%>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<% include ./lib-url.ejs %>
+<script src="/scripts/buy-tickets.js"></script>
+</body>
+</html>

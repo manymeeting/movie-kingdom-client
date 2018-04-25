@@ -15,6 +15,21 @@ let items = [
     'Email'
 ];
 
+let records = [
+    {
+        movie: 'Ready Player One',
+        theatre: 'Century 20',
+        totalPrice: '24',
+        numOfTickets: '2'
+    },
+    {
+        movie: 'Infinity War',
+        theatre: 'Redwood City X20',
+        totalPrice: '36',
+        numOfTickets: '3'
+    }
+];
+
 router.get('/', function(req, res, next) {
 	res.redirect('/login');
 });
@@ -52,7 +67,7 @@ router.get('/buytickets', function(req, res, next) {
 });
 
 router.get('/purchaselist', function(req, res, next) {
-    res.render('purchaselist');
+    res.render('purchaselist', { records: records });
 });
 
 router.post('/login', ctlPortal.login);
