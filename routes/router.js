@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var ctlMoviesHalls = require('../controllers/ctl-movies-halls');
+
 let items = [
     'First Name',
     'Last Name',
@@ -43,9 +45,7 @@ router.get('/profile/edit', function(req, res, next) {
 });
 
 /* GET movies page. */
-router.get('/movies', function(req, res, next) {
-    res.render('pg-movie-list', { title: 'Movies' });
-});
+router.get('/movies', ctlMoviesHalls.movieList);
 /* GET movies page. */
 router.get('/halls', function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
