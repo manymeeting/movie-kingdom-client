@@ -16,22 +16,38 @@
         <div class="mk-buyticket-wrapper">
             <div>
                 <strong>HOW MANY TICKETS?</strong>
-                <div class="form-group ">
+                <div class="form-group">
                     <label>Number Of Tickets</label>
-                    <tr>
-                        <td>
-                            <input type="text" class="form-control form-control-sm input-sm col-sm-1"/>
-                        </td>
-                        <td>
-                            X
-                        </td>
-                        <td>
-                            $12.00
-                        </td>
-                        <td>
-                            =
-                        </td>
-                    </tr>
+                    <div class="form-inline">
+                        <tr>
+                            <td>
+                                <input
+                                        id="ticketnumber"
+                                        type="text"
+                                        class="form-control form-control-sm input-sm col-sm-1 mk-literal-margin"
+                                        onchange="getTicketNumber()"
+                                />
+                            </td>
+                            <td>
+                                <span class="mk-literal-margin">x</span>
+                            </td>
+                            <td>
+                                <span class="mk-literal-margin">$12.00</span>
+                            </td>
+                            <td>
+                                <span class="mk-literal-margin">=</span>
+                            </td>
+                            <td>
+                                <span class="mk-literal-margin">$</span>
+                                <input
+                                        id="totalprice"
+                                        type="text"
+                                        disabled
+                                        class="form-control form-control-sm input-sm col-sm-2 mk-literal-margin"
+                                />
+                            </td>
+                        </tr>
+                    </div>
                 </div>
             </div>
             <div class="mk-buyticket-credit">
@@ -59,5 +75,6 @@
         </div>
 
         <% include ./lib-url.ejs %>
+        <script src="/scripts/buy-tickets.js"></script>
     </body>
 </html>
