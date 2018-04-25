@@ -27,6 +27,11 @@ router.get('/login', function(req, res, next) {
     res.render('pg-portal', { page: 'LOGIN', title: 'Login' });
 });
 
+/* GET logout page. */
+router.get('/logout', function(req, res, next) {
+    res.render('pg-portal', { page: 'LOGIN', title: 'Login' });
+});
+
 /* GET profile page. */
 router.get('/profile', function(req, res, next) {
     res.render('profile', { items: items, option: ''});
