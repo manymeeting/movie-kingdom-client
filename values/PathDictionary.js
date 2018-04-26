@@ -11,6 +11,7 @@ const dict = {
 		BUY_TICKETS: "/tickets/buy",
 		PURCHASE_LIST: '/purchases',
 		ADD_MOVIE: '/movie/add',
+		ADD_HALL: '/hall/add',
 		NO_ACCESS: '/noaccess'
 	},
 	POST: {

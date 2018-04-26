@@ -49,6 +49,10 @@ router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
     res.render('pg-add-movie', { items: movieOp });
 });
 
+router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
+    res.render('pg-add-hall');
+});
+
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
     res.render('pg-no-access');
 });
