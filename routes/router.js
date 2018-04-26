@@ -42,11 +42,14 @@ router.get(PathDict.GET.PURCHASE_LIST, function(req, res, next) {
     res.render('pg-purchaselist', { records: records });
 });
 
-router.post(PathDict.POST.LOGIN, ctlPortal.postLogin, ctlPortal.getLogin);
+router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
-router.get('/addmovie', function(req, res, next) {
+router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
     res.render('pg-add-movie', { items: movieOp });
 });
 
+router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
+    res.render('pg-no-access');
+});
 module.exports = router;

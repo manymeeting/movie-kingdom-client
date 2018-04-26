@@ -10,6 +10,8 @@ const dict = {
 		HALL_LIST: '/halls',
 		BUY_TICKETS: "/tickets/buy",
 		PURCHASE_LIST: '/purchases',
+		ADD_MOVIE: '/movie/add',
+		NO_ACCESS: '/noaccess'
 	},
 	POST: {
 		LOGIN: '/login',
