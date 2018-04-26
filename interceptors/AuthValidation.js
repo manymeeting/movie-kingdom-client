@@ -12,7 +12,7 @@ var AuthValidaion = function(req, res, next) {
 		}
 		else
 		{
-			req.redirect(PathDict.GET.LOGIN);
+			res.redirect(PathDict.GET.NO_ACCESS);
 		}
 		
 		return;
@@ -27,7 +27,7 @@ var AuthValidaion = function(req, res, next) {
 	// 	return;
 	// }
 
-	// req.redirect(PathDict.GET.NO_ACCESS);
+	// res.redirect(PathDict.GET.NO_ACCESS);
 }
 
 module.exports = AuthValidaion;
