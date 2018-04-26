@@ -37,24 +37,24 @@
         </div>
         <div class="container mt-4">
             <div class="row">
-                <div class="mk-movie-dt-wrapper">
+                <div class="mk-movie-dt-wrapper col-4">
                     <div class="mk-movie-dt-cover-wrapper">
-                        <img class="mk-movie-dt-cover" src="https://image.ibb.co/c8VYMx/40.jpg">
+                        <img class="mk-movie-dt-cover" src=<%=movie.coverImageUrl%>>
                     </div>
                     <div class="mk-movie-dt-info-wrapper">
                         <p>Release Date</p>
-                        <h3>MARCH 29, 2018</h3>
-                        <p>PG-13</p>
-                        <p>146 mins</p>
-                        <p>Stars: 5</p>
+                        <h3><%= movie.releaseDate%></h3>
+                        <p><%= movie.mpaaRating%></p>
+                        <p><%= movie.length%> mins</p>
+                        <p>Stars: <%= movie.stars%></p>
                     </div>
                     <div class="mk-movie-dt-desc-wrapper pt-2">
                         <h4>SYNOPSIS</h4>
-                        <p>Phasellus in felis. Donec semper sapien a libero. Nam dui.</p>
+                        <p class="mk-movie-dt-desc"><%= movie.movieDesc%></p>
                     </div>
                 </div>
-                <div class="col-6">
-                    <iframe class="mk-dt-trailer-container" src="https://www.youtube.com/embed/eAKrgwCnkGM">
+                <div class="col-8">
+                    <iframe class="mk-dt-trailer-container" src=<%=movie.trailerUrl%>>
                     </iframe>
                 </div>
             </div>
