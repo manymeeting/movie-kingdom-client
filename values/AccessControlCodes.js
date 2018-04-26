@@ -28,5 +28,6 @@ ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
 ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST;
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.GUEST;
 ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.GUEST;
+ControlCodes[PathDict.GET.EDIT_HALL] = Roles.GUEST;
 
 module.exports.ControlCodes = ControlCodes;

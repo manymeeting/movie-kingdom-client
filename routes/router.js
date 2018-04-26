@@ -60,6 +60,10 @@ router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
     res.render('pg-add-hall', { items: hallInfo });
 });
 
+router.get(PathDict.GET.EDIT_HALL, function(req, res, next) {
+    res.render('pg-edit-hall', { items: hallInfo });
+});
+
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
     res.render('pg-no-access');
 });
