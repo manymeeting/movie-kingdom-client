@@ -1,12 +1,14 @@
 var PathDict = require('../values/PathDictionary');
 var ControlCodes = require('../values/AccessControlCodes').ControlCodes;
 var Roles = require('../values/AccessControlCodes').Roles;
+var StringUtils = require('../utils/StringUtils');
 
 var AuthValidaion = function(req, res, next) {
 	var user = req.session.user;
+	var baseURL = StringUtils.stripQueryStr(req.originalUrl);
 	if(!user)
 	{
-		if(ControlCodes[req.originalUrl] === Roles.GUEST)
+		if(ControlCodes[baseURL] === Roles.GUEST)
 		{
 			next();
 		}
@@ -18,7 +20,7 @@ var AuthValidaion = function(req, res, next) {
 		return;
 	}
 
-	if(user.role && user.role >= ControlCodes[req.originalUrl])
+	if(user.role && user.role >= ControlCodes[baseURL])
 	{
 		next();
 		return;
