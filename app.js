@@ -8,9 +8,10 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 var FlashDataHandler = require('./interceptors/FlashDataHandler');
+var AuthValidation = require('./interceptors/AuthValidation');
 var router = require('./routes/router');
 var apiRouter = require('./routes/api-router');
-var PathDict = require('./routes/PathDictionary');
+var PathDict = require('./values/PathDictionary');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(session({
 app.locals.PathDict = PathDict;
 
 app.use('/', FlashDataHandler);
+app.use('/', AuthValidation);
 app.use('/', router);
 app.use('/api', apiRouter);
 
