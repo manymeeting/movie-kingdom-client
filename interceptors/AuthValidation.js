@@ -18,16 +18,13 @@ var AuthValidaion = function(req, res, next) {
 		return;
 	}
 
-	next();
+	if(user.role && user.role >= ControlCodes[req.originalUrl])
+	{
+		next();
+		return;
+	}
 
-	//TODO: uncommnet below once user.role is provided
-	// if(user.role && user.role >= ControlCodes[req.originalUrl])
-	// {
-	// 	next();
-	// 	return;
-	// }
-
-	// res.redirect(PathDict.GET.NO_ACCESS);
+	res.redirect(PathDict.GET.NO_ACCESS);
 }
 
 module.exports = AuthValidaion;
