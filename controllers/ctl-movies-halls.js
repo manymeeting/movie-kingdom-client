@@ -8,7 +8,7 @@ module.exports.movieList = function(req, res, next){
 			console.log(result);
 			res.render('pg-movie-list', {
 				"title": 'Movies', 
-				"movies": JSON.parse(result).content
+				"movies": result.content
 			});
 		})
 		.catch(err => {
