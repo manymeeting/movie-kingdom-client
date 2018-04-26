@@ -54,11 +54,11 @@ router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
 router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
-    res.render('pg-add-movie', { items: movieOp });
+    res.render('pg-add-edit-movie', { items: movieOp, option: 'ADD' });
 });
 
 router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
-    res.render('pg-edit-movie', { items: movieOp });
+    res.render('pg-add-edit-movie', { items: movieOp, option: 'EDIT' });
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
