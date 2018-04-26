@@ -36,6 +36,8 @@ router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
 
+router.get(PathDict.GET.MOVIE_DETAILS, ctlMoviesHalls.movieDetails);
+
 router.get(PathDict.GET.BUY_TICKETS, function(req, res, next) {
     res.render('pg-buy-tickets');
 });

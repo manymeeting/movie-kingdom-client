@@ -12,7 +12,8 @@ const dict = {
 		PURCHASE_LIST: '/purchases',
 		ADD_MOVIE: '/movie/add',
 		ADD_HALL: '/hall/add',
-		NO_ACCESS: '/noaccess'
+		MOVIE_DETAILS: '/movie/details',
+		NO_ACCESS: '/noaccess',
 	},
 	POST: {
 		LOGIN: '/login',

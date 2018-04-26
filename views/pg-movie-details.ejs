@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/styles.css' />
+        <link rel='stylesheet' href='/stylesheets/components.css' />
+        <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="container mt-4">
+            <div class="row">
+                <h2 class="mk-sub-title">READY PLAYER ONE</h2>
+            </div>
+            <div class="row">
+                <ul class="mk-movie-dt-nav-wrapper">
+                    <li>
+                        <a href="#">OVERVIEW</a>
+                    </li>
+                    <li>
+                        <a href="#">MOVIE TIMES + TICKETS</a>
+                    </li>
+                    <li>
+                        <a href="#">MOVIE REVIEWS</a>
+                    </li>
+                    <li>
+                        <a href="#">POST REVIEW</a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="mk-movie-dt-wrapper">
+                    <div class="mk-movie-dt-cover-wrapper">
+                        <img class="mk-movie-dt-cover" src="https://image.ibb.co/c8VYMx/40.jpg">
+                    </div>
+                    <div class="mk-movie-dt-info-wrapper">
+                        <p>Release Date</p>
+                        <h3>MARCH 29, 2018</h3>
+                        <p>PG-13</p>
+                        <p>146 mins</p>
+                        <p>Stars: 5</p>
+                    </div>
+                    <div class="mk-movie-dt-desc-wrapper pt-2">
+                        <h4>SYNOPSIS</h4>
+                        <p>Phasellus in felis. Donec semper sapien a libero. Nam dui.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <iframe class="mk-dt-trailer-container" src="https://www.youtube.com/embed/eAKrgwCnkGM">
+                    </iframe>
+                </div>
+            </div>
+            
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

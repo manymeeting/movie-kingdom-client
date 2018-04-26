@@ -24,3 +24,40 @@
 	text-overflow:ellipsis;
 	white-space: nowrap;
 }
+
+.mk-movie-dt-nav-wrapper li
+{
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+.mk-movie-dt-wrapper
+{
+	padding: 0;
+}
+.mk-movie-dt-cover-wrapper
+{
+	float: left;
+}
+.mk-movie-dt-cover
+{
+	height: 250px;
+	width: 168px;
+}
+.mk-movie-dt-desc-wrapper
+{
+	clear: both;
+	padding: 1rem 0 0 0;
+}
+.mk-movie-dt-info-wrapper
+{
+	float: left;
+	padding: 1rem;
+	background-color: #333333;
+	height: 250px;
+}
+.mk-dt-trailer-container
+{
+	width: 620px;
+	height: 350px
+}
