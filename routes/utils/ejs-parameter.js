@@ -31,8 +31,6 @@ module.exports.movieInfo = [
 
 module.exports.hallInfo = [
     'STREET',
-    'CITY ID',
-    'THEATRE ID',
     'THEATRE NAME',
     'ZIP CODE',
 ];
