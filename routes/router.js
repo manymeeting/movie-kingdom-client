@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var PathDict = require('./PathDictionary');
+var PathDict = require('../values/PathDictionary');
 
 var ctlMoviesHalls = require('../controllers/ctl-movies-halls');
 var ctlPortal = require('../controllers/ctl-portal');
