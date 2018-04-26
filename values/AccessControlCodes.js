@@ -9,17 +9,16 @@ const Roles = {
 module.exports.Roles = Roles;
 
 // 0: GUEST, 1:User, 2: HAD (Hall Admin), 3: SAD (Super Admin)
-const ControlCodes = {
-	PathDict.GET.ROOT: GUEST,
-	PathDict.GET.SIGN_UP: GUEST,
-	PathDict.GET.LOGIN: GUEST,
-	PathDict.GET.LOGOUT: GUEST,
-	PathDict.GET.PROFILE: GUEST,
-	PathDict.GET.EDIT_PROFILE: GUEST,
-	PathDict.GET.MOVIE_LIST: GUEST,
-	PathDict.GET.HALL_LIST: GUEST,
-	PathDict.GET.BUY_TICKETS: GUEST,
-	PathDict.GET.PURCHASE_LIST: GUEST,
-}
+const ControlCodes = {};
+ControlCodes[PathDict.GET.ROOT] = Roles.GUEST;
+ControlCodes[PathDict.GET.SIGN_UP] = Roles.GUEST;
+ControlCodes[PathDict.GET.LOGIN] = Roles.GUEST;
+ControlCodes[PathDict.GET.LOGOUT] = Roles.GUEST;
+ControlCodes[PathDict.GET.PROFILE] = Roles.GUEST;
+ControlCodes[PathDict.GET.EDIT_PROFILE] = Roles.GUEST;
+ControlCodes[PathDict.GET.MOVIE_LIST] = Roles.GUEST;
+ControlCodes[PathDict.GET.HALL_LIST] = Roles.GUEST;
+ControlCodes[PathDict.GET.BUY_TICKETS] = Roles.GUEST;
+ControlCodes[PathDict.GET.PURCHASE_LIST] = Roles.GUEST;
 
 module.exports.ControlCodes = ControlCodes;
