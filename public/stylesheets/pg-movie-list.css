@@ -12,3 +12,15 @@
 	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-weight: 700;
 }
+.mk-movie-thumb-img
+{
+	height: 250px;
+	width: 168px;
+}
+.mk-movie-thumb-title-wrapper
+{
+	width: 168px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}

@@ -28,30 +28,17 @@
             <p class="mk-sub-title-desc">Find the biggest, fastest and most intense action-adventure movies to satisfy your craving for high-speed chases, epic stunts and full-blown battle sequences.</p>
             <div class="mk-movie-list-wrapper">
                 <ul class="mk-movie-list">
+                    <% for(let i = 0; i < movies.length; i++) { %>
+                    <% let movie = movies[i]; %>
                     <li>
                         <a href="#">
-                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
+                            <img class="mk-movie-thumb-img" src=<%=movie.coverImageUrl%> >
                         </a>
-                        <div>
-                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
+                        <div class="mk-movie-thumb-title-wrapper">
+                            <a class="mk-movie-thumb-title" href="#"><%=movie.movieTitle%></a>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
-                        </a>
-                        <div>
-                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
-                        </a>
-                        <div>
-                            <a class="mk-movie-thumb-title" href="#">PETER RABBIT</a>
-                        </div>
-                    </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
