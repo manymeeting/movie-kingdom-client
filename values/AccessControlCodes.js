@@ -21,8 +21,10 @@ ControlCodes[PathDict.GET.HALL_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.BUY_TICKETS] = Roles.GUEST;
 ControlCodes[PathDict.GET.PURCHASE_LIST] = Roles.GUEST;
 
+//below lies Hall Admin access
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
-ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST; // TODO: change to HAD
+ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST;
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.GUEST;
+ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.GUEST;
 
 module.exports.ControlCodes = ControlCodes;
