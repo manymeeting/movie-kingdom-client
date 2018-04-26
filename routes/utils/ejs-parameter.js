@@ -27,5 +27,4 @@ module.exports.records = [
 module.exports.movieInfo = [
     'MOVIE NAME',
     'THEATRE',
-    'ADDRESS'
 ]

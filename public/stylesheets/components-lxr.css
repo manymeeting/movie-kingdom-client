@@ -113,7 +113,7 @@
 .mk-addmovie-wrapper
 {
     margin-top: 4rem;
-    margin-left: 30%;
+    margin-left: 40%;
     margin-right: 30%;
 }
 
@@ -127,6 +127,6 @@
 {
     border-radius: 2px;
     padding: 2px;
-    width: 50px;
+    width: 25px;
     margin-left: 1rem;
 }
