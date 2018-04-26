@@ -1,4 +1,15 @@
 <form class="mk-profile-edit-form">
+    <% if (role === '3') { %>
+        <div class="form-group mk-form-adjust">
+            <label>Role</label>
+            <select class="form-control form-control-sm input-sm col-sm-6">
+                <option value="0">GUEST</option>
+                <option value="1">USER</option>
+                <option value="2">HAD</option>
+                <option value="3">SAD</option>
+            </select>
+        </div>
+    <% } %>
     <div class="form-group mk-form-adjust">
         <label>Profile Image</label>
         <input type="file" accept="image/*" class="form-control form-control-sm"/>

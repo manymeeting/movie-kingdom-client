@@ -4,6 +4,8 @@ var PathDict = require('../values/PathDictionary');
 
 var ctlMoviesHalls = require('../controllers/ctl-movies-halls');
 var ctlPortal = require('../controllers/ctl-portal');
+var Roles = require('../values/AccessControlCodes').Roles;
+
 
 let param = require('./utils/ejs-parameter');
 let items = param.items;
@@ -24,11 +26,14 @@ router.get(PathDict.GET.SIGN_UP, function(req, res, next) {
 
 router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
+
 router.get(PathDict.GET.PROFILE, function(req, res, next) {
-    res.render('pg-profile', { items: items, option: ''});
+    res.render('pg-profile', { items: items, option: '', role: '0' });
 });
 router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
-    res.render('pg-profile', {items: items, option: 'edit'});
+    let user = req.session.user || {};
+    let role = user.role ? user.role : 0;
+    res.render('pg-profile', { items: items, option: 'edit', role: role });
 });
 
 router.get(PathDict.GET.MOVIE_LIST, ctlMoviesHalls.movieList);
