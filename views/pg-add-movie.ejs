@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+    <link rel='stylesheet' href='/stylesheets/components.css' />
+    <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+    <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
+    <link rel='stylesheet' href='/stylesheets/styles-lxr.css' />
+</head>
+<body>
+<% include ./header.ejs %>
+
+<div class="mk-addmovie-wrapper">
+    <div>
+        <span id="mk-add-movie-title">Add Movie</span>
+    </div>
+    <div>
+        <% items.forEach(function(item) { %>
+        <div class="form-group">
+            <label for="<%= item %>"><%= item %></label>
+            <input class="form-control form-control-sm input-sm" placeholder="input <%= item.toLowerCase() %>"/>
+        </div>
+        <% }); %>
+    </div>
+    <div>
+        <div class="form-group">
+            <label>TIME SLOT</label>
+            <button class="w3-button w3-medium w3-circle w3-black" onclick="addNode()">add +</button>
+            <div id="timeslot">
+            <input class="form-control form-control-sm input-sm col-sm-6"
+                   type="time" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-group">
+            <a href="/hall">
+                <button type="button" class="btn btn-primary btn-sm">Add</button>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<% include ./lib-url.ejs %>
+<script>
+    function addNode() {
+        console.log('add node');
+        let node = document.createElement("INPUT");
+        let root = document.getElementById("timeslot");
+        node.classList.add("form-control");
+        node.classList.add("form-control-sm");
+        node.classList.add("input-sm");
+        node.classList.add("col-sm-6");
+        node.setAttribute("type", "time");
+        root.appendChild(node);
+    }
+</script>
+</body>
+</html>

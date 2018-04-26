@@ -51,7 +51,6 @@
     margin-left: 25%;
     margin-right: 25%;
     border: 1.5px solid #F15500;
-    background-color: #232323;
 }
 
 .mk-profile-content
@@ -65,7 +64,6 @@
 .mk-buyticket-wrapper
 {
     margin-top: 4rem;
-
     margin-left: 25%;
     margin-right: 25%;
     background-color: #4c5d60;
@@ -110,4 +108,17 @@
 {
     font-size: 1rem;
     margin-left: 0.7rem;
+}
+
+.mk-addmovie-wrapper
+{
+    margin-top: 4rem;
+    margin-left: 40%;
+    margin-right: 25%;
+}
+
+#mk-add-movie-title
+{
+    font-size: 1.5rem;
+    color: #3E8EDE;
 }
