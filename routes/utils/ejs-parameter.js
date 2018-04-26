@@ -27,4 +27,12 @@ module.exports.records = [
 module.exports.movieInfo = [
     'MOVIE NAME',
     'THEATRE',
-]
+];
+
+module.exports.hallInfo = [
+    'STREET',
+    'CITY ID',
+    'THEATRE ID',
+    'THEATRE NAME',
+    'ZIP CODE',
+];

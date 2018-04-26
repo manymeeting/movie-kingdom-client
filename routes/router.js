@@ -9,6 +9,7 @@ let param = require('./utils/ejs-parameter');
 let items = param.items;
 let records = param.records;
 let movieOp = param.movieInfo;
+let hallInfo = param.hallInfo;
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -50,7 +51,7 @@ router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
-    res.render('pg-add-hall');
+    res.render('pg-add-hall', { items: hallInfo });
 });
 
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {

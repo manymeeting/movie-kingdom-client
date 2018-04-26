@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+    <link rel='stylesheet' href='/stylesheets/components.css' />
+    <link rel='stylesheet' href='/stylesheets/top-nav.css' />
+    <link rel='stylesheet' href='/stylesheets/components-lxr.css' />
+    <link rel='stylesheet' href='/stylesheets/styles-lxr.css' />
+</head>
+    <body>
+        <% include ./header.ejs %>
+        <div class="mk-addhall-wrapper">
+            <div>
+                <span id="mk-add-movie-title">Add Movie Hall</span>
+            </div>
+
+            <% items.forEach(function(item) { %>
+            <div class="form-group">
+                <label for="<%= item %>"><%= item %></label>
+                <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= item.toLowerCase() %>"/>
+            </div>
+            <% }); %>
+
+            <div class="form-group">
+                <a href="/halls">
+                    <button type="button" class="btn btn-primary btn-sm">Add</button>
+                </a>
+            </div>
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>
