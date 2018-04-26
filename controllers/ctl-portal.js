@@ -26,7 +26,7 @@ module.exports.postLogin = function(req, res, next){
 			console.error(err);
 			res.status(400);
 			req.session.MKFlash.error = err;
-			next();
+			res.redirect('/login');
 		});
 	
 }
