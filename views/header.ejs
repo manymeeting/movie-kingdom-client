@@ -2,7 +2,6 @@
     <div class="mk-top-err">
         <span class="mk-span">
             <% if(typeof(error) !== 'undefined' ) { %>
-                <% error = JSON.parse(error) %>
                 <%= "Error" + ": " + error.message %>
             <% } %>
         </span>
