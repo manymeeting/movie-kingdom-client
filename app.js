@@ -10,6 +10,7 @@ var MongoStore = require('connect-mongo')(session);
 var FlashDataHandler = require('./interceptors/FlashDataHandler');
 var router = require('./routes/router');
 var apiRouter = require('./routes/api-router');
+var PathDict = require('./routes/PathDictionary');
 
 var app = express();
 
@@ -31,6 +32,9 @@ app.use(session({
 		ttl: 24 * 60 * 60 // = 1 day
 	})
 }));
+
+// set data and functions for templates 
+app.locals.PathDict = PathDict;
 
 app.use('/', FlashDataHandler);
 app.use('/', router);

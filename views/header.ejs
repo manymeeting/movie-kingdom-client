@@ -8,10 +8,10 @@
         </span>
     </div>
     <div class="mk-top-info">
-        <span class="mk-span"><a href="/profile">Profile</a></span>
-        <span class="mk-span"><a href="/login">Sign In</a></span>
-        <span class="mk-span"><a href="/signup">Sign Up</a></span>
-        <span class="mk-span"><a href="/logout">Log Out</a></span>
+        <span class="mk-span"><a href=<%=PathDict.GET.PROFILE%>>Profile</a></span>
+        <span class="mk-span"><a href=<%=PathDict.GET.LOGIN%>>Login</a></span>
+        <span class="mk-span"><a href=<%=PathDict.GET.SIGN_UP%>>Sign Up</a></span>
+        <span class="mk-span"><a href=<%=PathDict.GET.LOGOUT%>>Log Out</a></span>
     </div>
 </div>
 <div class="mk-top-nav-wrapper">
@@ -27,10 +27,10 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="/movies" class="nav-link mk-nav-links">MOVIES</a>
+                    <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/halls" class="nav-link mk-nav-links">HALLS</a>
+                    <a href=<%=PathDict.GET.HALL_LIST%> class="nav-link mk-nav-links">HALLS</a>
                 </li>
             </ul>
         </div>
