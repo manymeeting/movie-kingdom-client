@@ -20,8 +20,10 @@ ControlCodes[PathDict.GET.MOVIE_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.HALL_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.BUY_TICKETS] = Roles.GUEST;
 ControlCodes[PathDict.GET.PURCHASE_LIST] = Roles.GUEST;
+ControlCodes[PathDict.GET.MOVIE_DETAILS] = Roles.GUEST;
 
 //below lies Hall Admin access
+
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
 ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST;
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.GUEST;

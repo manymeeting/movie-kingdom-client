@@ -13,7 +13,8 @@ const dict = {
 		ADD_MOVIE: '/movie/add',
 		EDIT_MOVIE: '/movie/edit',
 		ADD_HALL: '/hall/add',
-		NO_ACCESS: '/noaccess'
+		MOVIE_DETAILS: '/movie/details',
+		NO_ACCESS: '/noaccess',
 	},
 	POST: {
 		LOGIN: '/login',
