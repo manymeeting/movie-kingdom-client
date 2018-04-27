@@ -16,22 +16,20 @@
                 <span id="mk-add-movie-title"><%= hall_option %> Movie Hall</span>
             </div>
 
-            <% hallFormFields.forEach(function(item) { %>
+            <% hallFormFields.forEach(function(field) { %>
             <div class="form-group">
-                <label for="<%= item %>"><%= item %></label>
-                <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= item.toLowerCase() %>"/>
+                <label for="<%= field %>"><%= field %></label>
+                <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= field.toLowerCase() %>"/>
             </div>
             <% }); %>
 
             <div class="form-group">
                 <a href=<%= PathDict.GET.HALL_LIST%>>
-                    <button type="button" class="btn btn-primary btn-sm">
-                        <% if (hall_option === 'Add') { %>
-                        Add
-                        <% } else { %>
-                        Update
-                        <% } %>
-                    </button>
+                    <% if (hall_option === 'Add') { %>
+                    <% include ./add-button.ejs %>
+                    <% } else { %>
+                    <% include ./update-button.ejs %>
+                    <% } %>
                 </a>
             </div>
         </div>

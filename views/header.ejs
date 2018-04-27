@@ -25,17 +25,26 @@
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.ADD_HALL%> class="nav-link mk-nav-links">ADD HALL</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">HALL</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_HALL%>>ADD HALL</a>
+                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_HALL%>>EDIT HALL</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.EDIT_HALL%> class="nav-link mk-nav-links">EDIT HALL</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MOVIE</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_MOVIE%>>ADD MOVIE</a>
+                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_MOVIE%>>EDIT MOVIE</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.ADD_SCHEDULE%> class="nav-link mk-nav-links">ADD SCHEDULE</a>
-                </li>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.EDIT_SCHEDULE%> class="nav-link mk-nav-links">EDIT SCHEDULE</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">SCHEDULE</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_SCHEDULE%>>ADD SCHEDULE</a>
+                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_SCHEDULE%>>EDIT SCHEDULE</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>

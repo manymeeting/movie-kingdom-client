@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            <label>RELEASE DATE</label>
+            <label>SCHEDULE DATE</label>
             <input class="form-control form-control-sm input-sm col-sm-4" type="date"/>
         </div>
 
@@ -49,7 +49,11 @@
         </div>
         <div class="form-group">
             <a href=<%=PathDict.GET.MOVIE_LIST%>>
-                <button type="button" class="btn btn-primary btn-sm">Add</button>
+                <% if (schedule_option === 'Add') { %>
+                    <% include ./add-button.ejs %>
+                <% } else { %>
+                    <% include ./update-button.ejs %>
+                <% } %>
             </a>
         </div>
 </div>

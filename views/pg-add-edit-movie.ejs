@@ -15,22 +15,24 @@
 
 <div class="mk-addmovie-wrapper">
     <div>
-        <span id="mk-add-movie-title"><%= option %> Movie</span>
+        <span id="mk-add-movie-title"><%= movie_option %> Movie</span>
     </div>
 
-    <% items.forEach(function(item) { %>
+    <% movieFormFields.forEach(function(field) { %>
     <div class="form-group">
-        <label for="<%= item %>"><%= item %></label>
-        <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= item.toLowerCase() %>"/>
+        <label for="<%= field %>"><%= field %></label>
+        <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= field.toLowerCase() %>"/>
     </div>
     <% }); %>
 
     <div class="form-group">
-        <label>FORMAT</label>
+        <label>MPAA ID</label>
         <select class="form-control form-control-sm input-sm col-sm-4">
-            <option value="iMax">iMax</option>
-            <option value="3D">3D</option>
-            <option value="Digital">Digital</option>
+            <option value="0">G</option>
+            <option value="1">PG</option>
+            <option value="2">PG-13</option>
+            <option value="3">R</option>
+            <option value="4">NC-17</option>
         </select>
     </div>
 
@@ -40,16 +42,12 @@
     </div>
 
     <div class="form-group">
-        <label>TIME SLOT</label>
-        <button class="w3-button w3-blue w3-tiny mk-addmovie-addslot" onclick="addNode()">+</button>
-        <div id="timeslot">
-            <input class="form-control form-control-sm input-sm col-sm-4"
-                   type="time" />
-        </div>
-    </div>
-    <div class="form-group">
         <a href=<%=PathDict.GET.MOVIE_LIST%>>
-            <button type="button" class="btn btn-primary btn-sm">Add</button>
+            <% if (movie_option === 'Add') { %>
+                <% include ./add-button.ejs %>
+            <% } else { %>
+                <% include ./update-button.ejs %>
+            <% } %>
         </a>
     </div>
 </div>

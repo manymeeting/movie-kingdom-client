@@ -12,6 +12,7 @@ let profileFormFields = param.profileFormFields;
 let records = param.records;
 let scheduleFormFields = param.scheduleFormFields;
 let hallFormFields = param.hallFormFields;
+let movieFormFields = param.movieFormFields;
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -54,19 +55,19 @@ router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
 router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie', { });
+    res.render('pg-add-edit-movie', { movieFormFields: movieFormFields, movie_option: 'Add' });
 });
 
 router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie');
+    res.render('pg-add-edit-movie', { movieFormFields: movieFormFields, movie_option: 'Edit' });
 });
 
 router.get(PathDict.GET.ADD_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'ADD' });
+    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'Add' });
 });
 
 router.get(PathDict.GET.EDIT_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'EDIT' });
+    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'Edit' });
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
