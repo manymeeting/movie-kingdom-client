@@ -18,6 +18,7 @@ const dict = {
         EDIT_HALL: '/hall/edit',
 		MOVIE_DETAILS: '/movie/details',
 		MOVIE_DETAILS_SCHEDULES: '/movie/details/schedules',
+		MOVIE_DETAILS_REVIEWS: '/movie/details/reviews',
 		NO_ACCESS: '/noaccess',
 	},
 	POST: {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="container mt-4">
+            <div class="row">
+                <h2 class="mk-sub-title"><%=movie.movieTitle + " TIMES NEAR " + "95112"%></h2>
+            </div>
+            <% include ./movie-dt-subnav.ejs %>
+            
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="mk-movie-dt-wrapper col-4">
+                    <div class="mk-movie-dt-cover-wrapper">
+                        <img class="mk-movie-dt-cover" src=<%=movie.coverImageUrl%>>
+                    </div>
+                    <div class="mk-movie-dt-info-wrapper">
+                        <p>Release Date</p>
+                        <h3><%= movie.releaseDate%></h3>
+                        <p><%= movie.mpaaRating%></p>
+                        <p><%= movie.length%> mins</p>
+                        <p>Stars: <%= movie.stars%></p>
+                    </div>
+                    <div class="mk-movie-dt-desc-wrapper pt-2">
+                        <h4>SYNOPSIS</h4>
+                        <p class="mk-movie-dt-desc"><%= movie.movieDesc%></p>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <ul class="mk-movie-review-list">
+                        <li class="">
+                            <p class="mk-movie-review-rating">
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                            <h4 class="mk-movie-review-title">EXCELLENT</h4>
+                            <p class="mk-movie-review-info">
+                                <span class="mk-movie-review-by">BY ARLEANDERRAIFORD</span><span class="mk-movie-review-date"> WRITTEN ON 2018-01-03</span>
+                            </p>
+                            <p class="mk-movie-review-content">Past pain and hurt in life this movie uproots. Results is FORGIVENESS IN LOVE.</p>                    
+                        </li>
+                        <li class="">
+                            <p class="mk-movie-review-rating">
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star mk-star-filled"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                            <h4 class="mk-movie-review-title">It's OK</h4>
+                            <p class="mk-movie-review-info">
+                                <span class="mk-movie-review-by">BY ARLEANDERRAIFORD</span><span class="mk-movie-review-date"> WRITTEN ON 2018-01-03</span>
+                            </p>
+                            <p class="mk-movie-review-content">Past pain and hurt in life this movie uproots. Results is FORGIVENESS IN LOVE.</p>                    
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

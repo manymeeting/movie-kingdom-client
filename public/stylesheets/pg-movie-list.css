@@ -74,3 +74,10 @@
 	border-radius: 0.2rem;
 	background-color: #f15500;
 }
+
+.mk-movie-review-list li
+{
+	padding: 1rem;
+    background-color: #333333;
+    margin-bottom: 1px;
+}
