@@ -6,18 +6,10 @@
     </head>
     <body>
         <% include ./header.ejs %>
-        <div class="mk-addr-search-wrapper container mt-4">
-            <p>SEARCH MOVIES AND HALLS</p>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">ENTER CITY, STATE OR ZIP CODE</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="95112">
-            </div>
-
-        </div>
-        <div class="mk-filters-wrapper container mt-4">
-            
+        
+        <div class="container mt-4">
+            <h2 class="mk-sub-title">MOVIE TIMES + TICKETS NEAR 95112</h2>
+            <p>FILTER BY: </p>
             <div class="row">
                 <div class="input-group mb-3 col">
                     <div class="input-group-prepend">
@@ -44,13 +36,10 @@
                     </select>
                 </div>
                 <div col>
-                    <button type="button" class="btn btn-dark">Go</button>
+                    <button type="button" class="btn btn-dark">Refresh</button>
                 </div>
             </div>
-        </div>
-        <div class="container mt-4">
-            <h2 class="mk-sub-title">MOVIE TIMES + TICKETS NEAR 95112</h2>
-            <p class="mk-sub-title-desc">Find the biggest, fastest and most intense action-adventure movies to satisfy your craving for high-speed chases, epic stunts and full-blown battle sequences.</p>
+
             <div class="mk-hall-list-wrapper">
                 <ul class="mk-hall-list">
                     <li>
