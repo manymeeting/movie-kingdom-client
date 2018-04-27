@@ -1,10 +1,10 @@
 <div class="row">
     <ul class="mk-movie-dt-nav-wrapper">
         <li>
-            <a href="#">OVERVIEW</a>
+            <a href=<%= PathDict.GET.MOVIE_DETAILS + "?id=" + movie.movieId%>>OVERVIEW</a>
         </li>
         <li>
-            <a href="#">MOVIE TIMES + TICKETS</a>
+            <a href=<%= PathDict.GET.MOVIE_DETAILS_SCHEDULES + "?id=" + movie.movieId%>>MOVIE TIMES + TICKETS</a>
         </li>
         <li>
             <a href="#">MOVIE REVIEWS</a>
