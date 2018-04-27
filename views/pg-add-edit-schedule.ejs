@@ -15,13 +15,13 @@
 
 <div class="mk-addmovie-wrapper">
     <div>
-        <span id="mk-add-movie-title"><%= option %> Movie Schedule</span>
+        <span id="mk-add-movie-title"><%= schedule_option %> Movie Schedule</span>
     </div>
 
-        <% items.forEach(function(item) { %>
+        <% scheduleFormFields.forEach(function(field) { %>
         <div class="form-group">
-            <label for="<%= item %>"><%= item %></label>
-            <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= item.toLowerCase() %>"/>
+            <label for="<%= field %>"><%= field %></label>
+            <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= field.toLowerCase() %>"/>
         </div>
         <% }); %>
 

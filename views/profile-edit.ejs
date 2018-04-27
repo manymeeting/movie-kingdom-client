@@ -15,9 +15,9 @@
         <input type="file" accept="image/*" class="form-control form-control-sm"/>
         <input type="text" class="form-control form-control-sm" placeholder="Your file name"/>
     </div>
-    <% items.forEach(function(item) { %>
+    <% profileFormFields.forEach(function(field) { %>
         <div class="form-group">
-            <label><%= item %></label>
+            <label><%= field %></label>
             <input type="text"
                    class="form-control form-control-sm input-sm" placeholder="Edit"/>
         </div>

@@ -1,4 +1,4 @@
-module.exports.items = [
+module.exports.profileFormFields = [
     'First Name',
     'Last Name',
     'Address',
@@ -24,12 +24,12 @@ module.exports.records = [
     }
 ];
 
-module.exports.movieInfo = [
+module.exports.scheduleFormFields = [
     'MOVIE NAME',
     'THEATRE',
 ];
 
-module.exports.hallInfo = [
+module.exports.hallFormFields = [
     'STREET',
     'THEATRE NAME',
     'ZIP CODE',

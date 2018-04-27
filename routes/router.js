@@ -8,10 +8,10 @@ var Roles = require('../values/AccessControlCodes').Roles;
 
 
 let param = require('../values/ejs-parameter');
-let items = param.items;
+let profileFormFields = param.profileFormFields;
 let records = param.records;
-let movieOp = param.movieInfo;
-let hallInfo = param.hallInfo;
+let scheduleFormFields = param.scheduleFormFields;
+let hallFormFields = param.hallFormFields;
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -28,12 +28,12 @@ router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
 
 router.get(PathDict.GET.PROFILE, function(req, res, next) {
-    res.render('pg-profile', { items: items, option: '', role: '0' });
+    res.render('pg-profile', { profileFormFields: profileFormFields, option: '', role: '0' });
 });
 router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
     let user = req.session.user || {};
     let role = user.role ? user.role : 0;
-    res.render('pg-profile', { items: items, option: 'edit', role: role });
+    res.render('pg-profile', { profileFormFields: profileFormFields, option: 'edit', role: role });
 });
 
 router.get(PathDict.GET.MOVIE_LIST, ctlMoviesHalls.movieList);
@@ -62,19 +62,19 @@ router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
 });
 
 router.get(PathDict.GET.ADD_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { items: movieOp, option: 'ADD' });
+    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'ADD' });
 });
 
 router.get(PathDict.GET.EDIT_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { items: movieOp, option: 'EDIT' });
+    res.render('pg-add-edit-schedule', { scheduleFormFields: scheduleFormFields, schedule_option: 'EDIT' });
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
-    res.render('pg-add-hall', { items: hallInfo });
+    res.render('pg-add-hall', { hallFormFields: hallFormFields });
 });
 
 router.get(PathDict.GET.EDIT_HALL, function(req, res, next) {
-    res.render('pg-edit-hall', { items: hallInfo });
+    res.render('pg-edit-hall', { hallFormFields: hallFormFields });
 });
 
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
