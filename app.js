@@ -38,8 +38,9 @@ app.use(session({
 app.locals.PathDict = PathDict;
 app.use(function(req, res, next){
   res.locals.userInfo = req.session.user ? req.session.user : {};
+  console.log('lxr', res.locals.userInfo);
   next();
-})
+});
 
 app.use('/', FlashDataHandler);
 app.use('/', AuthValidation);
