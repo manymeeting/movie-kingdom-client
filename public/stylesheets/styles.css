@@ -6,6 +6,11 @@ body {
 
 a {
   text-decoration: none;
+  color: #9c9c9c;
+}
+a:hover {
+  text-decoration: none;
+  color: #eb5533;
 }
 
 ul {
