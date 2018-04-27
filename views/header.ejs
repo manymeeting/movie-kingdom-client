@@ -28,14 +28,16 @@
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+                <% if (userInfo.role >= Roles.SAD) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">HALL</a>
                     <div class="dropdown-menu">
-                        <% if (userInfo.role === 3)%>
                         <a class="dropdown-item" href=<%=PathDict.GET.ADD_HALL%>>ADD HALL</a>
                         <a class="dropdown-item" href=<%=PathDict.GET.EDIT_HALL%>>EDIT HALL</a>
                     </div>
                 </li>
+                <% } %>
+                <% if (userInfo.role >= Roles.HAD) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MOVIE</a>
                     <div class="dropdown-menu">
@@ -43,6 +45,8 @@
                         <a class="dropdown-item" href=<%=PathDict.GET.EDIT_MOVIE%>>EDIT MOVIE</a>
                     </div>
                 </li>
+                <% } %>
+                <% if (userInfo.role === Roles.HAD) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">SCHEDULE</a>
                     <div class="dropdown-menu">
@@ -50,6 +54,7 @@
                         <a class="dropdown-item" href=<%=PathDict.GET.EDIT_SCHEDULE%>>EDIT SCHEDULE</a>
                     </div>
                 </li>
+                <% } %>
                 <li class="nav-item">
                     <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>
                 </li>
