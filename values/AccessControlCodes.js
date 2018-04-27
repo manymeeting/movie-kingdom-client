@@ -23,11 +23,17 @@ ControlCodes[PathDict.GET.PURCHASE_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS] = Roles.GUEST;
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
 
-//TODO change roles to HAD
 //below lies Hall Admin access
 ControlCodes[PathDict.GET.ADD_SCHEDULE] = Roles.GUEST;
 ControlCodes[PathDict.GET.EDIT_SCHEDULE] = Roles.GUEST;
+
+//below lies Super Admin access
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.GUEST;
 ControlCodes[PathDict.GET.EDIT_HALL] = Roles.GUEST;
+
+//below lies both Hall and Super access
+ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST;
+ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.GUEST;
+
 
 module.exports.ControlCodes = ControlCodes;
