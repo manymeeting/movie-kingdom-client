@@ -12,6 +12,20 @@
     <div class="mk-profile-content">
         <div>
             <div class="form-group">
+                <label>Account Type</label>
+                <input disabled
+                       value="<% switch (userInfo.role) {
+                                 case 0: %> <%= Object.entries(Roles)[0][0] %>
+                                 <% break;
+                                 case 1: %> <%= Object.entries(Roles)[1][0] %>
+                                 <% break;
+                                 case 2: %> <%= Object.entries(Roles)[2][0] %>
+                                 <% break;
+                                 case 3: %> <%= Object.entries(Roles)[3][0] %>
+                                 <% } %>"
+                       class="form-control form-control-sm input-sm"/>
+            </div>
+            <div class="form-group">
                 <label>Profile Image</label>
                 <div>
                     <img src="http://www.dreams.metroeve.com/wp-content/uploads/2017/06/Head-dreams-meaning.jpg"
