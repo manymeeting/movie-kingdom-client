@@ -1,4 +1,4 @@
-var clientMessenger = require('../messengers/ClientMessenger');
+var clientMessenger = require('../kafka/ClientMessenger');
 
 module.exports.getLogout = function(req, res, next){
 	delete req.session.user;

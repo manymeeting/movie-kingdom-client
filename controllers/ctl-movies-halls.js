@@ -1,4 +1,4 @@
-var clientMessenger = require('../messengers/ClientMessenger');
+var clientMessenger = require('../kafka/ClientMessenger');
 
 module.exports.movieList = function(req, res, next) {
 	// get all movies
@@ -39,6 +39,7 @@ module.exports.movieDetails = function(req, res, next) {
 module.exports.schedulesOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
 
+	// TODO: fetch schedule data
 	clientMessenger.sendGET("/movie/" + movieID, "movies")
 		.then(result => {
 			console.log(result);

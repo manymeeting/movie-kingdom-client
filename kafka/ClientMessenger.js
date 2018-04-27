@@ -1,4 +1,4 @@
-var kafkaClientService = require('../kafka/KafkaClientService');
+var kafkaClientService = require('./KafkaClientService');
 
 module.exports.sendGET = function (url, topic) {
 
