@@ -88,6 +88,14 @@
     background-color: #333333;
     margin-bottom: 1px;
 }
+.mk-movie-review-by
+{
+	text-transform: uppercase;
+}
+.mk-movie-review-date
+{
+	color: #6b6b6b;
+}
 .mk-dt-postrv-btn-wrapper
 {
 	text-align: right;

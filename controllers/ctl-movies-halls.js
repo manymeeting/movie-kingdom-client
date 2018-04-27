@@ -57,13 +57,22 @@ module.exports.schedulesOnMovie = function(req, res, next) {
 
 module.exports.reviewsOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
-	// TODO: fetch reviews data
+	var movie = {};
+	var reviews = [];
 	clientMessenger.sendGET("/movie/" + movieID, "movies")
 		.then(result => {
 			console.log(result);
+			movie = result.movie;
+		})
+		.then(() => {
+			return clientMessenger.sendGET("/movie-reviews/?movieId=" + movieID, "reviews");
+		})
+		.then(result => {
+			reviews = result.content;
 			res.render('movie-dt-reviews', {
 				"title": 'Movies Reviews', 
-				"movie": result.movie
+				"movie": movie,
+				"reviews": reviews
 			});
 		})
 		.catch(err => {

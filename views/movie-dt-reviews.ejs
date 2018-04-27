@@ -20,36 +20,31 @@
             <div class="row">
                 <% include ./movie-dt-info.ejs %>
                 <div class="col-8">
-                    <ul class="mk-movie-review-list">
-                        <li class="">
-                            <p class="mk-movie-review-rating">
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star"></span>
-                            </p>
-                            <h4 class="mk-movie-review-title">EXCELLENT</h4>
-                            <p class="mk-movie-review-info">
-                                <span class="mk-movie-review-by">BY ARLEANDERRAIFORD</span><span class="mk-movie-review-date"> WRITTEN ON 2018-01-03</span>
-                            </p>
-                            <p class="mk-movie-review-content">Past pain and hurt in life this movie uproots. Results is FORGIVENESS IN LOVE.</p>                    
-                        </li>
-                        <li class="">
-                            <p class="mk-movie-review-rating">
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star mk-star-filled"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </p>
-                            <h4 class="mk-movie-review-title">It's OK</h4>
-                            <p class="mk-movie-review-info">
-                                <span class="mk-movie-review-by">BY ARLEANDERRAIFORD</span><span class="mk-movie-review-date"> WRITTEN ON 2018-01-03</span>
-                            </p>
-                            <p class="mk-movie-review-content">Past pain and hurt in life this movie uproots. Results is FORGIVENESS IN LOVE.</p>                    
-                        </li>
-                    </ul>
+                    <% if(reviews.length === 0) { %>
+                        <h3>NO REVIEWS FOR NOW : )</h3>
+                    <% } else { %>
+                        <ul class="mk-movie-review-list">
+                            <% for(let i = 0; i < reviews.length; i++) { %>
+                                <% let review = reviews[i]; %>
+                                <li>
+                                    <p class="mk-movie-review-rating">
+                                        <% for(let j = 0; j < 5; j++){ %>
+                                            <% if(i <= Math.round(review.stars)){ %>
+                                                <span class="fa fa-star mk-star-filled"></span>
+                                            <% } else{%>
+                                                <span class="fa fa-star"></span>
+                                            <% } %>
+                                        <% } %>
+                                    </p>
+                                    <h4 class="mk-movie-review-title"><%= review.reviewTitle%></h4>
+                                    <p class="mk-movie-review-info">
+                                        <span class="mk-movie-review-by">BY <%= review.user.firstName + " " + review.user.lastName%></span><span class="mk-movie-review-date"> WRITTEN ON <%= review.postDate%> </span>
+                                    </p>
+                                    <p class="mk-movie-review-content"><%= review.comment%></p>                    
+                                </li>
+                            <% } %>
+                        </ul>
+                    <% } %>
                 </div>
             </div>
             
