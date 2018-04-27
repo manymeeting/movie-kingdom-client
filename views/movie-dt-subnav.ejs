@@ -9,8 +9,10 @@
         <li>
             <a href=<%= PathDict.GET.MOVIE_DETAILS_REVIEWS + "?id=" + movie.movieId%>>MOVIE REVIEWS</a>
         </li>
-        <li>
-            <a href=<%= PathDict.GET.MOVIE_DETAILS_POST_REVIEW + "?id=" + movie.movieId%>>POST REVIEW</a>
-        </li>
+        <% if(typeof(userInfo.role) !== 'undefined' && userInfo.role >= Roles.USER ) {%>
+            <li>
+                <a href=<%= PathDict.GET.MOVIE_DETAILS_POST_REVIEW + "?id=" + movie.movieId%>>POST REVIEW</a>
+            </li>
+        <% }%>
     </ul>
 </div>
