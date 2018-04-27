@@ -36,6 +36,10 @@ app.use(session({
 
 // set data and functions for templates 
 app.locals.PathDict = PathDict;
+app.use(function(req, res, next){
+  res.locals.userInfo = req.session.user ? req.session.user : {};
+  next();
+})
 
 app.use('/', FlashDataHandler);
 app.use('/', AuthValidation);
