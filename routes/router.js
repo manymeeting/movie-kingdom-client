@@ -70,11 +70,11 @@ router.get(PathDict.GET.EDIT_SCHEDULE, function(req, res, next) {
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
-    res.render('pg-add-hall', { hallFormFields: hallFormFields });
+    res.render('pg-add-edit-hall', { hallFormFields: hallFormFields, hall_option: 'Add' });
 });
 
 router.get(PathDict.GET.EDIT_HALL, function(req, res, next) {
-    res.render('pg-edit-hall', { hallFormFields: hallFormFields });
+    res.render('pg-add-edit-hall', { hallFormFields: hallFormFields, hall_option: 'Edit' });
 });
 
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {

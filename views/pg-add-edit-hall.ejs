@@ -13,16 +13,7 @@
         <% include ./header.ejs %>
         <div class="mk-addhall-wrapper">
             <div>
-                <span id="mk-add-movie-title">Add Movie Hall</span>
-            </div>
-
-            <div class="form-group">
-                <label>CITY</label>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control form-control-sm mr-sm-2 col-sm-6" type="search" placeholder="Search City">
-                    <button class="btn btn-success btn-sm my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                <input disabled class="form-control form-control-sm input-sm col-sm-6 mk-addhall-adjust"/>
+                <span id="mk-add-movie-title"><%= hall_option %> Movie Hall</span>
             </div>
 
             <% hallFormFields.forEach(function(item) { %>
@@ -33,8 +24,14 @@
             <% }); %>
 
             <div class="form-group">
-                <a href="/halls">
-                    <button type="button" class="btn btn-primary btn-sm">Add</button>
+                <a href=<%= PathDict.GET.HALL_LIST%>>
+                    <button type="button" class="btn btn-primary btn-sm">
+                        <% if (hall_option === 'Add') { %>
+                        Add
+                        <% } else { %>
+                        Update
+                        <% } %>
+                    </button>
                 </a>
             </div>
         </div>

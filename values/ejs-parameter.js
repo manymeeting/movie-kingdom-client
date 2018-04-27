@@ -30,6 +30,7 @@ module.exports.scheduleFormFields = [
 ];
 
 module.exports.hallFormFields = [
+    'CITY',
     'STREET',
     'THEATRE NAME',
     'ZIP CODE',
