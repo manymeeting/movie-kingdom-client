@@ -12,7 +12,6 @@ let profileFormFields = param.profileFormFields;
 let records = param.records;
 let scheduleFormFields = param.scheduleFormFields;
 let hallFormFields = param.hallFormFields;
-let movieFormFields = param.movieFormFields;
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -57,11 +56,11 @@ router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
 router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie', { movieFormFields: movieFormFields, movie_option: 'Add' });
+    res.render('pg-add-edit-movie', { movie_option: 'Add' });
 });
 
 router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie', { movieFormFields: movieFormFields, movie_option: 'Edit' });
+    res.render('pg-add-edit-movie', { movie_option: 'Edit' });
 });
 
 router.get(PathDict.GET.ADD_SCHEDULE, function(req, res, next) {

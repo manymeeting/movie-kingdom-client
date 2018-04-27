@@ -7,17 +7,60 @@
 <body>
 <% include ./header.ejs %>
 
-<div class="mk-addmovie-wrapper">
+<form class="mk-addmovie-wrapper">
     <div>
         <span id="mk-add-movie-title"><%= movie_option %> Movie</span>
     </div>
 
-    <% movieFormFields.forEach(function(field) { %>
     <div class="form-group">
-        <label for="<%= field %>"><%= field %></label>
-        <input class="form-control form-control-sm input-sm col-sm-6" placeholder="input <%= field.toLowerCase() %>"/>
+        <label for="TITLE">TITLE</label>
+        <input class="form-control form-control-sm input-sm col-sm-6"
+               type="text"
+               placeholder="input title"
+               <% if (movie_option === 'Add') { %>
+                required
+               <% } %>
+        />
     </div>
-    <% }); %>
+
+    <div class="form-group">
+        <label for="LENGTH">LENGTH</label>
+        <input class="form-control form-control-sm input-sm col-sm-6"
+               type="text"
+               pattern="[0-9]+"
+               title="must only contain digits"
+               placeholder="input length in minutes"
+                <% if (movie_option === 'Add') { %>
+               required
+                <% } %>
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="COVER IMAGE URL">COVER IMAGE URL</label>
+        <input class="form-control form-control-sm input-sm col-sm-6"
+               type="url"
+               pattern="(http:\/\/www.omdbapi.com)"
+               title="must have url prefix 'http://www.omdbapi.com'"
+               placeholder="input image url"
+                <% if (movie_option === 'Add') { %>
+               required
+                <% } %>
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="TRAILER">TRAILER URL</label>
+        <input class="form-control form-control-sm input-sm col-sm-6"
+               type="url"
+               pattern="(https:\/\/youtu.be\/)"
+               title="must have url prefix 'https://youtu.be/'"
+               placeholder="input trailer url"
+                <% if (movie_option === 'Add') { %>
+               required
+                <% } %>
+        />
+    </div>
 
     <div class="form-group">
         <label>MPAA ID</label>
@@ -32,7 +75,7 @@
 
     <div class="form-group">
         <label>RELEASE DATE</label>
-        <input class="form-control form-control-sm input-sm col-sm-4" type="date"/>
+        <input class="form-control form-control-sm input-sm col-sm-5" type="date"/>
     </div>
 
     <div class="form-group">
@@ -44,7 +87,7 @@
             <% } %>
         </a>
     </div>
-</div>
+</form>
 
 <% include ./lib-url.ejs %>
 <script src="/scripts/add-movie.js"></script>

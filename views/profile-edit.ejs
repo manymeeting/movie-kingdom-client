@@ -19,7 +19,7 @@
         <label>First Name</label>
         <input type="text"
                class="form-control form-control-sm input-sm"
-               pattern="[A-Za-z]+"
+               pattern="^([^0-9]*)$"
                title="Must not contain number"
                placeholder="Edit"/>
     </div>
@@ -27,7 +27,7 @@
         <label>Last Name</label>
         <input type="text"
                class="form-control form-control-sm input-sm"
-               pattern="[A-Za-z]+"
+               pattern="^([^0-9]*)$"
                title="Must not contain number"
                placeholder="Edit"/>
     </div>
@@ -41,7 +41,7 @@
         <label>City</label>
         <input type="text"
                class="form-control form-control-sm input-sm"
-               pattern="[A-Za-z]+"
+               pattern="^([^0-9]*)$"
                title="Must not contain number"
                placeholder="city name"/>
     </div>
@@ -83,13 +83,16 @@
         <label>Card Number</label>
         <input type="text" class="form-control form-control-sm input-sm"
                pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
+               title="must have xxxx xxxx xxxx xxxx"
                placeholder="xxxx xxxx xxxx xxxx"/>
         <label>Expire Date</label>
         <input type="date" class="form-control form-control-sm input-sm"
+               title="must have MM/DD/YYYY"
                 pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"/>
         <label>Security Code</label>
         <input type="text" class="form-control form-control-sm input-sm"
                pattern="[0-9]{3}"
+               title="must have 3 digits security code"
                placeholder="xxx"/>
     </div>
     <div class="form-group">
