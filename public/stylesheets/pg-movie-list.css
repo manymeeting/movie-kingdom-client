@@ -33,6 +33,12 @@
 
 .mk-sub-title
 {
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+.mk-movie-dt-section-title
+{
+	font-size: 2rem;
 	text-transform: uppercase;
 }
 .mk-movie-dt-wrapper
@@ -45,8 +51,8 @@
 }
 .mk-movie-dt-cover
 {
-	height: 250px;
-	width: 168px;
+	height: 298.4px;
+	width: 200px;
 }
 .mk-movie-dt-desc-wrapper
 {
@@ -55,15 +61,16 @@
 }
 .mk-movie-dt-info-wrapper
 {
-	float: left;
 	padding: 1rem;
 	background-color: #333333;
-	height: 250px;
+	height: 298.4px;
+	margin-left: 200px;
+	text-align: center;
 }
 .mk-dt-trailer-container
 {
-	width: 620px;
-	height: 350px
+	width: 744px;
+	height: 420px
 }
 .mk-hall-schedules-list ul li
 {
