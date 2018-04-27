@@ -62,7 +62,23 @@ module.exports.reviewsOnMovie = function(req, res, next) {
 		.then(result => {
 			console.log(result);
 			res.render('movie-dt-reviews', {
-				"title": 'Movies Schedules', 
+				"title": 'Movies Reviews', 
+				"movie": result.movie
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
+}
+
+module.exports.reviewFormOnMovie = function(req, res, next) {
+	var movieID = req.query.id;
+	clientMessenger.sendGET("/movie/" + movieID, "movies")
+		.then(result => {
+			console.log(result);
+			res.render('movie-dt-post-review', {
+				"title": 'Post Review', 
 				"movie": result.movie
 			});
 		})

@@ -41,3 +41,8 @@ li {
 
   list-style: none;
 }
+
+.btn
+{
+  text-transform: uppercase; 
+}
