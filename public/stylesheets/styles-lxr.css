@@ -21,3 +21,16 @@
     border: 1px solid #F15500;
     padding: 1rem;
 }
+
+.mk-profile-label
+{
+    height: 20px;
+    width: 100px;
+    color: black;
+    alignment: center;
+}
+
+#mk-image-upload
+{
+    display: none;
+}
