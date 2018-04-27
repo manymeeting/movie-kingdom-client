@@ -7,7 +7,7 @@ var ctlPortal = require('../controllers/ctl-portal');
 var Roles = require('../values/AccessControlCodes').Roles;
 
 
-let param = require('./utils/ejs-parameter');
+let param = require('../values/ejs-parameter');
 let items = param.items;
 let records = param.records;
 let movieOp = param.movieInfo;
@@ -54,7 +54,7 @@ router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
 router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie');
+    res.render('pg-add-edit-movie', { });
 });
 
 router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
