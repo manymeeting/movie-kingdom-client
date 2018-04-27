@@ -1,5 +1,13 @@
+$(function(){
 
-function addNode() {
+	$(document).on("click", "#mk-addmovie-addslot", function(e){
+		e.preventDefault();
+		addNode();
+	})	
+})
+
+function addNode(e) {
+	
     console.log('add node');
     let node = document.createElement("INPUT");
     let root = document.getElementById("timeslot");
