@@ -17,31 +17,7 @@
         </div>
         <div class="container mt-4">
             <div class="row">
-                <div class="mk-movie-dt-wrapper col-4">
-                    <div class="mk-movie-dt-cover-wrapper">
-                        <img class="mk-movie-dt-cover" src=<%=movie.coverImageUrl%>>
-                    </div>
-                    <div class="mk-movie-dt-info-wrapper">
-                        <p>Release Date</p>
-                        <h3><%= movie.releaseDate%></h3>
-                        <p><%= movie.mpaaRating%></p>
-                        <p><%= movie.length%> mins</p>
-                        <h3>RATING</h3>
-                        <p class="mk-movie-review-rating">
-                            <% for(let i = 0; i < 5; i++){ %>
-                                <% if(i <= Math.round(movie.stars)){ %>
-                                    <span class="fa fa-star mk-star-filled"></span>
-                                <% } else{%>
-                                    <span class="fa fa-star"></span>
-                                <% } %>
-                            <% } %>
-                        </p>
-                    </div>
-                    <div class="mk-movie-dt-desc-wrapper pt-2">
-                        <h3 class="mk-movie-dt-section-title">SYNOPSIS</h3>
-                        <p class="mk-movie-dt-desc"><%= movie.movieDesc%></p>
-                    </div>
-                </div>
+                <% include ./movie-dt-info.ejs %>
                 <div class="col-8">
                     <iframe class="mk-dt-trailer-container" src=<%=movie.trailerUrl%>>
                     </iframe>
