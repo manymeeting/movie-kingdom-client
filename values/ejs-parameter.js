@@ -1,14 +1,3 @@
-module.exports.profileFormFields = [
-    'First Name',
-    'Last Name',
-    'Street',
-    'City',
-    'State',
-    'Zip Code',
-    'Phone Number',
-    'Email'
-];
-
 module.exports.records = [
     {
         movie: 'Ready Player One',

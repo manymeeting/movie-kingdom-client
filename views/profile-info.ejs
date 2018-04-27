@@ -15,13 +15,13 @@
                 <label>Account Type</label>
                 <input disabled
                        value="<% switch (userInfo.role) {
-                                 case 0: %> Guest
+                                 case Roles.GUEST: %> Guest
                                  <% break;
-                                 case 1: %> User
+                                 case Roles.USER: %> User
                                  <% break;
-                                 case 2: %> Hall Admin
+                                 case Roles.HAD: %> Hall Admin
                                  <% break;
-                                 case 3: %> Super Admin
+                                 case Roles.SAD: %> Super Admin
                                  <% } %>"
                        class="form-control form-control-sm input-sm"/>
             </div>
@@ -88,7 +88,7 @@
                        class="form-control form-control-sm input-sm"/>
             </div>
         </div>
-        <% if (option === 'edit') { %>
+        <% if (proflie_option === 'edit') { %>
         <% include ./profile-edit.ejs %>
         <% } %>
     </div>
