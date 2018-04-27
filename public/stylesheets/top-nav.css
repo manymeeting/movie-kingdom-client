@@ -18,11 +18,12 @@
 
 .mk-nav-links 
 {
-    color: #CCC;
+    color: #FFF;
+    font-size: 14px;
 }
 .mk-nav-links:hover
 {
-    color: #FFF;
+    color: #f15500;
 }
 
 .mk-account-wrap {
