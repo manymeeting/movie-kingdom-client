@@ -31,6 +31,10 @@
     color: white;
     text-decoration: none;	
 }
+.mk-header-search-options
+{
+    cursor: pointer;
+}
 
 .mk-span
 {
