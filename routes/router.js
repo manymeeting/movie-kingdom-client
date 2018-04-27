@@ -11,7 +11,6 @@ let param = require('../values/ejs-parameter');
 let profileFormFields = param.profileFormFields;
 let records = param.records;
 let scheduleFormFields = param.scheduleFormFields;
-let hallFormFields = param.hallFormFields;
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -72,11 +71,11 @@ router.get(PathDict.GET.EDIT_SCHEDULE, function(req, res, next) {
 });
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
-    res.render('pg-add-edit-hall', { hallFormFields: hallFormFields, hall_option: 'Add' });
+    res.render('pg-add-edit-hall', { hall_option: 'Add' });
 });
 
 router.get(PathDict.GET.EDIT_HALL, function(req, res, next) {
-    res.render('pg-add-edit-hall', { hallFormFields: hallFormFields, hall_option: 'Edit' });
+    res.render('pg-add-edit-hall', { hall_option: 'Edit' });
 });
 
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {

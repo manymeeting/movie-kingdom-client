@@ -24,19 +24,8 @@ module.exports.records = [
     }
 ];
 
-module.exports.movieFormFields = [
-    'TITLE',
-    'LENGTH',
-    'COVER IMAGE URL',
-    'TRAILER URL'
-];
-
 module.exports.scheduleFormFields = [
     'MOVIE NAME',
     'THEATRE',
 ];
 
-module.exports.hallFormFields = [
-    'THEATRE NAME',
-    'STREET'
-];
