@@ -3,6 +3,7 @@
     <head>
         <% include ./meta-resources.ejs %>
         <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <% include ./header.ejs %>
@@ -26,9 +27,16 @@
                         <p><%= movie.mpaaRating%></p>
                         <p><%= movie.length%> mins</p>
                         <p>Stars: <%= movie.stars%></p>
+                        <p class="mk-movie-review-rating">
+                            <span class="fa fa-star mk-star-filled"></span>
+                            <span class="fa fa-star mk-star-filled"></span>
+                            <span class="fa fa-star mk-star-filled"></span>
+                            <span class="fa fa-star mk-star-filled"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
                     </div>
                     <div class="mk-movie-dt-desc-wrapper pt-2">
-                        <h4>SYNOPSIS</h4>
+                        <h3 class="mk-movie-dt-section-title">SYNOPSIS</h3>
                         <p class="mk-movie-dt-desc"><%= movie.movieDesc%></p>
                     </div>
                 </div>
