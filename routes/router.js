@@ -43,6 +43,7 @@ router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
 });
 
 router.get(PathDict.GET.MOVIE_DETAILS, ctlMoviesHalls.movieDetails);
+router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMoviesHalls.schedulesOnMovie);
 
 router.get(PathDict.GET.BUY_TICKETS, function(req, res, next) {
     res.render('pg-buy-tickets');
