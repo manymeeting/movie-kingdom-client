@@ -54,3 +54,20 @@ module.exports.schedulesOnMovie = function(req, res, next) {
 		});
 
 }
+
+module.exports.reviewsOnMovie = function(req, res, next) {
+	var movieID = req.query.id;
+	// TODO: fetch reviews data
+	clientMessenger.sendGET("/movie/" + movieID, "movies")
+		.then(result => {
+			console.log(result);
+			res.render('movie-dt-reviews', {
+				"title": 'Movies Schedules', 
+				"movie": result.movie
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
+}
