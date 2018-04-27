@@ -27,12 +27,10 @@ router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
 
 router.get(PathDict.GET.PROFILE, function(req, res, next) {
-    res.render('pg-profile', { profileFormFields: profileFormFields, option: '', role: '0' });
+    res.render('pg-profile', { profileFormFields: profileFormFields, option: ''});
 });
 router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
-    let user = req.session.user || {};
-    let role = user.role ? user.role : 0;
-    res.render('pg-profile', { profileFormFields: profileFormFields, option: 'edit', role: role });
+    res.render('pg-profile', { profileFormFields: profileFormFields, option: 'edit'});
 });
 
 router.get(PathDict.GET.MOVIE_LIST, ctlMoviesHalls.movieList);
