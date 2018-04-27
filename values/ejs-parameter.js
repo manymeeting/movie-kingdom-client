@@ -1,7 +1,7 @@
 module.exports.profileFormFields = [
     'First Name',
     'Last Name',
-    'Address',
+    'Street',
     'City',
     'State',
     'Zip Code',
