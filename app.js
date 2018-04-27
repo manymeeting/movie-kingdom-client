@@ -38,9 +38,8 @@ app.use(session({
 // set data and functions for templates 
 app.locals.PathDict = PathDict;
 app.locals.Roles = Roles;
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
   res.locals.userInfo = req.session.user ? req.session.user : {};
-  console.log('lxr', res.locals.userInfo);
   next();
 });
 
