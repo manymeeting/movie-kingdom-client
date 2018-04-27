@@ -65,3 +65,12 @@
 	width: 620px;
 	height: 350px
 }
+.mk-hall-schedules-list ul li
+{
+	display: inline-block;
+	padding: 0.6rem 1.5rem;
+	margin-right: 0.5rem;
+	margin-top: 0.5rem;
+	border-radius: 0.2rem;
+	background-color: #f15500;
+}

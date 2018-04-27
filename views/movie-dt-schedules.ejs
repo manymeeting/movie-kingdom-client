@@ -14,7 +14,7 @@
         
         <div class="container mt-4">
             <div class="row">
-                <h2 class="mk-sub-title"><%=movie.movieTitle%></h2>
+                <h2 class="mk-sub-title"><%=movie.movieTitle + "TIMES NEAR " + "95112"%></h2>
             </div>
             <% include ./movie-dt-subnav.ejs %>
             
@@ -38,8 +38,35 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <iframe class="mk-dt-trailer-container" src=<%=movie.trailerUrl%>>
-                    </iframe>
+                    <ul>
+                        <li>
+                            <div class="mk-hall-header">
+                                <div class="mk-hall-name-wrapper">
+                                    <h3>
+                                        <a href="#">CENTURY CINEMAS 16</a>
+                                    </h3>
+                                </div>
+                                <div class="mk-hall-addr-wrapper">
+                                    <span class="mk-text-mute">3000 El Camino Real, Palo Alto, CA 94306</span>
+                                </div>
+                            </div>
+                            <div class="mk-hall-schedules-wrapper">
+                                <div><span>Select a movie time to buy Standard Showtimes</span></div>
+                                <div class="mk-hall-schedules-list">
+                                    <ul>
+                                        <li><span>1:00p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                        <li><span>1:30p</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
