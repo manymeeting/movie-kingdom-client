@@ -4,7 +4,7 @@ var PathDict = require('../values/PathDictionary');
 
 var ctlMovies = require('../controllers/ctl-movies');
 var ctlPortal = require('../controllers/ctl-portal');
-var ctlHeaderSearch = require('../controllers/ctl-header-search');
+var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 var Roles = require('../values/AccessControlCodes').Roles;
 let ctlProfile = require('../controllers/ctl-profile');
 
@@ -44,7 +44,7 @@ router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
 router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMovies.reviewsOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMovies.reviewFormOnMovie);
-router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlHeaderSearch.multiTypeSearch);
+router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 
 router.get(PathDict.GET.BUY_TICKETS, function(req, res, next) {
     res.render('pg-buy-tickets');
