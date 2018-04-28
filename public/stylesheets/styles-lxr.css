@@ -2,7 +2,7 @@
 .mk-profile-img
 {
     height: 100px;
-    width: 100px;
+    width: 200px;
 }
 
 .mk-literal-margin
@@ -25,9 +25,9 @@
 .mk-profile-label
 {
     height: 20px;
-    width: 100px;
+    width: 200px;
     color: black;
-    alignment: center;
+    text-align: center;
 }
 
 #mk-image-upload

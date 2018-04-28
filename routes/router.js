@@ -27,10 +27,10 @@ router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
 
 router.get(PathDict.GET.PROFILE, function(req, res, next) {
-    res.render('pg-profile', { proflie_option: ''});
+    res.render('pg-profile', { profile_option: ''});
 });
 router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
-    res.render('pg-profile', { proflie_option: 'edit'});
+    res.render('pg-profile', { profile_option: 'edit'});
 });
 
 router.post(PathDict.GET.EDIT_PROFILE, ctlProfile.postEditProfile);

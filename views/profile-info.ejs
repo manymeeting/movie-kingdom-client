@@ -10,86 +10,208 @@
         </a>
     </div>
     <div class="mk-profile-content">
-        <div>
-            <div class="form-group">
+        <form action="/profile/edit" method="POST">
+            <div class="form-group mk-form-adjust">
                 <label>Account Type</label>
-                <input disabled
-                       value="<% switch (userInfo.role) {
-                                 case Roles.GUEST: %> Guest
-                                 <% break;
-                                 case Roles.USER: %> User
-                                 <% break;
-                                 case Roles.HAD: %> Hall Admin
-                                 <% break;
-                                 case Roles.SAD: %> Super Admin
-                                 <% } %>"
-                       class="form-control form-control-sm input-sm"/>
+                <select
+                        class="form-control form-control-sm input-sm col-sm-6"
+                        name="role"
+                        <% if (profile_option !== 'edit' || userInfo.role !== Roles.SAD ) { %>
+                        disabled
+                        <% } %>
+                >
+                    <option value=0 <% if (userInfo.role === Roles.GUEST) {%> selected <% }%>>GUEST</option>
+                    <option value=1 <% if (userInfo.role === Roles.USER) {%> selected <% }%>>USER</option>
+                    <option value=2 <% if (userInfo.role === Roles.HAD) {%> selected <% }%>>HAD</option>
+                    <option value=3 <% if (userInfo.role === Roles.SAD) {%> selected <% }%>>SAD</option>
+                </select>
             </div>
+
+            <div class="form-group card bg-dark text-white">
+                <img src="<%= userInfo.imageUrl%>"
+                     alt="profile image"
+                     class="mk-profile-img"
+                     id="mk-image-preview"/>
+                <label class="mk-profile-label">
+                    <input type="file" id="mk-image-upload"
+                            <% if (profile_option !== 'edit') { %>
+                            disabled
+                            <% } %>
+                    />
+                    <input type="hidden" name="userInfo" value="<%= JSON.stringify(userInfo)%>"/>
+                    Select Image
+                </label>
+            </div>
+
             <div class="form-group">
-                <label>Profile Image</label>
-                <div>
-                    <img src="<%= userInfo.imageUrl %>"
-                         alt="profile image"
-                         class="mk-profile-img"/>
-                </div>
+                <label>Image URL</label>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       id="mk-image-url"
+                       name="imageUrl"
+                       value="<%= userInfo.imageUrl%>"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>First Name</label>
-                <input disabled value="<%= userInfo.firstName %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       pattern="^([^0-9]*)$"
+                       title="Must not contain number"
+                       value="<%= userInfo.firstName%>"
+                       name="firstName"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>Last Name</label>
-                <input disabled value="<%= userInfo.lastName %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       pattern="^([^0-9]*)$"
+                       title="Must not contain number"
+                       value="<%= userInfo.lastName%>"
+                       name="lastName"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>Street</label>
-                <input disabled value="<%= userInfo.street %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       value="<%= userInfo.street%>"
+                       name="street"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>City</label>
-                <input disabled value="<%= userInfo.city %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       pattern="^([^0-9]*)$"
+                       title="Must not contain number"
+                       value="<%= userInfo.city%>"
+                       name="city"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>State</label>
-                <input disabled value="<%= userInfo.state %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       pattern="[A-Z]{2}"
+                       title="Must not contain exactly 2 uppercase letters"
+                       value="<%= userInfo.state%>"
+                       name="state"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>Zip Code</label>
-                <input disabled value="<%= userInfo.zipcode %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text"
+                       class="form-control form-control-sm input-sm"
+                       pattern="[0-9]{5}"
+                       title="Must input exactly 5 digits zip code"
+                       value="<%= userInfo.zipcode%>"
+                       name="zipcode"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>Phone Number</label>
-                <input disabled value="<%= userInfo.phone %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="tel"
+                       class="form-control form-control-sm input-sm"
+                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                       title="Must input phone number as pattern xxx-xxx-xxxx"
+                       value="<%= userInfo.phone%>"
+                       name="phone"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group">
                 <label>Email</label>
-                <input disabled value="<%= userInfo.email %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="email"
+                       class="form-control form-control-sm input-sm" placeholder="xx@xxx.xxx"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                       value="<%= userInfo.email%>"
+                       name="email"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
+
             <div class="form-group mk-theme-nested-border">
                 <div>
-                <label>Credit Card Details</label>
+                    <label>Credit Card Details</label>
                 </div>
+
                 <label>Card Number</label>
-                <input disabled value="<%= userInfo.cardNum %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text" class="form-control form-control-sm input-sm"
+                       pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
+                       title="must have xxxx xxxx xxxx xxxx"
+                       value="<%= userInfo.cardNum%>"
+                       name="cardNum"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
+
                 <label>Expire Date</label>
-                <input disabled value="<%= userInfo.cardExpire %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="date" class="form-control form-control-sm input-sm"
+                       title="must have MM/DD/YYYY"
+                       pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"
+                       value="<%= userInfo.cardExpire%>"
+                       name="cardExpire"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
+
                 <label>Security Code</label>
-                <input disabled value="<%= userInfo.cardCvv %>"
-                       class="form-control form-control-sm input-sm"/>
+                <input type="text" class="form-control form-control-sm input-sm"
+                       pattern="[0-9]{3}"
+                       title="must have 3 digits security code"
+                       value="<%= userInfo.cardCvv%>"
+                       name="cardCvv"
+                        <% if (profile_option !== 'edit') { %>
+                       disabled
+                        <% } %>
+                />
             </div>
-        </div>
-        <% if (proflie_option === 'edit') { %>
-        <% include ./profile-edit.ejs %>
-        <% } %>
+            <% if (profile_option === 'edit') { %>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                <a href=<% PathDict.GET.PROFILE%>>
+                    <button class="btn btn-primary btn-sm">Cancel</button>
+                </a>
+            </div>
+            <% } %>
+            <script src="/scripts/profile-edit.js"></script>
+        </form>
     </div>
 </div>

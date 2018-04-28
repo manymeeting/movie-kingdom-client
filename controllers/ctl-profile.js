@@ -12,7 +12,7 @@ module.exports.postEditProfile = function (req, res, next) {
         }
     }
     console.log('updateInfo', updateInfo);
-    clientMessenger.APIHandler("/user/" + oldInfo.userId, API_METHOD.PUT, "users", updateInfo)
+    clientMessenger.send("/user/" + oldInfo.userId, API_METHOD.PUT, "users", updateInfo)
         .then(result => {
             console.log('result', result);
             // update userInfo to session
