@@ -11,16 +11,19 @@
             <p>FILTER BY MOVIE GENRES</p>
             <div>
                 <ul>
-                    <li class="mk-genre-tags"><a href="#">ACTION</a></li>
-                    <li class="mk-genre-tags"><a href="#">DRAMA</a></li>
-                    <li class="mk-genre-tags"><a href="#">COMEDY</a></li>
+                    <% for(let i = 0; i < genres.length; i++) { %>
+                        <% let genre = genres[i]; %>
+                        <li class="mk-tags <%= (typeof(selectedGenreId) !== "undefined" && selectedGenreId == genre.genreId) ? "mk-tags-active" : "" %>">
+                            <a href="<%= PathDict.GET.MOVIE_BY_GENRE + "?genreId=" + genre.genreId%>"><%=genre.genreName%></a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
             
         </div>
         <div class="container mt-4">
             <h2 class="mk-sub-title">MOVIES</h2>
-            <p class="mk-sub-title-desc">Find the biggest, fastest and most intense action-adventure movies to satisfy your craving for high-speed chases, epic stunts and full-blown battle sequences.</p>
+            <p class="mk-sub-title-desc">Whether you’re planning a romantic first date, a family movie night, or anything in-between,</br> we can help you find the perfect movie for any occasion.</p>
             <% if(typeof(movies) === "undefined" || !movies.length > 0) {%>
                 <h3>NO MOVIES FOR NOW : )</h3>
             <% } else { %>

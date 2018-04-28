@@ -18,6 +18,7 @@ ControlCodes[PathDict.GET.PROFILE] = Roles.GUEST;
 ControlCodes[PathDict.GET.EDIT_PROFILE] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.HALL_LIST] = Roles.GUEST;
+ControlCodes[PathDict.GET.MOVIE_BY_GENRE] = Roles.GUEST;
 ControlCodes[PathDict.GET.BUY_TICKETS] = Roles.GUEST;
 ControlCodes[PathDict.GET.PURCHASE_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS] = Roles.GUEST;

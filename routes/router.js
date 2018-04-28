@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var PathDict = require('../values/PathDictionary');
 
-var ctlMoviesHalls = require('../controllers/ctl-movies-halls');
+var ctlMovies = require('../controllers/ctl-movies');
 var ctlPortal = require('../controllers/ctl-portal');
-var ctlHeaderSearch = require('../controllers/ctl-header-search');
+var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 var Roles = require('../values/AccessControlCodes').Roles;
 let ctlProfile = require('../controllers/ctl-profile');
 
@@ -35,16 +35,17 @@ router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
 
 router.post(PathDict.GET.EDIT_PROFILE, ctlProfile.postEditProfile);
 
-router.get(PathDict.GET.MOVIE_LIST, ctlMoviesHalls.movieList);
+router.get(PathDict.GET.MOVIE_LIST, ctlMovies.movieList);
 router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
 
-router.get(PathDict.GET.MOVIE_DETAILS, ctlMoviesHalls.movieDetails);
-router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMoviesHalls.schedulesOnMovie);
-router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMoviesHalls.reviewsOnMovie);
-router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMoviesHalls.reviewFormOnMovie);
-router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlHeaderSearch.multiTypeSearch);
+router.get(PathDict.GET.MOVIE_BY_GENRE, ctlMovies.searchByGenre);
+router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
+router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
+router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMovies.reviewsOnMovie);
+router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMovies.reviewFormOnMovie);
+router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 
 router.get(PathDict.GET.BUY_TICKETS, function(req, res, next) {
     res.render('pg-buy-tickets');

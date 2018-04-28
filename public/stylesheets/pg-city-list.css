@@ -1,8 +1,4 @@
 .mk-city-list li
 {
-	display: inline-block;
-	padding: 0 0.5rem;
-	background-color: #333333;
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-	font-weight: 700;
+	
 }
