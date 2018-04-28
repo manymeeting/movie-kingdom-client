@@ -29,7 +29,7 @@
                         <% for(let i = 0; i < movies.length; i++) { %>
                         <% let movie = movies[i]; %>
                         <li>
-                            <a href=<%=PathDict.GET.MOVIE_DETAILS + "?id=" + movie.movieId%>>
+                            <a href="<%=PathDict.GET.MOVIE_DETAILS + "?id=" + movie.movieId%>">
                                 <img class="mk-movie-thumb-img" src=<%=movie.coverImageUrl%> >
                             </a>
                             <div class="mk-movie-thumb-title-wrapper">
