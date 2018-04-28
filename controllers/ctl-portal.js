@@ -1,5 +1,5 @@
 var clientMessenger = require('../kafka/ClientMessenger');
-let HTTP_METHOD = require('../values/constants').HTTP_METHOD;
+let API_METHOD = require('../values/constants').API_METHOD;
 
 module.exports.getLogout = function(req, res, next){
 	delete req.session.user;
@@ -16,7 +16,7 @@ module.exports.postLogin = function(req, res, next){
 		"password": req.body.password
 	};
 	// get all movies
-	clientMessenger.send("/login", HTTP_METHOD.POST, "users", params)
+	clientMessenger.send("/login", API_METHOD.POST, "users", params)
 		.then(result => {
 			console.log(result.user);
 			// persist user to session
@@ -41,7 +41,7 @@ module.exports.postSignUp = function(req, res, next){
 		"username": req.body.username
 	};
 	// get all movies
-	clientMessenger.send("/user", "users", HTTP_METHOD.POST, params)
+	clientMessenger.send("/user", "users", API_METHOD.POST, params)
 		.then(result => {
 			console.log(result);
 			res.redirect('/login');

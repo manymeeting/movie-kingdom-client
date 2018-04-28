@@ -1,14 +1,14 @@
 var clientMessenger = require('../kafka/ClientMessenger');
-let HTTP_METHOD = require('../values/constants').HTTP_METHOD;
+let API_METHOD = require('../values/constants').API_METHOD;
 
 module.exports.movieList = function(req, res, next) {
 	// get all movies and genres
 	var page = req.query.page ? req.query.page : 0;
 	var genres = [];
-	clientMessenger.send("/genres", HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/genres", API_METHOD.GET, "movies")
 		.then((result) => {
 			genres = result.content;
-			return clientMessenger.send("/movies?page=" + page, HTTP_METHOD.GET, "movies");
+			return clientMessenger.send("/movies?page=" + page, API_METHOD.GET, "movies");
 		})
 		.then(result => {
 			console.log(result);
@@ -29,10 +29,10 @@ module.exports.searchByGenre = function(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var genreId = req.query.genreId;
 	var genres = [];
-	clientMessenger.send("/genres", HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/genres", API_METHOD.GET, "movies")
 		.then((result) => {
 			genres = result.content;
-			return clientMessenger.send("/movies?page=" + page + "&genreId=" + genreId, HTTP_METHOD.GET, "movies");
+			return clientMessenger.send("/movies?page=" + page + "&genreId=" + genreId, API_METHOD.GET, "movies");
 		})
 		.then(result => {
 			console.log(result);
@@ -52,7 +52,7 @@ module.exports.searchByGenre = function(req, res, next) {
 module.exports.movieDetails = function(req, res, next) {
 	var movieID = req.query.id;
 
-	clientMessenger.send("/movie/" + movieID, HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
 		.then(result => {
 			console.log(result);
 			res.render('pg-movie-details', {
@@ -71,7 +71,7 @@ module.exports.schedulesOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
 
 	// TODO: fetch schedule data
-	clientMessenger.send("/movie/" + movieID, HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
 		.then(result => {
 			console.log(result);
 			res.render('movie-dt-schedules', {
@@ -90,13 +90,13 @@ module.exports.reviewsOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
 	var movie = {};
 	var reviews = [];
-	clientMessenger.send("/movie/" + movieID, HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
 		.then(result => {
 			console.log(result);
 			movie = result.movie;
 		})
 		.then(() => {
-			return clientMessenger.send("/movie-reviews/?movieId=" + movieID, HTTP_METHOD.GET, "reviews");
+			return clientMessenger.send("/movie-reviews/?movieId=" + movieID, API_METHOD.GET, "reviews");
 		})
 		.then(result => {
 			reviews = result.content;
@@ -114,7 +114,7 @@ module.exports.reviewsOnMovie = function(req, res, next) {
 
 module.exports.reviewFormOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
-	clientMessenger.send("/movie/" + movieID, HTTP_METHOD.GET, "movies")
+	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
 		.then(result => {
 			console.log(result);
 			res.render('movie-dt-post-review', {

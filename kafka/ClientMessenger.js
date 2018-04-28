@@ -1,5 +1,5 @@
 var kafkaClientService = require('./KafkaClientService');
-let HTTP_METHOD = require('../values/constants').HTTP_METHOD;
+let API_METHOD = require('../values/constants').API_METHOD;
 
 module.exports.send = function (url, method, topic, params) {
 
@@ -9,7 +9,7 @@ module.exports.send = function (url, method, topic, params) {
 			apiURL: url,
 			topicRes: topic + ".response"
 		};
-		if(params && method !== HTTP_METHOD.GET) {
+		if(params && method !== API_METHOD.GET) {
 			content.params = params;
 		}
 

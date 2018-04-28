@@ -1,4 +1,4 @@
-module.exports.HTTP_METHOD = {
+module.exports.API_METHOD = {
     GET: "get",
     POST: "post",
     PUT: "put",
