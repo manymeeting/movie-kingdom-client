@@ -16,23 +16,6 @@
 }
 
 
-.mk-profile-edit-form
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 3rem;
-}
-
-.mk-profile-edit-item
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
 .mk-profile-a {
     width: 12rem;
     color: #3E8EDE;
