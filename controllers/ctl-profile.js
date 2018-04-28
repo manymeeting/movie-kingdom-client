@@ -2,7 +2,6 @@ let clientMessenger = require('../kafka/ClientMessenger');
 
 module.exports.postEditProfile = function (req, res, next) {
     let content = JSON.parse(req.body.userInfo);
-    console.log('lxr', req.body);
     delete req.body.userInfo;
     let updateInfo = req.body;
     for (let key in updateInfo) {
@@ -10,6 +9,7 @@ module.exports.postEditProfile = function (req, res, next) {
             content[key] = updateInfo[key];
         }
     }
+    console.log('lxr', content);
     clientMessenger.sendPOST("/user/" + content.userId, "users", content)
         .then(result => {
             console.log(result);
