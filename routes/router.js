@@ -40,6 +40,7 @@ router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
 
+router.get(PathDict.GET.MOVIE_BY_GENRE, ctlMovies.searchByGenre);
 router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
 router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMovies.reviewsOnMovie);

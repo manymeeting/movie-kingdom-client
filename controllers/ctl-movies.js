@@ -24,6 +24,30 @@ module.exports.movieList = function(req, res, next) {
 	
 }
 
+module.exports.searchByGenre = function(req, res, next) {
+	var page = req.query.page ? req.query.page : 0;
+	var genreId = req.query.genreId;
+	var genres = [];
+	clientMessenger.sendGET("/genres", "movies")
+		.then((result) => {
+			genres = result.content;
+			return clientMessenger.sendGET("/movies?page=" + page + "&genreId=" + genreId, "movies");
+		})
+		.then(result => {
+			console.log(result);
+			res.render('pg-movie-list', {
+				"title": 'Movies', 
+				"genres": genres,
+				"selectedGenreId": genreId,
+				"movies": result.content
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
+}
+
 module.exports.movieDetails = function(req, res, next) {
 	var movieID = req.query.id;
 

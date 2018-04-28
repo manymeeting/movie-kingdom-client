@@ -46,6 +46,11 @@
     margin-top: 0.3rem;
 }
 
+.mk-tags-active, .mk-tags-active a
+{
+    color: #eb5533;
+}
+
 .mk-sub-title
 {
     font-size: 3rem;

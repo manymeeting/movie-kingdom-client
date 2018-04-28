@@ -8,6 +8,7 @@ const dict = {
 		EDIT_PROFILE: '/profile/edit',
 		MOVIE_LIST: '/movies',
 		HALL_LIST: '/halls',
+		MOVIE_BY_GENRE: '/movies/genre',
 		BUY_TICKETS: "/tickets/buy",
 		PURCHASE_LIST: '/purchases',
 		ADD_MOVIE: '/movie/add',

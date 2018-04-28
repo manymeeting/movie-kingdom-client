@@ -13,7 +13,9 @@
                 <ul>
                     <% for(let i = 0; i < genres.length; i++) { %>
                         <% let genre = genres[i]; %>
-                        <li class="mk-tags"><a href="<%= PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=GENRE&searchValue=" + genre.genreId%>"><%=genre.genreName%></a></li>
+                        <li class="mk-tags <%= (typeof(selectedGenreId) !== "undefined" && selectedGenreId == genre.genreId) ? "mk-tags-active" : "" %>">
+                            <a href="<%= PathDict.GET.MOVIE_BY_GENRE + "?genreId=" + genre.genreId%>"><%=genre.genreName%></a>
+                        </li>
                     <% } %>
                 </ul>
             </div>
