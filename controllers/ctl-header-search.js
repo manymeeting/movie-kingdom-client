@@ -13,6 +13,8 @@ module.exports.multiTypeSearch = function(req, res, next) {
 		case "CITY":
 			_searchCity(req, res, next);
 			return;
+		case "CITY_ID":
+			_fetchSchedulesByCityID(req, res, next);
 	}
 }
 
@@ -56,10 +58,32 @@ function _fetchSchedulesByZipCode(req, res, next) {
 		});
 }
 
+function _fetchSchedulesByCityID(req, res, next){
+	var page = req.query.page ? req.query.page : 0;
+	var searchValue = req.query.searchValue ? req.query.searchValue : DEFAULT_ZIPCODE;
+	var cityName = req.query.cityName ? req.query.cityName : "";;
+	clientMessenger.sendGET("/schedules-city/"+ searchValue + "?page=" + page, "schedules")
+		.then(result => {
+			console.log(result);
+			res.render('pg-hall-list', {
+				"title": 'Search Result', 
+				"halls": result.content,
+				"searchValue": cityName, // show city name instead of ID
+				"searchType": "CITY", // label as city
+				"locationValue": searchValue
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
+}
+
 function _searchCity(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue;
 	
+	// TODO: user real data once backend is ready
 	var result = {
 		  "content": [
 		    {
