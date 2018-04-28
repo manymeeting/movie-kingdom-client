@@ -11,9 +11,10 @@
             <p>FILTER BY MOVIE GENRES</p>
             <div>
                 <ul>
-                    <li class="mk-genre-tags"><a href="#">ACTION</a></li>
-                    <li class="mk-genre-tags"><a href="#">DRAMA</a></li>
-                    <li class="mk-genre-tags"><a href="#">COMEDY</a></li>
+                    <% for(let i = 0; i < genres.length; i++) { %>
+                        <% let genre = genres[i]; %>
+                        <li class="mk-tags"><a href="<%= PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=GENRE&searchValue=" + genre.genreId%>"><%=genre.genreName%></a></li>
+                    <% } %>
                 </ul>
             </div>
             

@@ -16,7 +16,7 @@
                     <ul class="mk-city-list">
                         <% for(let i = 0; i < cities.length; i++) { %>
                         <% let city = cities[i]; %>
-                        <li>
+                        <li class="mk-tags">
                             <a href="<%=PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=CITY_ID&searchValue=" + city.cityId + "&cityName=" + city.cityName + ", " + city.state%>">
                                 <%= city.cityName + ", " + city.state%>
                             </a>

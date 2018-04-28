@@ -5,7 +5,7 @@ module.exports.multiTypeSearch = function(req, res, next) {
 	var searchType = req.query.searchType;
 	switch(searchType) {
 		case "MOVIE": 
-			_searchMovie(req, res, next);
+			_searchMovieByName(req, res, next);
 			return;
 		case "ZIPCODE":
 			_fetchSchedulesByZipCode(req, res, next);
@@ -18,14 +18,20 @@ module.exports.multiTypeSearch = function(req, res, next) {
 	}
 }
 
-function _searchMovie(req, res, next) {
+function _searchMovieByName(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue;
-	clientMessenger.sendGET("/search-movies/"+ searchValue + "?page=" + page, "movies")
+	var genres = [];
+	clientMessenger.sendGET("/genres", "movies")
+		.then((result) => {
+			genres = result.content;
+			return clientMessenger.sendGET("/search-movies/"+ searchValue + "?page=" + page, "movies")
+		})
 		.then(result => {
 			console.log(result);
 			res.render('pg-movie-list', {
-				"title": 'Search Result', 
+				"title": 'Search Result',
+				"genres": genres,
 				"movies": result.content,
 				"searchValue": searchValue,
 				"searchType": "MOVIE"

@@ -1,13 +1,19 @@
 var clientMessenger = require('../kafka/ClientMessenger');
 
 module.exports.movieList = function(req, res, next) {
-	// get all movies
+	// get all movies and genres
 	var page = req.query.page ? req.query.page : 0;
-	clientMessenger.sendGET("/movies?page=" + page, "movies")
+	var genres = [];
+	clientMessenger.sendGET("/genres", "movies")
+		.then((result) => {
+			genres = result.content;
+			return clientMessenger.sendGET("/movies?page=" + page, "movies");
+		})
 		.then(result => {
 			console.log(result);
 			res.render('pg-movie-list', {
 				"title": 'Movies', 
+				"genres": genres,
 				"movies": result.content
 			});
 		})
