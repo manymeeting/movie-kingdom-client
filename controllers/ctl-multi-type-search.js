@@ -90,35 +90,9 @@ function _searchCity(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue;
 	
-	// TODO: user real data once backend is ready
-	var result = {
-		  "content": [
-		    {
-		      "cityId": 7,
-		      "cityName": "Carlsbad",
-		      "state": "CA"
-		    },
-		    {
-		      "cityId": 20,
-		      "cityName": "Lancaster",
-		      "state": "CA"
-		    },
-		    {
-		      "cityId": 53,
-		      "cityName": "Santa Monica",
-		      "state": "CA"
-		    }
-		  ],
-		  "totalPages": 1,
-		  "totalElements": 3,
-		  "last": true,
-		  "numberOfElements": 3,
-		  "sort": null,
-		  "first": true,
-		  "size": 20,
-		  "number": 0
-		};
-	res.render('pg-city-list', {
+	clientMessenger.send("/search-cities/"+ searchValue + "?page=" + page, API_METHOD.GET, "theaters")
+		.then(result => {
+			res.render('pg-city-list', {
 				"title": 'Search Result', 
 				"subTitle": "Search Result For: " + searchValue,
 				"cities": result.content,
@@ -126,21 +100,11 @@ function _searchCity(req, res, next) {
 				"searchType": "CITY",
 				"locationValue": searchValue
 			});
-	// clientMessenger.send("/search-cities/"+ searchValue + "?page=" + page, API_METHOD.GET, "cities")
-	// 	.then(result => {
-	// 		res.render('pg-city-list', {
-	// 			"title": 'Search Result', 
-	// 			"subTitle": "Search Result For: " + searchValue,
-	// 			"cities": result.content,
-	// 			"searchValue": searchValue,
-	// 			"searchType": "CITY",
-	// 			"locationValue": searchValue
-	// 		});
-	// 	})
-	// 	.catch(err => {
-	// 		console.log(err);
-	// 		res.status(400).send();
-	// 	});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
 }
 
 
