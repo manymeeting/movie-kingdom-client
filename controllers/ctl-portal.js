@@ -17,7 +17,7 @@ module.exports.postLogin = function(req, res, next){
 	// get all movies
 	clientMessenger.sendPOST("/login", "users", params)
 		.then(result => {
-			console.log(result);
+			console.log(result.user);
 			// persist user to session
 			req.session.user = result.user;
 			res.redirect('/movies');

@@ -2,11 +2,11 @@
     <% if (userInfo.role === Roles.SAD) { %>
         <div class="form-group mk-form-adjust">
             <label>Role</label>
-            <select class="form-control form-control-sm input-sm col-sm-6">
-                <option value="0">GUEST</option>
-                <option value="1">USER</option>
-                <option value="2">HAD</option>
-                <option value="3">SAD</option>
+            <select class="form-control form-control-sm input-sm col-sm-6" name="role">
+                <option value=0>GUEST</option>
+                <option value=1>USER</option>
+                <option value=2>HAD</option>
+                <option value=3>SAD</option>
             </select>
         </div>
     <% } %>
@@ -17,6 +17,7 @@
              id="mk-image-preview"/>
         <label class="mk-profile-label">
             <input type="file" id="mk-image-upload"/>
+            <input type="hidden" name="userInfo" value="<%= JSON.stringify(userInfo)%>"/>
             Select Image
         </label>
     </div>
@@ -34,7 +35,8 @@
                pattern="^([^0-9]*)$"
                title="Must not contain number"
                placeholder="Edit"
-               name="firstname"/>
+               name="firstName"
+        />
     </div>
     <div class="form-group">
         <label>Last Name</label>
@@ -43,7 +45,7 @@
                pattern="^([^0-9]*)$"
                title="Must not contain number"
                placeholder="Edit"
-               name="lastname"
+               name="lastName"
         />
     </div>
     <div class="form-group">
