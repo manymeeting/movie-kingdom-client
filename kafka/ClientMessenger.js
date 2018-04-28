@@ -1,13 +1,18 @@
 var kafkaClientService = require('./KafkaClientService');
+let HTTP_METHOD = require('../values/constants').HTTP_METHOD;
 
-module.exports.sendGET = function (url, topic) {
+module.exports.send = function (url, method, topic, params) {
 
 	return new Promise((resolve, reject) => {
 		var content = {
-			method: "get",
+			method: method,
 			apiURL: url,
 			topicRes: topic + ".response"
 		};
+		if(params && method !== HTTP_METHOD.GET) {
+			content.params = params;
+		}
+
 		kafkaClientService.sendMessage(topic, 0, content, function(sendErr, serviceRes){
 			if(sendErr)
 			{
@@ -19,44 +24,4 @@ module.exports.sendGET = function (url, topic) {
 
 	});
 
-}
-
-module.exports.sendPOST = function (url, topic, params) {
-	return new Promise((resolve, reject) => {
-		var content = {
-			method: "post",
-			apiURL: url,
-			topicRes: topic + ".response",
-			params: params
-		};
-		kafkaClientService.sendMessage(topic, 0, content, function(sendErr, serviceRes){
-			if(sendErr)
-			{
-				reject(sendErr);
-				return;
-			}
-			resolve(serviceRes);
-		});
-
-	});
-}
-
-module.exports.APIHandler = function (url, method, topic, params) {
-    return new Promise((resolve, reject) => {
-        var content = {
-            method: method,
-            apiURL: url,
-            topicRes: topic + ".response",
-            params: params
-        };
-        kafkaClientService.sendMessage(topic, 0, content, function(sendErr, serviceRes){
-            if(sendErr)
-            {
-                reject(sendErr);
-                return;
-            }
-            resolve(serviceRes);
-        });
-
-    });
 }

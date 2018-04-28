@@ -1,5 +1,6 @@
 const DEFAULT_ZIPCODE = "95112"; // TODO get zipcode based on actual user location
 var clientMessenger = require('../kafka/ClientMessenger');
+let HTTP_METHOD = require('../values/constants').HTTP_METHOD;
 
 module.exports.multiTypeSearch = function(req, res, next) {
 	var searchType = req.query.searchType;
@@ -22,10 +23,10 @@ function _searchMovieByName(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue;
 	var genres = [];
-	clientMessenger.sendGET("/genres", "movies")
+	clientMessenger.send("/genres", HTTP_METHOD.GET, "movies")
 		.then((result) => {
 			genres = result.content;
-			return clientMessenger.sendGET("/search-movies/"+ searchValue + "?page=" + page, "movies")
+			return clientMessenger.send("/search-movies/"+ searchValue + "?page=" + page, HTTP_METHOD.GET, "movies")
 		})
 		.then(result => {
 			console.log(result);
@@ -47,7 +48,7 @@ function _searchMovieByName(req, res, next) {
 function _fetchSchedulesByZipCode(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue ? req.query.searchValue : DEFAULT_ZIPCODE;
-	clientMessenger.sendGET("/schedules-zipcdoe/"+ searchValue + "?page=" + page, "schedules")
+	clientMessenger.send("/schedules-zipcdoe/"+ searchValue + "?page=" + page, HTTP_METHOD.GET, "schedules")
 		.then(result => {
 			console.log(result);
 			res.render('pg-hall-list', {
@@ -68,7 +69,7 @@ function _fetchSchedulesByCityID(req, res, next){
 	var page = req.query.page ? req.query.page : 0;
 	var searchValue = req.query.searchValue ? req.query.searchValue : DEFAULT_ZIPCODE;
 	var cityName = req.query.cityName ? req.query.cityName : "";;
-	clientMessenger.sendGET("/schedules-city/"+ searchValue + "?page=" + page, "schedules")
+	clientMessenger.send("/schedules-city/"+ searchValue + "?page=" + page, HTTP_METHOD.GET, "schedules")
 		.then(result => {
 			console.log(result);
 			res.render('pg-hall-list', {
@@ -125,7 +126,7 @@ function _searchCity(req, res, next) {
 				"searchType": "CITY",
 				"locationValue": searchValue
 			});
-	// clientMessenger.sendGET("/search-cities/"+ searchValue + "?page=" + page, "cities")
+	// clientMessenger.send("/search-cities/"+ searchValue + "?page=" + page, HTTP_METHOD.GET, "cities")
 	// 	.then(result => {
 	// 		res.render('pg-city-list', {
 	// 			"title": 'Search Result', 

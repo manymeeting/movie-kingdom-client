@@ -1,8 +1,6 @@
-const REST_method = {
+module.exports.HTTP_METHOD = {
     GET: "get",
     POST: "post",
     PUT: "put",
     DELETE: "delete"
 }
-
-module.exports = REST_method;
