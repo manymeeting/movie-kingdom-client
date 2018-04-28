@@ -1,5 +1,5 @@
 var clientMessenger = require('../kafka/ClientMessenger');
-const ZIPCODE = "95192"; // TODO get zipcode based on actual user location
+const ZIPCODE = "92825"; // TODO get zipcode based on actual user location
 
 module.exports.movieList = function(req, res, next) {
 	// get all movies
@@ -120,7 +120,7 @@ function _searchMovie(req, res, next) {
 		.then(result => {
 			console.log(result);
 			res.render('pg-movie-list', {
-				"title": 'Movies', 
+				"title": 'Search Result', 
 				"movies": result.content,
 				"searchValue": searchValue,
 				"searchType": "MOVIE"
@@ -134,7 +134,23 @@ function _searchMovie(req, res, next) {
 }
 
 function _fetchSchedulesByZipCode(req, res, next) {
-
+	var page = req.query.page ? req.query.page : 0;
+	var searchValue = req.query.searchValue;
+	clientMessenger.sendGET("/schedules-zipcdoe/"+ searchValue + "?page=" + page, "schedules")
+		.then(result => {
+			console.log(result);
+			res.render('pg-hall-list', {
+				"title": 'Search Result', 
+				"halls": result.content,
+				"searchValue": searchValue,
+				"searchType": "ZIPCODE",
+				"locationValue": searchValue
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
 }
 
 function _fetchSchedulesByCity(req, res, next) {

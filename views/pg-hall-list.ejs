@@ -8,7 +8,7 @@
         <% include ./header.ejs %>
         
         <div class="container mt-4">
-            <h2 class="mk-sub-title">MOVIE TIMES + TICKETS NEAR 95112</h2>
+            <h2 class="mk-sub-title">MOVIE TIMES + TICKETS NEAR <%= typeof(locationValue) !== "undefined" ? locationValue : "95112" %></h2>
             <p>FILTER BY: </p>
             <div class="row">
                 <div class="input-group mb-3 col">
@@ -40,46 +40,74 @@
                 </div>
             </div>
 
-            <div class="mk-hall-list-wrapper">
-                <ul class="mk-hall-list">
-                    <li>
-                        <div class="mk-hall-header">
-                            <div class="mk-hall-name-wrapper">
-                                <h3>
-                                    <a href="#">CENTURY CINEMAS 16</a>
-                                </h3>
-                            </div>
-                            <div class="mk-hall-addr-wrapper">
-                                <span class="mk-text-mute">3000 El Camino Real, Palo Alto, CA 94306</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-auto">
-                                <a href="#">
-                                    <img class="mk-movie-thumb-img" src="https://images.fandango.com/r1.0.431/ImageRenderer/168/250/redesign/static/img/default_poster.png/203381/images/masterrepository/fandango/203381/prbt_online_1sht_tsr_lk4_04.jpg">
-                                </a>
-                            </div>
-                            <div class="mk-hall-list-info-wrapper col-3">
-                                <a href="#"><h3>YOU WERE NEVER REALLY HERE</h3></a>
-                                <div><span>4.3</span></div>
-                                <div><span>COMEDY</span></div>
-
-                            </div>
-                            <div class="mk-hall-schedules-wrapper col-6">
-                                <div><span>Select a movie time to buy Standard Showtimes</span></div>
-                                <div class="mk-hall-schedules-list">
-                                    <ul>
-                                        <li>
-                                            <span>1:00p</span>
-                                        </li>
-                                    </ul>
+            <% if(typeof(halls) === "undefined" || !halls.length > 0) {%>
+                <h3>NO SCHEDULES FOR NOW : )</h3>
+            <% } else { %>
+                <div class="mk-hall-list-wrapper">
+                    <ul class="mk-hall-list">
+                        <% for(let i = 0 ; i < halls.length; i++) {%>
+                        <% var hall = halls[i]; %>
+                            <li>
+                                <div class="mk-hall-header">
+                                    <div class="mk-hall-name-wrapper">
+                                        <h3>
+                                            <a href="#"><%= hall.theaterName%></a>
+                                        </h3>
+                                    </div>
+                                    <div class="mk-hall-addr-wrapper">
+                                        <span class="mk-text-mute"><%= hall.street + " " + hall.zipcode%></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    
-                </ul>
-            </div>
+                                <ul class="mk-hall-movies-list">
+                                    <% var hallMovies = hall.movies; %>
+                                    <% for(let j = 0; j < hallMovies.length; j++) { %>
+                                        <% var hallMovie = hallMovies[j]; %>
+                                        <li class="row mt-4">
+                                            <div class="col-auto">
+                                                <a href="#">
+                                                    <img class="mk-movie-thumb-img" src=<%=hallMovie.coverImageUrl%>>
+                                                </a>
+                                            </div>
+                                            <div class="mk-hall-list-info-wrapper col-3">
+                                                <a href="#"><h3><%= hallMovie.movieTitle%></h3></a>
+                                                <div>
+                                                    <p class="mk-movie-review-rating">
+                                                        <% for(let k = 0; k < 5; k++){ %>
+                                                            <% if(k <= Math.round(hallMovie.stars)){ %>
+                                                                <span class="fa fa-star mk-star-filled"></span>
+                                                            <% } else{%>
+                                                                <span class="fa fa-star"></span>
+                                                            <% } %>
+                                                        <% } %>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <% for(let k = 0; k < hallMovie.genres.length; k++) {%>
+                                                        <span class="mk-movie-genre-tag"><%= (k===0 ? "" : ", ") + hallMovie.genres[k].genreName %></span>
+                                                    <% } %>
+                                                </div>
+
+                                            </div>
+                                            <div class="mk-hall-schedules-wrapper col-6">
+                                                <div><span>Select a movie time to buy Standard Showtimes</span></div>
+                                                <div class="mk-hall-schedules-list">
+                                                    <ul>
+                                                        <% for(let k = 0; k < hallMovie.schedules.length; k++) {%>
+                                                            <li>
+                                                                <span><%= hallMovie.schedules[k].showtime%></span>
+                                                            </li>
+                                                        <% }%>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <% }%>
+                                    </ul>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
         </div>
 
         <% include ./lib-url.ejs %>

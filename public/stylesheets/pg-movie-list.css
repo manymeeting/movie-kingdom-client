@@ -24,6 +24,11 @@
 	text-overflow:ellipsis;
 	white-space: nowrap;
 }
+.mk-movie-genre-tag
+{
+	font-style: italic;
+	font-family: "Times New Roman",Georgia,Serif;	
+}
 
 .mk-movie-dt-nav-wrapper li
 {
