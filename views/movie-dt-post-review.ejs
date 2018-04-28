@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="container mt-4">
+            <div class="row">
+                <h2 class="mk-sub-title"><%=movie.movieTitle + " REVIEWS "%></h2>
+            </div>
+            <% include ./movie-dt-subnav.ejs %>
+            
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <% include ./movie-dt-info.ejs %>
+                <div class="col-8">
+                    <form>
+                        <div class="mk-dt-postrw-rating-wrapper">
+                            <h3>PLEASE RATE THIS MOVIE FROM 1-5 STARS</h3>
+                            <select class="custom-select" name="stars">
+                                <option selected value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div class="mk-dt-postrw-content-wrapper mt-3">
+                            <h3>WRITE A REVIEW</h3>
+                            <div class="form-group">
+                                <label for="inputReviewTitle">Title: </label>
+                                <input type="text" class="form-control" id="inputReviewTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputReviewContent">Body: </label>
+                                <textarea class="form-control" id="inputReviewContent" rows="3" required></textarea>
+                                <small id="reviewContentHint" class="form-text text-muted">
+                                    Note: Your review will appear publicly on our site. Please do not include any personal information (full street address, etc.) Allow up to 24 hours for your review to post.
+                                </small>
+                            </div>
+                            <div class="mk-dt-postrv-btn-wrapper">
+                                <a href=<%= PathDict.GET.MOVIE_DETAILS_REVIEWS + "?id=" + movie.movieId%> class="btn btn-light">CANCEL</a>
+                                <input type="submit" class="btn btn-primary" value="SAVE REVIEW" />
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

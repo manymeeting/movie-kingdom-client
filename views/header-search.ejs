@@ -1,0 +1,15 @@
+<form method="GET" action="/schedules/search" class="form-inline my-2 my-lg-0">
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="headerSearchLabel">Movie</button>
+			<div class="dropdown-menu">
+				<span class="dropdown-item mk-header-search-options" searchType="movie">Movie</span>
+				<span class="dropdown-item mk-header-search-options" searchType="zipCode">Zip Code</span>
+				<span class="dropdown-item mk-header-search-options" searchType="city">City</span>
+			</div>
+		</div>
+		<input type="search" class="form-control mr-sm-2" placeholder="Search..." name="searchValue">
+		<input type="hidden" id="inputHeaderSearchType" name="searchType">
+	</div>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">GO</button>
+</form>
