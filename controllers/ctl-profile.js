@@ -1,4 +1,5 @@
 let clientMessenger = require('../kafka/ClientMessenger');
+let REST = require('../values/constants');
 
 module.exports.postEditProfile = function (req, res, next) {
     let content = JSON.parse(req.body.userInfo);
@@ -10,7 +11,7 @@ module.exports.postEditProfile = function (req, res, next) {
         }
     }
     console.log('lxr', content);
-    clientMessenger.sendPOST("/user/" + content.userId, "users", content)
+    clientMessenger.APIHandler("/user/" + content.userId, REST.PUT, "users", content)
         .then(result => {
             console.log(result);
             // update userInfo to session

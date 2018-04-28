@@ -40,3 +40,23 @@ module.exports.sendPOST = function (url, topic, params) {
 
 	});
 }
+
+module.exports.APIHandler = function (url, method, topic, params) {
+    return new Promise((resolve, reject) => {
+        var content = {
+            method: method,
+            apiURL: url,
+            topicRes: topic + ".response",
+            params: params
+        };
+        kafkaClientService.sendMessage(topic, 0, content, function(sendErr, serviceRes){
+            if(sendErr)
+            {
+                reject(sendErr);
+                return;
+            }
+            resolve(serviceRes);
+        });
+
+    });
+}
