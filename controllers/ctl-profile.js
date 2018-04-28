@@ -17,11 +17,13 @@ module.exports.postEditProfile = function (req, res, next) {
             console.log('result', result);
             // update userInfo to session
             req.session.user = result.user;
+            res.redirect('/profile');
         })
         .catch(err => {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
+            alert("profile update failed due to " + err);
+            res.redirect('/profile/edit');
         });
-    res.redirect('/profile');
 }
