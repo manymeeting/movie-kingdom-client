@@ -77,7 +77,7 @@ function _fetchSchedulesByCityID(req, res, next){
 				"halls": result.content,
 				"searchValue": cityName, // show city name instead of ID
 				"searchType": "CITY", // label as city
-				"locationValue": searchValue
+				"locationValue": cityName
 			});
 		})
 		.catch(err => {
