@@ -1,5 +1,5 @@
 var clientMessenger = require('../kafka/ClientMessenger');
-const ZIPCODE = "92825"; // TODO get zipcode based on actual user location
+const DEFAULT_ZIPCODE = "92825"; // TODO get zipcode based on actual user location
 
 module.exports.movieList = function(req, res, next) {
 	// get all movies
@@ -135,7 +135,7 @@ function _searchMovie(req, res, next) {
 
 function _fetchSchedulesByZipCode(req, res, next) {
 	var page = req.query.page ? req.query.page : 0;
-	var searchValue = req.query.searchValue;
+	var searchValue = req.query.searchValue ? DEFAULT_ZIPCODE;
 	clientMessenger.sendGET("/schedules-zipcdoe/"+ searchValue + "?page=" + page, "schedules")
 		.then(result => {
 			console.log(result);
