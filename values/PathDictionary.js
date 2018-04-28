@@ -20,6 +20,7 @@ const dict = {
 		MOVIE_DETAILS_SCHEDULES: '/movie/details/schedules',
 		MOVIE_DETAILS_REVIEWS: '/movie/details/reviews',
 		MOVIE_DETAILS_POST_REVIEW: '/movie/details/reviews/post',
+		SEARCH_MOVIES_SCHEDULES: '/movies-schedules/search',
 		NO_ACCESS: '/noaccess',
 	},
 	POST: {
