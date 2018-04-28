@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-city-list.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        <div class="container mt-4">
+            <h2 class="mk-sub-title"><%= typeof(subTitle) !== "undefined" ? subTitle : "Cities" %></h2>
+            <p class="mk-sub-title-desc">Find available movie times in your city</p>
+            <% if(typeof(cities) === "undefined" || !cities.length > 0) {%>
+                <h3>NO CITIES FOR NOW : )</h3>
+            <% } else { %>
+                <div class="mk-city-list-wrapper">
+                    <ul class="mk-city-list">
+                        <% for(let i = 0; i < cities.length; i++) { %>
+                        <% let city = cities[i]; %>
+                        <li>
+                            <a href=<%=PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=CITY_ID&searchValue=" + city.cityId%>>
+                                <%= city.cityName + ", " + city.state%>
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            <% }%>
+            
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>

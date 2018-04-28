@@ -10,7 +10,7 @@
 				<span class="dropdown-item mk-header-search-options" searchType="CITY"><%= labelDict["CITY"]%></span>
 			</div>
 		</div>
-		<input type="search" class="form-control mr-sm-2" placeholder="Search..." name="searchValue" required value=<%= typeof(searchValue) !== "undefined" ? searchValue : ""%>>
+		<input type="search" class="form-control mr-sm-2" placeholder="Search..." name="searchValue" required value="<%= typeof(searchValue) !== "undefined" ? searchValue : ""%>">
 		<input type="hidden" id="inputHeaderSearchType" name="searchType" value=<%=retainedSearchType%>>
 	</div>
     <button class="btn btn-success my-2 my-sm-0" type="submit">GO</button>

@@ -36,6 +36,12 @@
     cursor: pointer;
 }
 
+.mk-sub-title
+{
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
 .mk-span
 {
 	margin: 0 0.2rem;
