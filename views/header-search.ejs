@@ -1,6 +1,6 @@
 <% var labelDict = {"MOVIE": "Movie", "ZIPCODE": "Zip Code", "CITY": "City"};%>
 <% var retainedSearchType = typeof(searchType) !== "undefined" ? searchType : "MOVIE" //set movie as default search type %>
-<form method="GET" action=<%=PathDict.GET.SEARCH_MOVIES_SCHEDULES%> class="form-inline my-2 my-lg-0">
+<form method="GET" action=<%=PathDict.GET.MULTI_TYPE_SEARCH%> class="form-inline my-2 my-lg-0">
 	<div class="input-group">
 		<div class="input-group-prepend">
 			<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="headerSearchLabel"><%= labelDict[retainedSearchType]%></button>
