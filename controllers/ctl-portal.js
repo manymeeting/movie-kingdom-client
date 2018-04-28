@@ -41,7 +41,7 @@ module.exports.postSignUp = function(req, res, next){
 		"username": req.body.username
 	};
 	// get all movies
-	clientMessenger.send("/user", "users", API_METHOD.POST, params)
+	clientMessenger.send("/user", API_METHOD.POST, "users", params)
 		.then(result => {
 			console.log(result);
 			res.redirect('/login');
