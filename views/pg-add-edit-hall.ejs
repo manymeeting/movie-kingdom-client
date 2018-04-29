@@ -17,7 +17,8 @@
                 <label >THEATRE ID</label>
                 <input class="form-control form-control-sm input-sm col-sm-6"
                        type="text"
-                        disabled
+                       value="<%= hallInfo.theaterId%>"
+                        name="theatreId"
                 />
             </div>
             <% } %>
@@ -30,7 +31,10 @@
                        title="must contain only letter, digits, space or single quote"
                        placeholder="input theatre name"
                        name="theaterName"
-                       <% if (hall_option === 'Add') { %>
+                       <% if (hall_option === 'Edit') { %>
+                       value="<%= hallInfo.theaterName%>"
+                        <% } %>
+                        <% if (hall_option === 'Add') { %>
                         required
                        <% } %>
                 />
@@ -44,6 +48,9 @@
                        name="street"
                         <% if (hall_option === 'Add') { %>
                        required
+                        <% } %>
+                        <% if (hall_option === 'Edit') { %>
+                       value="<%= hallInfo.street%>"
                         <% } %>
                 />
             </div>
@@ -59,6 +66,9 @@
                         <% if (hall_option === 'Add') { %>
                        required
                         <% } %>
+                        <% if (hall_option === 'Edit') { %>
+                       value="<%= hallInfo.city.cityName%>"
+                        <% } %>
                 />
             </div>
 
@@ -72,6 +82,9 @@
                        name="zipcode"
                         <% if (hall_option === 'Add') { %>
                        required
+                        <% } %>
+                        <% if (hall_option === 'Edit') { %>
+                       value="<%= hallInfo.zipcode%>"
                         <% } %>
                 />
             </div>
