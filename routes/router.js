@@ -11,6 +11,7 @@ let ctlBuyTickets = require('../controllers/ctl-buy-tickets');
 let ctlProfile = require('../controllers/ctl-profile');
 let ctlSchedule = require('../controllers/ctl-schedule');
 let ctlMovie = require('../controllers/ctl-add-edit-movie');
+let ctlHall = require('../controllers/ctl-add-edit-hall');
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -65,13 +66,11 @@ router.get(PathDict.GET.EDIT_SCHEDULE, ctlSchedule.getEditSchedule);
 router.post(PathDict.POST.ADD_SCHEDULE, ctlSchedule.postAddSchedule);
 router.post(PathDict.POST.EDIT_SCHEDULE, ctlSchedule.postEditSchedule);
 
-router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
-    res.render('pg-add-edit-hall', { hall_option: 'Add' });
-});
-
-router.get(PathDict.GET.EDIT_HALL, function(req, res, next) {
-    res.render('pg-add-edit-hall', { hall_option: 'Edit' });
-});
+//hall
+router.get(PathDict.GET.ADD_HALL, ctlHall.getAddHall);
+router.get(PathDict.GET.EDIT_HALL, ctlHall.getEditHall);
+router.post(PathDict.POST.ADD_HALL, ctlHall.postAddHall);
+router.post(PathDict.POST.EDIT_HALL, ctlHall.postEditHall);
 
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
     res.render('pg-no-access');
