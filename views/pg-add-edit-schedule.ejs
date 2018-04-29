@@ -10,12 +10,39 @@
     <div>
         <span id="mk-add-movie-title"><%= schedule_option %> Movie Schedule</span>
     </div>
-
-        <% scheduleFormFields.forEach(function(field) { %>
         <div class="form-group">
-            <label for="<%= field %>"><%= field %></label>
+            <label for="MOVIE NAME">MOVIE ID</label>
             <input class="form-control form-control-sm input-sm col-sm-6"
-                   placeholder="input <%= field.toLowerCase() %>"
+                   placeholder="movie ID"
+                   type="text"
+                   pattern="[a-z|A-Z|0-9|\s]*"
+                    <% if (schedule_option === 'Add') { %>
+                   required
+                    <% } %>
+                    <% if (schedule_option === 'Edit') { %>
+                   disabled
+                    <% } %>
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="THEATRE ID">THEATRE ID</label>
+            <input class="form-control form-control-sm input-sm col-sm-6"
+                   placeholder="schedule ID"
+                   type="text"
+                   pattern="[a-z|A-Z|0-9|\s]*"
+                    <% if (schedule_option === 'Add') { %>
+                   required
+                    <% } %>
+                    <% if (schedule_option === 'Edit') { %>
+                   disabled
+                    <% } %>
+            />
+        </div>
+        <div class="form-group">
+            <label for="MOVIE NAME">MOVIE NAME</label>
+            <input class="form-control form-control-sm input-sm col-sm-6"
+                   placeholder="input movie name"
                    type="text"
                    pattern="[a-z|A-Z|0-9|\s]*"
                     <% if (schedule_option === 'Add') { %>
@@ -23,7 +50,18 @@
                     <% } %>
             />
         </div>
-        <% }); %>
+
+        <div class="form-group">
+            <label for="THEATRE">THEATRE</label>
+            <input class="form-control form-control-sm input-sm col-sm-6"
+                   placeholder="input theatre name"
+                   type="text"
+                   pattern="[a-z|A-Z|0-9|\s]*"
+                    <% if (schedule_option === 'Add') { %>
+                   required
+                    <% } %>
+            />
+        </div>
 
         <div class="form-group">
             <label>FORMAT</label>
