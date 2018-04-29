@@ -17,6 +17,7 @@ const dict = {
 		ADD_HALL: '/hall/add',
         EDIT_HALL: '/hall/edit',
         HALL_DETAILS: '/hall/details',
+        ADMIN_ORDERS: '/orders/admin',
         USER_ORDERS: '/orders/user',
 		MOVIE_DETAILS: '/movie/details',
 		MOVIE_DETAILS_SCHEDULES: '/movie/details/schedules',

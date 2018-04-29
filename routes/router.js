@@ -36,6 +36,7 @@ router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
 });
 
 router.get(PathDict.GET.USER_ORDERS, ctlOrders.userOrderList);
+router.get(PathDict.GET.ADMIN_ORDERS, ctlOrders.adminOrderList);
 router.get(PathDict.GET.MOVIE_BY_GENRE, ctlMovies.searchByGenre);
 router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
 router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);

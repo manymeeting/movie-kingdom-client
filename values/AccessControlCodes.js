@@ -20,8 +20,7 @@ ControlCodes[PathDict.GET.MOVIE_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.HALL_LIST] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_BY_GENRE] = Roles.GUEST;
 ControlCodes[PathDict.GET.BUY_TICKETS] = Roles.GUEST;
-ControlCodes[PathDict.GET.USER_ORDERS] = Roles.USER;
-ControlCodes[PathDict.GET.HALL_DETAILS] = Roles.USER;
+ControlCodes[PathDict.GET.HALL_DETAILS] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS_SCHEDULES] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS_REVIEWS] = Roles.GUEST;
@@ -29,17 +28,22 @@ ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;
 ControlCodes[PathDict.GET.MULTI_TYPE_SEARCH] = Roles.GUEST;
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
 
+//below lies User access
+ControlCodes[PathDict.GET.USER_ORDERS] = Roles.USER;
+
 //below lies Hall Admin access
-ControlCodes[PathDict.GET.ADD_SCHEDULE] = Roles.GUEST;
-ControlCodes[PathDict.GET.EDIT_SCHEDULE] = Roles.GUEST;
+ControlCodes[PathDict.GET.ADD_SCHEDULE] = Roles.HAD;
+ControlCodes[PathDict.GET.EDIT_SCHEDULE] = Roles.HAD;
 
 //below lies Super Admin access
-ControlCodes[PathDict.GET.ADD_HALL] = Roles.GUEST;
-ControlCodes[PathDict.GET.EDIT_HALL] = Roles.GUEST;
+ControlCodes[PathDict.GET.ADD_HALL] = Roles.SAD;
+ControlCodes[PathDict.GET.EDIT_HALL] = Roles.SAD;
+ControlCodes[PathDict.GET.ADMIN_ORDERS] = Roles.SAD
 
 //below lies both Hall and Super access
-ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.GUEST;
-ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.GUEST;
+ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.HAD;
+ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.HAD;
+
 
 
 module.exports.ControlCodes = ControlCodes;

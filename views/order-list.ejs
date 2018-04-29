@@ -1,0 +1,67 @@
+<% if(typeof(orders) === "undefined" || !orders.length > 0) {%>
+    <h3>NO ORDERS FOR NOW : )</h3>
+<% } else { %>
+    <div class="mk-order-list-wrapper">
+        <ul class="mk-order-list">
+            <% for(let i = 0 ; i < orders.length; i++) {%>
+            <% var order = orders[i]; %>
+            <% var orderMovie = order.movie; %>
+            <% var orderHall = order.theater; %>
+            <% var orderSchedule = order.schedule; %>
+            <% var orderUser = order.user; %>
+                <li class="row mt-4">
+                    <div class="col-auto">
+                        <a href="#">
+                            <img class="mk-movie-thumb-img" src=<%=orderMovie.coverImageUrl%>>
+                        </a>
+                    </div>
+                    <div class="mk-order-list-mvinfo-wrapper col-3">
+                        <a href="<%=PathDict.GET.MOVIE_DETAILS + "?id=" + orderMovie.movieId%>"><h3><%= orderMovie.movieTitle%></h3></a>
+                        <div>
+                            <p class="mk-movie-review-rating">
+                                <% for(let k = 0; k < 5; k++){ %>
+                                    <% if(k <= Math.round(orderMovie.stars)){ %>
+                                        <span class="fa fa-star mk-star-filled"></span>
+                                    <% } else{%>
+                                        <span class="fa fa-star"></span>
+                                    <% } %>
+                                <% } %>
+                            </p>
+                        </div>
+                        <div>
+                            <span><%= orderMovie.movieDesc %></span>
+                        </div>
+
+                    </div>
+                    <div class="mk-order-schedule-info-wrapper col-6">
+                        <div class="mk-order-schedule-hall-info pl-3">
+                            <h3><a href="#"><%= orderHall.theaterName%></a></h3>
+                            <span class="mk-text-mute"><%= orderHall.street + ", " + orderHall.city + ", " + orderHall.state + ", " + orderHall.zipcode%></span>
+                        </div>
+                        <div class="mk-order-schedule-dt-info pl-3">
+                            <p class="mk-order-schedule-dt-line mt-4">
+                                <span class="mk-text-mute mk-span">SHOW TIME:</span>
+                                <span class="mk-span"><%= orderSchedule.scheduleDate + " " +orderSchedule.showtime%></span>
+                                <span class="mk-text-mute mk-span">FORMAT: </span>
+                                <span class="mk-span"><%= orderSchedule.format%></span>
+                            </p>
+                            <p class="mk-order-schedule-dt-line">
+                                <span class="mk-text-mute mk-span">TICKET NUMBER:</span>
+                                <span class="mk-span"><%= order.ticketNum%></span>
+                                <span class="mk-text-mute mk-span">PRICE (TOTAL): </span>
+                                <span class="mk-span"><%= order.grandTotal%></span>
+                            </p>
+                            <p class="mk-order-schedule-dt-line">
+                                <span class="mk-text-mute mk-span">PURCHASED AT:</span>
+                                <span class="mk-span"><%= order.orderTs%> </span>
+                                <span class="mk-text-mute mk-span">BY: </span>
+                                <span class="mk-span"><%=orderUser.firstName + " " + orderUser.lastName%></span>
+                            </p>    
+                        </div>
+                    </div>
+
+                </li>
+            <% } %>
+        </ul>
+    </div>
+<% } %>

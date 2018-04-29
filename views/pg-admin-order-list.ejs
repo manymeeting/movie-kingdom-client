@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+        <link rel='stylesheet' href='/stylesheets/order-list.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="container mt-4">
+            <h2 class="mk-sub-title">SEARCH ORDERS</h2>
+            <p class="mk-sub-title-desc">Search all orders in this site, please provide movie id or user id</p>
+            <form class="mb-4" method="get", action="<%=PathDict.GET.ADMIN_ORDERS%>">
+                <div class="row">
+                    <div class="input-group col-2">
+                        <input type="number" name="userId" class="form-control" id="inputUserID" placeholder="User ID">
+                    </div>
+                    <div class="input-group col-2">
+                        <input type="number" name="movieId" class="form-control" id="inputMovieID" placeholder="Movie ID">
+                    </div>
+                    <div class="input-group col">
+                        <input type="submit" class="btn btn-dark" value="Search">
+                    </div>
+                </div>
+            </form>
+            
+            <% include ./order-list.ejs %>
+            
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>
