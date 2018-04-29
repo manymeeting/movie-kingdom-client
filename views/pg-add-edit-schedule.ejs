@@ -28,6 +28,7 @@
         </div>
         <% } %>
 
+    <% if (schedule_option === 'Add') { %>
         <div class="form-group">
             <label >MOVIE ID</label>
             <input class="form-control form-control-sm input-sm col-sm-6"
@@ -54,14 +55,16 @@
             />
         </div>
 
+
         <div class="form-group">
             <label>FORMAT</label>
-            <select class="form-control form-control-sm input-sm col-sm-4" name="format">
+            <select class="form-control form-control-sm input-sm col-sm-4" name="formatId">
                 <% formats.forEach(function (format) { %>
                 <option value="<%= format.formatId %>"><%= format.formatName%></option>
                 <% })%>
             </select>
         </div>
+    <% } %>
 
         <div class="form-group">
             <label>SCHEDULE DATE</label>
@@ -74,7 +77,7 @@
         </div>
 
         <div class="form-group">
-            <label>TIME SLOT</label>
+            <label>SHOW TIME</label>
             <input class="form-control form-control-sm input-sm col-sm-4"
                    type="time"
                     <% if (schedule_option === 'Add') { %>

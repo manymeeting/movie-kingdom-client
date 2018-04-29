@@ -43,9 +43,8 @@ module.exports.getEditSchedule = function(req, res, next) {
 module.exports.postAddSchedule = function (req, res, next) {
     let content = req.body;
     content.showtime = timeConversion(content.showtime);
-    let contentJson = JSON.stringify(content);
-    console.log('lxr', contentJson);
-    clientMessenger.send(`/schedule`, API_METHOD.POST, "schedules", contentJson)
+    console.log('lxr', content);
+    clientMessenger.send(`/schedule`, API_METHOD.POST, "schedules", content)
         .then(result => {
             console.log(result);
             res.redirect(PathDict.GET.MOVIE_LIST);
@@ -59,9 +58,10 @@ module.exports.postAddSchedule = function (req, res, next) {
 
 module.exports.postEditSchedule = function (req, res, next) {
     let content = req.body;
+    let scheduleId = 1179642;
     content.showtime = timeConversion(content.showtime);
     console.log('lxr', content);
-    clientMessenger.send(`/schedule`, API_METHOD.PUT, "schedules", content)
+    clientMessenger.send(`/schedule/${scheduleId}`, API_METHOD.PUT, "schedules", content)
         .then(result => {
             console.log(result);
             res.redirect(PathDict.GET.MOVIE_LIST);
