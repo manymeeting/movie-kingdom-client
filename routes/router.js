@@ -3,6 +3,7 @@ var router = express.Router();
 var PathDict = require('../values/PathDictionary');
 
 var ctlMovies = require('../controllers/ctl-movies');
+var ctlOrders = require('../controllers/ctl-orders');
 var ctlPortal = require('../controllers/ctl-portal');
 var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 let ctlBuyTickets = require('../controllers/ctl-buy-tickets');
@@ -36,6 +37,7 @@ router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
     res.render('pg-hall-list', { title: 'Movie Halls' });
 });
 
+router.get(PathDict.GET.USER_ORDERS, ctlOrders.userOrderList);
 router.get(PathDict.GET.MOVIE_BY_GENRE, ctlMovies.searchByGenre);
 router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
 router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
