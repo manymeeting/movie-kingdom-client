@@ -1,14 +1,18 @@
 <div class="mk-profile-wrapper">
     <label class="mk-literal-margin">User ID</label>
     <strong><%= userInfo.userId %></strong>
-    <div id="mk-profile-edit-btn">
-        <a href=<%= PathDict.GET.EDIT_PROFILE%>>
-            <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+    <div id="mk-profile-func">
+        <a href=<%= PathDict.GET.EDIT_PROFILE%> >
+            <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
-
-        <a href=<%= PathDict.GET.LOGOUT%>>
-            <button type="submit" class="btn btn-primary btn-sm">Delete Account</button>
-        </a>
+        <% if (profile_option !== 'edit') { %>
+        <form action="/profile" method="post">
+            <a href=<%= PathDict.GET.LOGOUT%>>
+                <input type="hidden" name="userId" value="<%= userInfo.userId %>">
+                <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Delete</button>
+            </a>
+        </form>
+        <% } %>
     </div>
     <div class="mk-profile-content">
         <form action="/profile/edit" method="POST">

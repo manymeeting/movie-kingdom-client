@@ -21,13 +21,20 @@
     color: #3E8EDE;
 }
 
-#mk-profile-edit-btn
+#mk-profile-func
 {
     float: right;
     padding-right: 1rem;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
 }
 
+.mk-profile-btn
+{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
 
 .mk-profile-wrapper
 {

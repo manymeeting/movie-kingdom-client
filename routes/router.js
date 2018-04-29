@@ -26,14 +26,10 @@ router.get(PathDict.GET.SIGN_UP, function(req, res, next) {
 router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
 
-router.get(PathDict.GET.PROFILE, function(req, res, next) {
-    res.render('pg-profile', { profile_option: ''});
-});
-router.get(PathDict.GET.EDIT_PROFILE, function(req, res, next) {
-    res.render('pg-profile', { profile_option: 'edit'});
-});
-
+router.get(PathDict.GET.PROFILE, ctlProfile.getProfile);
+router.get(PathDict.GET.EDIT_PROFILE, ctlProfile.getEditProfile);
 router.post(PathDict.GET.EDIT_PROFILE, ctlProfile.postEditProfile);
+router.post(PathDict.GET.PROFILE, ctlProfile.deleteProfile);
 
 router.get(PathDict.GET.MOVIE_LIST, ctlMovies.movieList);
 router.get(PathDict.GET.HALL_LIST, function(req, res, next) {
