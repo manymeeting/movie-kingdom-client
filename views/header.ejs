@@ -26,43 +26,51 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <% if (userInfo.role >= Roles.SAD) { %>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">HALL</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_HALL%>>ADD HALL</a>
-                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_HALL%>>EDIT HALL</a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown mk-nav-links">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">HALL</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href=<%=PathDict.GET.ADD_HALL%>>ADD HALL</a>
+                            <a class="dropdown-item" href=<%=PathDict.GET.EDIT_HALL%>>EDIT HALL</a>
+                        </div>
+                    </li>
                 <% } %>
                 <% if (userInfo.role >= Roles.HAD) { %>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MOVIE</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_MOVIE%>>ADD MOVIE</a>
-                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_MOVIE%>>EDIT MOVIE</a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown mk-nav-links">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MOVIE</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href=<%=PathDict.GET.ADD_MOVIE%>>ADD MOVIE</a>
+                            <a class="dropdown-item" href=<%=PathDict.GET.EDIT_MOVIE%>>EDIT MOVIE</a>
+                        </div>
+                    </li>
                 <% } %>
                 <% if (userInfo.role === Roles.HAD) { %>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">SCHEDULE</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href=<%=PathDict.GET.ADD_SCHEDULE%>>ADD SCHEDULE</a>
-                        <a class="dropdown-item" href=<%=PathDict.GET.EDIT_SCHEDULE%>>EDIT SCHEDULE</a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown mk-nav-links">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">SCHEDULE</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href=<%=PathDict.GET.ADD_SCHEDULE%>>ADD SCHEDULE</a>
+                            <a class="dropdown-item" href=<%=PathDict.GET.EDIT_SCHEDULE%>>EDIT SCHEDULE</a>
+                        </div>
+                    </li>
+                <% } %>
+                <% if (userInfo.role === Roles.SAD) { %>
+                    <li class="nav-item">
+                        <a href=<%=PathDict.GET.ADMIN_ORDERS%> class="nav-link mk-nav-links">ORDERS</a>
+                    </li>
                 <% } %>
                 <% if (userInfo.role === Roles.USER) { %>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.USER_ORDERS%> class="nav-link mk-nav-links">MY ORDERS</a>
-                </li>
+                    <li class="nav-item">
+                        <a href=<%=PathDict.GET.USER_ORDERS%> class="nav-link mk-nav-links">MY ORDERS</a>
+                    </li>
                 <% } %>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>
-                </li>
-                <li class="nav-item">
-                    <a href=<%=PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=ZIPCODE"%> class="nav-link mk-nav-links">SCHEDULES + TICKETS</a>
-                </li>
+                <% if (userInfo.role <= Roles.USER) { %>
+                    <li class="nav-item">
+                        <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=<%=PathDict.GET.MULTI_TYPE_SEARCH + "?searchType=ZIPCODE"%> class="nav-link mk-nav-links">SCHEDULES + TICKETS</a>
+                    </li>
+                <% } %>
+                
             </ul>
         </div>
     </nav>

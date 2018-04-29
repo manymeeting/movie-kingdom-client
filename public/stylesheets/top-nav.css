@@ -16,7 +16,7 @@
     width: 222px;
 }
 
-.mk-nav-links 
+.mk-nav-links, .mk-nav-links > a
 {
     color: #FFF;
     font-size: 14px;
