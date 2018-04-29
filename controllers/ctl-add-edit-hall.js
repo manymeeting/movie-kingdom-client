@@ -3,11 +3,12 @@ let API_METHOD = require('../values/constants').API_METHOD;
 let PathDict = require('../values/PathDictionary');
 
 module.exports.getAddHall = function(req, res, next) {
-    res.render('pg-add-edit-hall', { hall_option: 'Add', hall_Id: '' });
+    res.render('pg-add-edit-hall', { hall_option: 'Add', hallInfo: {} });
 }
 
 module.exports.getEditHall = function(req, res, next) {
-    res.render('pg-add-edit-hall', { hall_option: 'Edit', hall_Id: '' });
+    //should get theatre info and pass it into edit hall page
+    res.render('pg-add-edit-hall', { hall_option: 'Edit', hallInfo: {} });
 }
 
 module.exports.postAddHall = function(req, res, next) {
@@ -38,5 +39,5 @@ module.exports.postAddHall = function(req, res, next) {
 
 module.exports.postEditHall = function(req, res, next) {
     let theatreId = 503;
-
+    //should use req.body param to do PUT operation to backend
 }
