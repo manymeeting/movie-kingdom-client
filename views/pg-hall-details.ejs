@@ -10,15 +10,18 @@
         <div class="container mt-4">
             <h2 class="mk-sub-title"><%=theater.theaterName%></h2>
             <p class="mk-sub-title-desc"><%= theater.street + ", " + theater.city + ", " + theater.state + ", " + theater.zipcode%></p>
-            <p>
-                <span class="mk-span mk-text-mute">Hall Revenue:</span>
-                <span class="mk-span"><%= hallBasicInfo.revenue%></span>
-                <span class="mk-span mk-text-mute">Tickets Sold:</span>
-                <span class="mk-span"><%= hallBasicInfo.tickets%></span>
-            </p>
-            <p>
-                <a href="#" class="btn btn-dark">Edit Hall</a>
-            </p>
+            
+            <% if(userInfo.role === Roles.SAD) {%>
+                <p>
+                    <span class="mk-span mk-text-mute">Hall Revenue:</span>
+                    <span class="mk-span"><%= hallBasicInfo.revenue%></span>
+                    <span class="mk-span mk-text-mute">Tickets Sold:</span>
+                    <span class="mk-span"><%= hallBasicInfo.tickets%></span>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-dark">Edit Hall</a>
+                </p>
+            <% } %>
 
             <% if(typeof(hallMovies) === "undefined" || !hallMovies.length > 0) {%>
                 <h3>NO SCHEDULES FOR NOW : )</h3>
