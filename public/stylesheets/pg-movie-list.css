@@ -23,6 +23,10 @@
 	font-family: "Times New Roman",Georgia,Serif;	
 }
 
+.mk-movie-analytics-wrapper
+{
+	float: right;
+}
 .mk-movie-dt-nav-wrapper li
 {
 	display: inline-block;

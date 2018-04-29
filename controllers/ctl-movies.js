@@ -51,12 +51,19 @@ module.exports.searchByGenre = function(req, res, next) {
 
 module.exports.movieDetails = function(req, res, next) {
 	var movieID = req.query.id;
-
-	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
+	var movieAnalytics = {};
+	clientMessenger.send("/analytics/movie-revenue/" + movieID, API_METHOD.GET, "analytics")
 		.then(result => {
+			movieAnalytics = result.movie;
+		})
+		.then(()=>{
+			return clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies");
+		})
+		.then((result) => {
 			console.log(result);
 			res.render('pg-movie-details', {
 				"title": 'Movies Details', 
+				"movieAnalytics": movieAnalytics,
 				"movie": result.movie
 			});
 		})
