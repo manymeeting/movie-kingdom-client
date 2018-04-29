@@ -2,10 +2,10 @@
     <label class="mk-literal-margin">User ID</label>
     <strong><%= userInfo.userId %></strong>
     <div id="mk-profile-func">
+        <% if (profile_option !== 'edit') { %>
         <a href=<%= PathDict.GET.EDIT_PROFILE%> >
             <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
-        <% if (profile_option !== 'edit') { %>
         <form action="<%= PathDict.GET.PROFILE%>" method="post">
             <a href=<%= PathDict.GET.LOGOUT%>>
                 <input type="hidden" name="userId" value="<%= userInfo.userId %>">
