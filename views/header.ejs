@@ -52,6 +52,11 @@
                     </div>
                 </li>
                 <% } %>
+                <% if (userInfo.role === Roles.USER) { %>
+                <li class="nav-item">
+                    <a href=<%=PathDict.GET.USER_ORDERS%> class="nav-link mk-nav-links">MY ORDERS</a>
+                </li>
+                <% } %>
                 <li class="nav-item">
                     <a href=<%=PathDict.GET.MOVIE_LIST%> class="nav-link mk-nav-links">MOVIES</a>
                 </li>
