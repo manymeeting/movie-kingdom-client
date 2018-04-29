@@ -7,8 +7,9 @@
             <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
         <% if (userInfo.role === Roles.SAD) { %>
+        <label>user ID:</label>
         <input name="userId" value="<%= currentUser.userId %>"
-               class="form-control form-control-sm input-sm col-sm-2"
+               class="form-control form-control-sm input-sm col-sm-2 mk-profile-btn"
                id="searchInput"
                onchange="appendId()"
         >
