@@ -124,17 +124,28 @@
     margin-right: 30%;
 }
 
+.mk-movie-img
+{
+    width: 200px;
+    height: 100px;
+}
+
 #mk-add-movie-title
 {
     font-size: 1.5rem;
     color: #3E8EDE;
 }
 
-#mk-addmovie-addslot
+.mk-movie-label
 {
-    border-radius: 2px;
-    padding: 2px 4px 2px 4px;
-    margin-left: 1rem;
+    height: 20px;
+    width: 200px;
+    color: black;
+    text-align: center;
+}
+.mk-moive-img-adjust
+{
+    width: 200px;
 }
 
 #mk-schedule-priceUnit
