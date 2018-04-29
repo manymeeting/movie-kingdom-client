@@ -77,14 +77,14 @@ module.exports.postEditProfile = function (req, res, next) {
             if (result.user.userId === meUser.userId) {
                 req.session.user = result.user;
             }
-            res.redirect('/profile');
+            res.redirect(PathDict.GET.PROFILE);
         })
         .catch(err => {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
             alert("profile update failed due to " + err);
-            res.redirect('/profile/edit');
+            res.redirect(PathDict.GET.EDIT_PROFILE);
         });
 }
 
@@ -102,6 +102,6 @@ module.exports.deleteProfile = function (req, res, next) {
             res.status(400);
             req.session.MKFlash.error = err;
             alert("account deletion failed due to " + err);
-            res.redirect('/profile');
+            res.redirect(PathDict.GET.PROFILE);
         });
 }

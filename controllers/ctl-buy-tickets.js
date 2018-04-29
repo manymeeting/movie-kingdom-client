@@ -1,5 +1,6 @@
 let clientMessenger = require('../kafka/ClientMessenger');
 let API_METHOD = require('../values/constants').API_METHOD;
+let PathDict = require('../values/PathDictionary');
 
 module.exports.getBuyTickets = function(req, res, next) {
     res.render('pg-buy-tickets');
@@ -21,13 +22,13 @@ module.exports.postBuyTickets = function(req, res, next) {
         })
         .then(result => {
             console.log('lxr', result);
-            res.redirect('/purchases');
+            res.redirect(PathDict.GET.USER_ORDERS);
         })
         .catch(err => {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
             alert("buy tickets failed due to " + err);
-            res.redirect('/tickets/buy');
+            res.redirect(PathDict.GET.BUY_TICKETS);
         });
 };

@@ -1,9 +1,10 @@
 var clientMessenger = require('../kafka/ClientMessenger');
 let API_METHOD = require('../values/constants').API_METHOD;
+let PathDict = require('../values/PathDictionary');
 
 module.exports.getLogout = function(req, res, next){
 	delete req.session.user;
-	res.redirect('/login');
+	res.redirect(PathDict.GET.LOGIN);
 }
 
 module.exports.getLogin = function(req, res, next){
@@ -21,13 +22,13 @@ module.exports.postLogin = function(req, res, next){
 			console.log(result.user);
 			// persist user to session
 			req.session.user = result.user;
-			res.redirect('/movies');
+			res.redirect(PathDict.GET.MOVIE_LIST);
 		})
 		.catch(err => {
 			console.error(err);
 			res.status(400);
 			req.session.MKFlash.error = err;
-			res.redirect('/login');
+			res.redirect(PathDict.GET.LOGIN);
 		});
 	
 }
@@ -44,7 +45,7 @@ module.exports.postSignUp = function(req, res, next){
 	clientMessenger.send("/user", API_METHOD.POST, "users", params)
 		.then(result => {
 			console.log(result);
-			res.redirect('/login');
+			res.redirect(PathDict.GET.LOGIN);
 		})
 		.catch(err => {
 			console.log(err);
