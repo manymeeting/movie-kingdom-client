@@ -7,6 +7,17 @@
         </span>
     </div>
     <div class="mk-top-info">
+        <% switch (userInfo.role) {
+             case Roles.USER: %>
+                <span class="mk-span mk-text-mute">Role: User</span>
+                <% break; %>
+            <% case Roles.HAD: %>
+                <span class="mk-span mk-text-mute">Role: Hall Admin</span>
+                <% break; %>
+            <% case Roles.SAD: %>
+                <span class="mk-span mk-text-mute">Role: Super Admin</span>
+                <% break; %>
+        <% }%>
         <% if (typeof(userInfo.userId) !== 'undefined') { %>
             <span class="mk-span"><a href=<%=PathDict.GET.PROFILE%>>Profile</a></span>
             <span class="mk-span"><a href=<%=PathDict.GET.LOGOUT%>>Log Out</a></span>
