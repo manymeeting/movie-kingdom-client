@@ -81,9 +81,12 @@
 	margin-top: 0.5rem;
 	border-radius: 0.2rem;
 	background-color: #f15500;
-	width: 7rem;
+	width: 6.5rem;
 }
-
+a.mk-schedule-container
+{
+	color: white;
+}
 .mk-movie-review-list li
 {
 	padding: 1rem;

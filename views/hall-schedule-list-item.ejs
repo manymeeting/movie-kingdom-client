@@ -1,0 +1,41 @@
+<li class="row mt-4">
+    <div class="col-auto">
+        <a href="#">
+            <img class="mk-movie-thumb-img" src=<%=hallMovie.coverImageUrl%>>
+        </a>
+    </div>
+    <div class="mk-hall-list-info-wrapper col-3">
+        <a href="<%=PathDict.GET.MOVIE_DETAILS + "?id=" + hallMovie.movieId%>"><h3><%= hallMovie.movieTitle%></h3></a>
+        <div>
+            <p class="mk-movie-review-rating">
+                <% for(let k = 0; k < 5; k++){ %>
+                    <% if(k <= Math.round(hallMovie.stars)){ %>
+                        <span class="fa fa-star mk-star-filled"></span>
+                    <% } else{%>
+                        <span class="fa fa-star"></span>
+                    <% } %>
+                <% } %>
+            </p>
+        </div>
+        <div>
+            <% for(let k = 0; k < hallMovie.genres.length; k++) {%>
+                <span class="mk-movie-genre-tag"><%= (k===0 ? "" : ", ") + hallMovie.genres[k].genreName %></span>
+            <% } %>
+        </div>
+
+    </div>
+    <div class="mk-hall-schedules-wrapper col-6">
+        <div><span>Select a movie time to buy tickets</span></div>
+        <div class="mk-hall-schedules-list">
+            <ul>
+                <% for(let k = 0; k < hallMovie.schedules.length; k++) {%>
+                    <a href="#" class="mk-schedule-container">
+                        <li>
+                            <span><%= hallMovie.schedules[k].showtime%></span>
+                        </li>
+                    </a>
+                <% }%>
+            </ul>
+        </div>
+    </div>
+</li>
