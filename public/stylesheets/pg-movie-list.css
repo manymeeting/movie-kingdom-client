@@ -69,6 +69,10 @@
 	width: 744px;
 	height: 420px
 }
+.mk-hall-name-wrapper h3
+{
+	margin-bottom: 0;
+}
 .mk-hall-schedules-list ul li
 {
 	display: inline-block;
