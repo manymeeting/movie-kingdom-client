@@ -5,70 +5,63 @@
     </head>
     <body>
         <% include ./header.ejs %>
-
-        <div class="mk-buyticket-wrapper">
-            <div>
-                <strong><span id="mk-buyticket-title">CheckOut</span></strong>
-            </div>
-            <div>
-                <strong>HOW MANY TICKETS?</strong>
-                <div class="form-group">
-                    <label>Number Of Tickets</label>
-                    <div class="form-inline">
-                        <tr>
-                            <td>
-                                <input
-                                        id="ticketnumber"
-                                        type="text"
-                                        class="form-control form-control-sm input-sm col-sm-1 mk-literal-margin"
-                                        onchange="getTicketNumber()"
-                                />
-                            </td>
-                            <td>
-                                <span class="mk-literal-margin">x</span>
-                            </td>
-                            <td>
-                                <span class="mk-literal-margin">$12.00</span>
-                            </td>
-                            <td>
-                                <span class="mk-literal-margin">=</span>
-                            </td>
-                            <td>
-                                <span class="mk-literal-margin">$</span>
-                                <input
-                                        id="totalprice"
-                                        type="text"
-                                        disabled
-                                        class="form-control form-control-sm input-sm col-sm-2 mk-literal-margin"
-                                />
-                            </td>
-                        </tr>
+        <form action="<%= PathDict.BUY_TICKETS%>" method="post">
+            <div class="mk-buyticket-wrapper">
+                <div>
+                    <strong><span id="mk-buyticket-title">CheckOut</span></strong>
+                </div>
+                <div class="form-group mk-buyticket-item">
+                    <label>USER ID</label>
+                    <strong><%= userInfo.userId %></strong>
+                    <input type="hidden" name="userId" value="<%= userInfo.userId %>"/>
+                </div>
+                <div class="form-group mk-buyticket-item">
+                    <label>SCHEDULE ID</label>
+                    <strong>schedule id of a movie</strong>
+                </div>
+                <div class="mk-buyticket-total">
+                    <strong>HOW MANY TICKETS?</strong>
+                    <div class="form-group">
+                        <label>Input desired number of tickets</label>
+                        <div class="form-inline">
+                            <tr>
+                                <td>
+                                    <input
+                                            id="ticketnumber"
+                                            name="ticketNum"
+                                            type="text"
+                                            class="form-control form-control-sm input-sm col-sm-1 mk-literal-margin"
+                                            onchange="getTicketNumber()"
+                                    />
+                                </td>
+                                <td>
+                                    <span class="mk-literal-margin">x</span>
+                                </td>
+                                <td>
+                                    <span class="mk-literal-margin">$12.00</span>
+                                </td>
+                                <td>
+                                    <span class="mk-literal-margin">=</span>
+                                </td>
+                                <td>
+                                    <span class="mk-literal-margin">$</span>
+                                    <input
+                                            id="totalprice"
+                                            name="totalprice"
+                                            type="text"
+                                            disabled
+                                            class="form-control form-control-sm input-sm col-sm-2 mk-literal-margin"
+                                    />
+                                </td>
+                            </tr>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mk-buyticket-credit">
-                <div>
-                    <label>Credit Card Details</label>
-                </div>
-                <div class="form-group ">
-                    <label>Card Number</label>
-                    <input type="text" class="form-control form-control-sm input-sm col-sm-6" placeholder="Input Card Number"/>
-                </div>
-                <div class="form-group ">
-                    <label>Expire Date</label>
-                    <input type="date" class="form-control form-control-sm input-sm col-sm-6"/>
-                </div>
-                <div class="form-group ">
-                    <label>Security Code</label>
-                    <input type="text" class="form-control form-control-sm input-sm col-sm-6" placeholder="Input Security Code"/>
+                <div class="mk-buyticket-btn">
+                    <button type="submit" class="btn btn-success">Place Order</button>
                 </div>
             </div>
-            <div>
-                <a href=<%=PathDict.GET.MOVIE_LIST%>>
-                    <button class="btn btn-success">Place Order</button>
-                </a>
-            </div>
-        </div>
+        </form>
 
         <% include ./lib-url.ejs %>
         <script src="/scripts/buy-tickets.js"></script>

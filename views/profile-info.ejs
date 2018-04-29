@@ -6,7 +6,7 @@
             <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
         <% if (profile_option !== 'edit') { %>
-        <form action="/profile" method="post">
+        <form action="<%= PathDict.GET.PROFILE%>" method="post">
             <a href=<%= PathDict.GET.LOGOUT%>>
                 <input type="hidden" name="userId" value="<%= userInfo.userId %>">
                 <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Delete</button>
@@ -15,7 +15,7 @@
         <% } %>
     </div>
     <div class="mk-profile-content">
-        <form action="/profile/edit" method="POST">
+        <form action="<%= PathDict.GET.EDIT_PROFILE%>" method="POST">
             <div class="form-group mk-form-adjust">
                 <label>Account Type</label>
                 <select
