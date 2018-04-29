@@ -4,6 +4,7 @@ var PathDict = require('../values/PathDictionary');
 
 var ctlMovies = require('../controllers/ctl-movies');
 var ctlOrders = require('../controllers/ctl-orders');
+var ctlHalls = require('../controllers/ctl-halls');
 var ctlPortal = require('../controllers/ctl-portal');
 var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 let ctlBuyTickets = require('../controllers/ctl-buy-tickets');
@@ -44,6 +45,7 @@ router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMovies.reviewsOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMovies.reviewFormOnMovie);
 router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
+router.get(PathDict.GET.HALL_DETAILS, ctlHalls.hallDetails);
 
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);
 router.post(PathDict.GET.BUY_TICKETS, ctlBuyTickets.postBuyTickets);

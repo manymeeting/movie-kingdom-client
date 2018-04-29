@@ -16,7 +16,7 @@ const dict = {
 		EDIT_SCHEDULE: '/schedule/edit',
 		ADD_HALL: '/hall/add',
         EDIT_HALL: '/hall/edit',
-        HALL_DETAILS: 'hall/details',
+        HALL_DETAILS: '/hall/details',
         USER_ORDERS: '/orders/user',
 		MOVIE_DETAILS: '/movie/details',
 		MOVIE_DETAILS_SCHEDULES: '/movie/details/schedules',
