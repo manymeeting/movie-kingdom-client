@@ -60,9 +60,9 @@
         <div class="form-group">
             <label>FORMAT</label>
             <select class="form-control form-control-sm input-sm col-sm-4" name="format">
-                <option value="iMax">iMax</option>
-                <option value="3D">3D</option>
-                <option value="Digital">Digital</option>
+                <% formats.forEach(function (format) { %>
+                <option value="<%= format.formatId %>"><%= format.formatName%></option>
+                <% })%>
             </select>
         </div>
 

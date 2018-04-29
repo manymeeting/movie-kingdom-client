@@ -28,7 +28,5 @@ module.exports.postBuyTickets = function(req, res, next) {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
-            alert("buy tickets failed due to " + err);
-            res.redirect(PathDict.GET.BUY_TICKETS);
         });
 };

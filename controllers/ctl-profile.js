@@ -17,8 +17,6 @@ module.exports.getProfile = function(req, res, next) {
                 console.error(err);
                 res.status(400);
                 req.session.MKFlash.error = err;
-                alert("search user failed due to " + err);
-                res.redirect(PathDict.GET.PROFILE);
             });
     } else {
         res.render('pg-profile', {profile_option: '', currentUser: meUser});
@@ -50,8 +48,6 @@ module.exports.getEditProfile = function(req, res, next) {
                 console.error(err);
                 res.status(400);
                 req.session.MKFlash.error = err;
-                alert("search user failed due to " + err);
-                res.redirect(PathDict.GET.PROFILE);
             });
     } else {
         res.render('pg-profile', {profile_option: 'edit', currentUser: meUser});
@@ -83,8 +79,6 @@ module.exports.postEditProfile = function (req, res, next) {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
-            alert("profile update failed due to " + err);
-            res.redirect(PathDict.GET.EDIT_PROFILE);
         });
 }
 
@@ -95,13 +89,11 @@ module.exports.deleteProfile = function (req, res, next) {
             console.log('result', result);
             // delete user session
             delete req.session.user;
-            res.redirect('/login');
+            res.redirect(PathDict.GET.LOGIN);
         })
         .catch(err => {
             console.error(err);
             res.status(400);
             req.session.MKFlash.error = err;
-            alert("account deletion failed due to " + err);
-            res.redirect(PathDict.GET.PROFILE);
         });
 }
