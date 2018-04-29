@@ -137,6 +137,11 @@
     margin-left: 1rem;
 }
 
+#mk-schedule-priceUnit
+{
+    display: inline;
+}
+
 .mk-addhall-wrapper
 {
     margin-top: 4rem;

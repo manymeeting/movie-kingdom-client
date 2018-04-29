@@ -8,7 +8,11 @@ module.exports.getAddSchedule = function(req, res, next) {
     clientMessenger.send(`/movie-format/${movieId}`, API_METHOD.GET, "movies")
         .then(result => {
             console.log(result);
-            res.render('pg-add-edit-schedule', { schedule_option: 'Add', formats: result.formats });
+            res.render('pg-add-edit-schedule', {
+                schedule_option: 'Add',
+                formats: result.formats,
+                scheduleId: ''
+            });
         })
         .catch(err => {
             console.error(err);
@@ -19,10 +23,15 @@ module.exports.getAddSchedule = function(req, res, next) {
 
 module.exports.getEditSchedule = function(req, res, next) {
     let movieId = 20;
+    let scheduleId = 1179642;
     clientMessenger.send(`/movie-format/${movieId}`, API_METHOD.GET, "movies")
         .then(result => {
             console.log(result);
-            res.render('pg-add-edit-schedule', { schedule_option: 'Edit', formats: result.formats });
+            res.render('pg-add-edit-schedule', {
+                schedule_option: 'Edit',
+                formats: result.formats,
+                scheduleId: scheduleId
+            });
         })
         .catch(err => {
             console.error(err);
@@ -32,11 +41,39 @@ module.exports.getEditSchedule = function(req, res, next) {
 }
 
 module.exports.postAddSchedule = function (req, res, next) {
-    console.log('lxr', req.body);
-    res.redirect(PathDict.GET.MOVIE_LIST);
+    let content = req.body;
+    content.showtime = timeConversion(content.showtime);
+    let contentJson = JSON.stringify(content);
+    console.log('lxr', contentJson);
+    clientMessenger.send(`/schedule`, API_METHOD.POST, "schedules", contentJson)
+        .then(result => {
+            console.log(result);
+            res.redirect(PathDict.GET.MOVIE_LIST);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(400);
+            req.session.MKFlash.error = err;
+        });
 }
 
 module.exports.postEditSchedule = function (req, res, next) {
-    console.log('lxr', req.body);
-    res.redirect(PathDict.GET.MOVIE_LIST);
+    let content = req.body;
+    content.showtime = timeConversion(content.showtime);
+    console.log('lxr', content);
+    clientMessenger.send(`/schedule`, API_METHOD.PUT, "schedules", content)
+        .then(result => {
+            console.log(result);
+            res.redirect(PathDict.GET.MOVIE_LIST);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(400);
+            req.session.MKFlash.error = err;
+        });
+}
+
+function timeConversion(time) {
+    time += ":00";
+    return time;
 }
