@@ -5,7 +5,9 @@
 </head>
     <body>
         <% include ./header.ejs %>
-        <form class="mk-addhall-wrapper">
+        <form   action="<%= PathDict.POST.ADD_HALL %>"
+                method="post"
+                class="mk-addhall-wrapper">
             <div>
                 <span id="mk-add-movie-title"><%= hall_option %> Movie Hall</span>
             </div>
@@ -17,6 +19,7 @@
                        pattern="[a-z|A-Z|0-9|\s\.']*"
                        title="must contain only letter, digits, space or single quote"
                        placeholder="input theatre name"
+                       name="theaterName"
                        <% if (hall_option === 'Add') { %>
                         required
                        <% } %>
@@ -28,6 +31,7 @@
                 <input class="form-control form-control-sm input-sm col-sm-6"
                        type="text"
                        placeholder="input street address"
+                       name="street"
                         <% if (hall_option === 'Add') { %>
                        required
                         <% } %>
@@ -35,23 +39,16 @@
             </div>
 
             <div class="form-group">
-                <label for="CITY">CITY ID</label>
+                <label >CITY NAME</label>
                 <input class="form-control form-control-sm input-sm col-sm-6"
                        type="text"
-                       pattern="^([^0-9]*)$"
+                       pattern="[a-z|A-Z|\s\.']*"
                        title="must not contain digits"
-                       placeholder="input city id"
+                       name="cityname"
+                       placeholder="input city name"
                         <% if (hall_option === 'Add') { %>
                        required
                         <% } %>
-                />
-            </div>
-
-            <div class="form-group">
-                <label for="CITY">CITY NAME</label>
-                <input class="form-control form-control-sm input-sm col-sm-6"
-                       type="text"
-                       disabled
                 />
             </div>
 
@@ -62,6 +59,7 @@
                        pattern="[0-9]{5}"
                        title="must contain exactly 5 digits zip code"
                        placeholder="xxxxx"
+                       name="zipcode"
                         <% if (hall_option === 'Add') { %>
                        required
                         <% } %>
