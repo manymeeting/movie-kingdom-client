@@ -10,6 +10,7 @@ var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 let ctlBuyTickets = require('../controllers/ctl-buy-tickets');
 let ctlProfile = require('../controllers/ctl-profile');
 let ctlSchedule = require('../controllers/ctl-schedule');
+let ctlMovie = require('../controllers/ctl-add-edit-movie');
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -21,10 +22,13 @@ router.get('/', function(req, res, next) {
 router.get(PathDict.GET.SIGN_UP, function(req, res, next) {
     res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up' });
 });
-
+//account
 router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
 router.get(PathDict.GET.LOGOUT, ctlPortal.getLogout);
+router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
+router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
+//profile
 router.get(PathDict.GET.PROFILE, ctlProfile.getProfile);
 router.get(PathDict.GET.EDIT_PROFILE, ctlProfile.getEditProfile);
 router.post(PathDict.GET.EDIT_PROFILE, ctlProfile.postEditProfile);
@@ -45,20 +49,17 @@ router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMovies.reviewFormOnMovie);
 router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 router.get(PathDict.GET.HALL_DETAILS, ctlHalls.hallDetails);
 
+//buy tickets
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);
 router.post(PathDict.GET.BUY_TICKETS, ctlBuyTickets.postBuyTickets);
 
-router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
-router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
+//movie
+router.get(PathDict.GET.ADD_MOVIE, ctlMovie.getAddMovie);
+router.get(PathDict.GET.EDIT_MOVIE, ctlMovie.getEditMovie);
+router.post(PathDict.POST.ADD_MOVIE, ctlMovie.postAddMovie);
+router.post(PathDict.POST.EDIT_MOVIE, ctlMovie.postEditMovie);
 
-router.get(PathDict.GET.ADD_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie', { movie_option: 'Add' });
-});
-
-router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
-    res.render('pg-add-edit-movie', { movie_option: 'Edit' });
-});
-
+//schedule
 router.get(PathDict.GET.ADD_SCHEDULE, ctlSchedule.getAddSchedule);
 router.get(PathDict.GET.EDIT_SCHEDULE, ctlSchedule.getEditSchedule);
 router.post(PathDict.POST.ADD_SCHEDULE, ctlSchedule.postAddSchedule);

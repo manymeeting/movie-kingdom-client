@@ -7,7 +7,8 @@
 <body>
 <% include ./header.ejs %>
 
-<form class="mk-addmovie-wrapper mk-movie-form-adjust">
+<form  action="<%= PathDict.POST.ADD_MOVIE%>" method="post"
+        class="mk-addmovie-wrapper mk-movie-form-adjust">
     <div>
         <span id="mk-add-movie-title"><%= movie_option %> Movie</span>
     </div>
@@ -111,7 +112,7 @@
         <input class="form-control form-control-sm input-sm col-sm-6"
                type="url"
                name="trailerUrl"
-               pattern="(https:\/\/youtu.be\/)"
+               pattern="https:\/\/youtu.be\/(.*)"
                title="must have url prefix 'https://youtu.be/'"
                placeholder="input trailer url"
                 <% if (movie_option === 'Add') { %>
