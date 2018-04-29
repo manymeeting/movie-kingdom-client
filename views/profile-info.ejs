@@ -3,21 +3,21 @@
     <strong><%= currentUser.userId %></strong>
     <div id="mk-profile-func">
         <% if (profile_option !== 'edit') { %>
-        <a id="editTag" href="<%= PathDict.GET.EDIT_PROFILE%>" >
-            <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
-        </a>
         <% if (userInfo.role === Roles.SAD) { %>
-        <label>user ID:</label>
+        <label class="mk-profile-btn">Edit ID:</label>
         <input name="userId" value="<%= currentUser.userId %>"
                class="form-control form-control-sm input-sm col-sm-2 mk-profile-btn"
                id="searchInput"
                onchange="appendId()"
         >
         <% } %>
+        <a id="editTag" href="<%= PathDict.GET.EDIT_PROFILE%>" >
+            <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
+        </a>
         <form action="<%= PathDict.GET.PROFILE%>" method="post">
             <a href=<%= PathDict.GET.LOGOUT%>>
                 <input type="hidden" name="userId" value="<%= currentUser.userId %>">
-                <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Delete</button>
+                <button type="submit" class="btn btn-primary btn-sm ">Delete Your Account</button>
             </a>
         </form>
         <% } %>
