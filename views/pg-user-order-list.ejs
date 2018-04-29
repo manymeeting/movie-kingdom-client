@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
+        <link rel='stylesheet' href='/stylesheets/order-list.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        
+        <div class="container mt-4">
+            <h2 class="mk-sub-title">MY ORDERS%></h2>
+
+            <% if(typeof(orders) === "undefined" || !orders.length > 0) {%>
+                <h3>NO ORDERS FOR NOW : )</h3>
+            <% } else { %>
+                <div class="mk-order-list-wrapper">
+                    <ul class="mk-order-list">
+                        <% for(let i = 0 ; i < orders.length; i++) {%>
+                        <% var order = orders[i]; %>
+                        <% var orderMovie = order.movie; %>
+                        <% var orderHall = order.theater; %>
+                        <% var orderUser = order.user; %>
+                            <li>
+                                <div class="col-auto">
+                                    <a href="#">
+                                        <img class="mk-movie-thumb-img" src=<%=orderMovie.coverImageUrl%>>
+                                    </a>
+                                </div>
+                                <div class="mk-order-list-mvinfo-wrapper col-3">
+                                    <a href="<%=PathDict.GET.MOVIE_DETAILS + "?id=" + orderMovie.movieId%>"><h3><%= orderMovie.movieTitle%></h3></a>
+                                    <div>
+                                        <p class="mk-movie-review-rating">
+                                            <% for(let k = 0; k < 5; k++){ %>
+                                                <% if(k <= Math.round(orderMovie.stars)){ %>
+                                                    <span class="fa fa-star mk-star-filled"></span>
+                                                <% } else{%>
+                                                    <span class="fa fa-star"></span>
+                                                <% } %>
+                                            <% } %>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <% for(let k = 0; k < orderMovie.genres.length; k++) {%>
+                                            <span class="mk-movie-genre-tag"><%= (k===0 ? "" : ", ") + orderMovie.genres[k].genreName %></span>
+                                        <% } %>
+                                    </div>
+
+                                </div>
+                                <div class="mk-order-schedule-info-wrapper col-6">
+                                    <h3><a href="#"><%= orderHall.theaterName%></a></h3>
+                                    <span class="mk-text-mute"><%= orderHall.street + " " + orderHall.zipcode%></span>
+                                    <p>
+                                        <span>TICKET NUMBER: <%= order.ticketNum%>, PRICE(TOTAL): <%= order.grandTotal%></span>
+                                        <span class="mk-text-mute"> PURCHASED AT <%= review.orderTs%> </span>
+                                    </p>
+                                    <p>
+                                        <span>PURCHASED BY: <%=orderUser.firstName + " " + orderUser.lastName%></span>
+                                    </p>
+                                </div>
+
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
+        </div>
+
+        <% include ./lib-url.ejs %>
+    </body>
+</html>
