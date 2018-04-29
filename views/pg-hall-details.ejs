@@ -2,13 +2,14 @@
 <html>
     <head>
         <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-movie-list.css' />
     </head>
     <body>
         <% include ./header.ejs %>
         <% var theater = hallBasicInfo.theater%>
         <div class="container mt-4">
             <h2 class="mk-sub-title"><%=theater.theaterName%></h2>
-            <p class="mk-sub-title-desc"><%= theater.street + ", " + theater.city.cityName + ", " + theater.city.state + ", " + theater.zipcode%></p>
+            <p class="mk-sub-title-desc"><%= theater.street + ", " + theater.city + ", " + theater.state + ", " + theater.zipcode%></p>
             <p>
                 <span class="mk-span mk-text-mute">Hall Revenue:</span>
                 <span class="mk-span"><%= hallBasicInfo.revenue%></span>
@@ -16,7 +17,7 @@
                 <span class="mk-span"><%= hallBasicInfo.tickets%></span>
             </p>
             <p>
-                <a href="#">Edit Hall</a>
+                <a href="#" class="btn btn-dark">Edit Hall</a>
             </p>
 
             <% if(typeof(hallMovies) === "undefined" || !hallMovies.length > 0) {%>
