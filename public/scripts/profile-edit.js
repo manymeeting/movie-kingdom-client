@@ -25,3 +25,9 @@ fileUpload.addEventListener('change', function (event) {
         console.error(err);
     });
 });
+
+function appendId() {
+    let id = document.getElementById('searchInput').value;
+    let editAnchorDom = document.getElementById('editTag');
+    editAnchorDom.href += `?id=${id}`;
+}

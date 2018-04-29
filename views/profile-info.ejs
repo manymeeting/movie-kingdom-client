@@ -1,14 +1,21 @@
 <div class="mk-profile-wrapper">
     <label class="mk-literal-margin">User ID</label>
-    <strong><%= userInfo.userId %></strong>
+    <strong><%= currentUser.userId %></strong>
     <div id="mk-profile-func">
         <% if (profile_option !== 'edit') { %>
-        <a href=<%= PathDict.GET.EDIT_PROFILE%> >
+        <a id="editTag" href="<%= PathDict.GET.EDIT_PROFILE%>" >
             <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
+        <% if (userInfo.role === Roles.SAD) { %>
+        <input name="userId" value="<%= currentUser.userId %>"
+               class="form-control form-control-sm input-sm col-sm-2"
+               id="searchInput"
+               onchange="appendId()"
+        >
+        <% } %>
         <form action="<%= PathDict.GET.PROFILE%>" method="post">
             <a href=<%= PathDict.GET.LOGOUT%>>
-                <input type="hidden" name="userId" value="<%= userInfo.userId %>">
+                <input type="hidden" name="userId" value="<%= currentUser.userId %>">
                 <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Delete</button>
             </a>
         </form>
@@ -25,15 +32,15 @@
                         disabled
                         <% } %>
                 >
-                    <option value=0 <% if (userInfo.role === Roles.GUEST) {%> selected <% }%>>GUEST</option>
-                    <option value=1 <% if (userInfo.role === Roles.USER) {%> selected <% }%>>USER</option>
-                    <option value=2 <% if (userInfo.role === Roles.HAD) {%> selected <% }%>>HAD</option>
-                    <option value=3 <% if (userInfo.role === Roles.SAD) {%> selected <% }%>>SAD</option>
+                    <option value=0 <% if (currentUser.role === Roles.GUEST) {%> selected <% }%>>GUEST</option>
+                    <option value=1 <% if (currentUser.role === Roles.USER) {%> selected <% }%>>USER</option>
+                    <option value=2 <% if (currentUser.role === Roles.HAD) {%> selected <% }%>>HAD</option>
+                    <option value=3 <% if (currentUser.role === Roles.SAD) {%> selected <% }%>>SAD</option>
                 </select>
             </div>
 
             <div class="form-group card bg-dark text-white">
-                <img src="<%= userInfo.imageUrl%>"
+                <img src="<%= currentUser.imageUrl%>"
                      alt="profile image"
                      class="mk-profile-img"
                      id="mk-image-preview"/>
@@ -43,7 +50,7 @@
                             disabled
                             <% } %>
                     />
-                    <input type="hidden" name="userInfo" value="<%= JSON.stringify(userInfo)%>"/>
+                    <input type="hidden" name="currentUser" value="<%= JSON.stringify(currentUser)%>"/>
                     Select Image
                 </label>
             </div>
@@ -54,7 +61,7 @@
                        class="form-control form-control-sm input-sm"
                        id="mk-image-url"
                        name="imageUrl"
-                       value="<%= userInfo.imageUrl%>"
+                       value="<%= currentUser.imageUrl%>"
                         <% if (profile_option !== 'edit') { %>
                        disabled
                         <% } %>
@@ -67,7 +74,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="^([^0-9]*)$"
                        title="Must not contain number"
-                       value="<%= userInfo.firstName%>"
+                       value="<%= currentUser.firstName%>"
                        name="firstName"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -81,7 +88,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="^([^0-9]*)$"
                        title="Must not contain number"
-                       value="<%= userInfo.lastName%>"
+                       value="<%= currentUser.lastName%>"
                        name="lastName"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -93,7 +100,7 @@
                 <label>Street</label>
                 <input type="text"
                        class="form-control form-control-sm input-sm"
-                       value="<%= userInfo.street%>"
+                       value="<%= currentUser.street%>"
                        name="street"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -107,7 +114,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="^([^0-9]*)$"
                        title="Must not contain number"
-                       value="<%= userInfo.city%>"
+                       value="<%= currentUser.city%>"
                        name="city"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -121,7 +128,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="[A-Z]{2}"
                        title="Must not contain exactly 2 uppercase letters"
-                       value="<%= userInfo.state%>"
+                       value="<%= currentUser.state%>"
                        name="state"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -135,7 +142,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="[0-9]{5}"
                        title="Must input exactly 5 digits zip code"
-                       value="<%= userInfo.zipcode%>"
+                       value="<%= currentUser.zipcode%>"
                        name="zipcode"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -149,7 +156,7 @@
                        class="form-control form-control-sm input-sm"
                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                        title="Must input phone number as pattern xxx-xxx-xxxx"
-                       value="<%= userInfo.phone%>"
+                       value="<%= currentUser.phone%>"
                        name="phone"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -162,7 +169,7 @@
                 <input type="email"
                        class="form-control form-control-sm input-sm" placeholder="xx@xxx.xxx"
                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                       value="<%= userInfo.email%>"
+                       value="<%= currentUser.email%>"
                        name="email"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -179,7 +186,7 @@
                 <input type="text" class="form-control form-control-sm input-sm"
                        pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
                        title="must have xxxx xxxx xxxx xxxx"
-                       value="<%= userInfo.cardNum%>"
+                       value="<%= currentUser.cardNum%>"
                        name="cardNum"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -190,7 +197,7 @@
                 <input type="date" class="form-control form-control-sm input-sm"
                        title="must have MM/DD/YYYY"
                        pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"
-                       value="<%= userInfo.cardExpire%>"
+                       value="<%= currentUser.cardExpire%>"
                        name="cardExpire"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -201,7 +208,7 @@
                 <input type="text" class="form-control form-control-sm input-sm"
                        pattern="[0-9]{3}"
                        title="must have 3 digits security code"
-                       value="<%= userInfo.cardCvv%>"
+                       value="<%= currentUser.cardCvv%>"
                        name="cardCvv"
                         <% if (profile_option !== 'edit') { %>
                        disabled
@@ -211,8 +218,8 @@
             <% if (profile_option === 'edit') { %>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm">Update</button>
-                <a href=<% PathDict.GET.PROFILE%>>
-                    <button class="btn btn-primary btn-sm">Cancel</button>
+                <a href="<%= PathDict.GET.PROFILE%>">
+                    <button type="button" class="btn btn-primary btn-sm">Cancel</button>
                 </a>
             </div>
             <% } %>
