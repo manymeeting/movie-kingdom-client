@@ -21,8 +21,31 @@ module.exports.getEditMovie = function(req, res, next) {
 
 module.exports.postAddMovie = function(req, res, next) {
     console.log('lxr', req.body);
+    let content = req.body;
+    clientMessenger.send(`/movie`, API_METHOD.POST, "movies", content)
+        .then(result => {
+            console.log(result);
+            res.redirect(PathDict.GET.MOVIE_LIST);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(400);
+            req.session.MKFlash.error = err;
+        });
 }
 
 module.exports.postEditMovie = function(req, res, next) {
     console.log('lxr', req.body);
+    let content = req.body;
+    let movieId = content.movieId;
+    clientMessenger.send(`/movie/${movieId}`, API_METHOD.PUT, "movies", content)
+        .then(result => {
+            console.log(result);
+            res.redirect(PathDict.GET.MOVIE_LIST);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(400);
+            req.session.MKFlash.error = err;
+        });
 }
