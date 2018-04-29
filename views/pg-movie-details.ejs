@@ -11,6 +11,15 @@
             <div class="row">
                 <h2 class="mk-sub-title"><%=movie.movieTitle%></h2>
             </div>
+            <div class="mk-movie-analytics-wrapper">
+                <p>
+                    <span class="mk-span mk-text-mute">Movie Revenue:</span>
+                    <span class="mk-span"><%= movieAnalytics.revenue%></span>
+                    <span class="mk-span mk-text-mute">Tickets Sold:</span>
+                    <span class="mk-span"><%= movieAnalytics.tickets%></span>
+                    <span><a href="#" class="border-left pl-2">Edit Movie</a></span>
+                </p>
+            </div>
             <% include ./movie-dt-subnav.ejs %>
             
         </div>
