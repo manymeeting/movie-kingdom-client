@@ -18,6 +18,7 @@
         <input class="form-control form-control-sm input-sm col-sm-4"
                type="text"
                name="movieId"
+               value="<%= movie.movieId %>"
                disabled
         />
     </div>
@@ -34,6 +35,9 @@
                 required
                <% } %>
                 name="movieTitle"
+               <% if (movie_option === 'Edit') { %>
+                value="<%= movie.movieTitle %>"
+                <% } %>
         />
     </div>
 
@@ -46,11 +50,16 @@
                 <% } %>
                 name="movieDesc"
         >
+            <% if (movie_option === 'Edit') { %>
+            <%= movie.movieDesc %>"
+            <% } %>
         </textarea>
     </div>
 
     <div class="form-group card bg-dark text-white mk-moive-img-adjust">
-        <img src=""
+        <img <% if (movie_option === 'Edit') { %>
+                src="<%= movie.coverImageUrl %>"
+                <% } %>
              alt="profile image"
              class="mk-profile-img"
              id="mk-movieImg-preview"/>
@@ -70,7 +79,9 @@
                class="form-control form-control-sm input-sm"
                id="mk-movieImg-url"
                name="coverImageUrl"
-               value=""
+                <% if (movie_option === 'Edit') { %>
+               value="<%= movie.coverImageUrl %>"
+                <% } %>
         />
     </div>
 
@@ -85,12 +96,34 @@
                 <% if (movie_option === 'Add') { %>
                required
                 <% } %>
+                <% if (movie_option === 'Edit') { %>
+               value="<%= movie.length %>"
+                <% } %>
         />
     </div>
 
     <div class="form-group">
         <label>MPAA ID</label>
-        <select class="form-control form-control-sm input-sm col-sm-4" name="mpaaId">
+        <select class="form-control form-control-sm input-sm col-sm-4"
+                name="mpaaId"
+                <% if (movie_option === 'Edit') { %>
+                <% switch (movie.mpaaRating) {
+                 case 'G': %>
+                value="1"
+                <% break;
+                 case 'PG': %>
+                value="2"
+                <% break;
+                 case 'PG-13': %>
+                value="3"
+                <% break;
+                 case 'R': %>
+                value="4"
+                <% break;
+                 case 'NC-17': %>
+                value="5"
+                <% }} %>
+        >
             <option value="1">G</option>
             <option value="2">PG</option>
             <option value="3">PG-13</option>
@@ -101,7 +134,13 @@
 
     <div class="form-group">
         <label>RELEASE DATE</label>
-        <input class="form-control form-control-sm input-sm col-sm-5" type="date" name="releaseDate"/>
+        <input class="form-control form-control-sm input-sm col-sm-5"
+               type="date"
+               name="releaseDate"
+                <% if (movie_option === 'Edit') { %>
+               value="<%= movie.releaseDate %>"
+                <% } %>
+        />
     </div>
 
     <div class="form-group">
@@ -115,12 +154,20 @@
                 <% if (movie_option === 'Add') { %>
                required
                 <% } %>
+                <% if (movie_option === 'Edit') { %>
+               value="<%= movie.trailerUrl %>"
+                <% } %>
         />
     </div>
 
     <div class="form-group">
         <label>STARS</label>
-        <select class="form-control form-control-sm input-sm col-sm-2" name="starts">
+        <select class="form-control form-control-sm input-sm col-sm-2"
+                name="starts"
+                <% if (movie_option === 'Edit') { %>
+                value="<%= movie.stars %>"
+                <% } %>
+        >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
