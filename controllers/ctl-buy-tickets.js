@@ -17,7 +17,7 @@ module.exports.postBuyTickets = function(req, res, next) {
                 orderId: result.order.orderId
             };
             let url = "/pay-order/" + orderInfo.userId + "/" + orderInfo.orderId;
-            clientMessenger.send(url, API_METHOD.PUT, "orders", orderInfo);
+            return clientMessenger.send(url, API_METHOD.PUT, "orders", orderInfo);
         })
         .then(result => {
             console.log('lxr', result);
