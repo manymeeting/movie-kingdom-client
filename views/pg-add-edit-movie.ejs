@@ -11,6 +11,16 @@
     <div>
         <span id="mk-add-movie-title"><%= movie_option %> Movie</span>
     </div>
+    <% if (movie_option === 'Edit') { %>
+    <div class="form-group">
+        <label >MOVIE ID</label>
+        <input class="form-control form-control-sm input-sm col-sm-4"
+               type="text"
+               name="movieId"
+               disabled
+        />
+    </div>
+    <% } %>
 
     <div class="form-group">
         <label >TITLE</label>
@@ -108,6 +118,17 @@
                required
                 <% } %>
         />
+    </div>
+
+    <div class="form-group">
+        <label>STARS</label>
+        <select class="form-control form-control-sm input-sm col-sm-2" name="starts">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
     </div>
 
     <div class="form-group">
