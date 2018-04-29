@@ -11,6 +11,16 @@
             <div>
                 <span id="mk-add-movie-title"><%= hall_option %> Movie Hall</span>
             </div>
+            <% if (hall_option === 'Edit') { %>
+
+            <div class="form-group">
+                <label >THEATRE ID</label>
+                <input class="form-control form-control-sm input-sm col-sm-6"
+                       type="text"
+                        disabled
+                />
+            </div>
+            <% } %>
 
             <div class="form-group">
                 <label >THEATRE NAME</label>
