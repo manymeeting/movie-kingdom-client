@@ -48,11 +48,6 @@ router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);
 router.post(PathDict.GET.BUY_TICKETS, ctlBuyTickets.postBuyTickets);
 
-
-router.get(PathDict.GET.PURCHASE_LIST, function(req, res, next) {
-    res.render('pg-purchaselist', { records: records });
-});
-
 router.post(PathDict.POST.LOGIN, ctlPortal.postLogin);
 router.post(PathDict.POST.SIGN_UP, ctlPortal.postSignUp);
 
