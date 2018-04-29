@@ -9,6 +9,7 @@ var ctlPortal = require('../controllers/ctl-portal');
 var ctlMultiTypeSearch = require('../controllers/ctl-multi-type-search');
 let ctlBuyTickets = require('../controllers/ctl-buy-tickets');
 let ctlProfile = require('../controllers/ctl-profile');
+let ctlSchedule = require('../controllers/ctl-schedule');
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -57,13 +58,10 @@ router.get(PathDict.GET.EDIT_MOVIE, function(req, res, next) {
     res.render('pg-add-edit-movie', { movie_option: 'Edit' });
 });
 
-router.get(PathDict.GET.ADD_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { schedule_option: 'Add' });
-});
-
-router.get(PathDict.GET.EDIT_SCHEDULE, function(req, res, next) {
-    res.render('pg-add-edit-schedule', { schedule_option: 'Edit' });
-});
+router.get(PathDict.GET.ADD_SCHEDULE, ctlSchedule.getAddSchedule);
+router.get(PathDict.GET.EDIT_SCHEDULE, ctlSchedule.getEditSchedule);
+router.post(PathDict.POST.ADD_SCHEDULE, ctlSchedule.postAddSchedule);
+router.post(PathDict.POST.EDIT_SCHEDULE, ctlSchedule.postEditSchedule);
 
 router.get(PathDict.GET.ADD_HALL, function(req, res, next) {
     res.render('pg-add-edit-hall', { hall_option: 'Add' });

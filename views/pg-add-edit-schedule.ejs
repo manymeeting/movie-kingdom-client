@@ -6,15 +6,21 @@
 <body>
 <% include ./header.ejs %>
 
-<form class="mk-addmovie-wrapper">
+<form   <% if (schedule_option === 'Add') { %>
+        action="<%= PathDict.POST.ADD_SCHEDULE%>"
+        <% } else { %>
+        action="<%= PathDict.POST.EDIT_SCHEDULE%>"
+        <% } %>
+        method="post" class="mk-addmovie-wrapper">
     <div>
         <span id="mk-add-movie-title"><%= schedule_option %> Movie Schedule</span>
     </div>
         <div class="form-group">
-            <label for="MOVIE NAME">MOVIE ID</label>
+            <label for="SCHEDULE NAME">SCHEDULE ID</label>
             <input class="form-control form-control-sm input-sm col-sm-6"
-                   placeholder="movie ID"
+                   placeholder="schedule ID"
                    type="text"
+                   name="scheduleId"
                    pattern="[a-z|A-Z|0-9|\s]*"
                     <% if (schedule_option === 'Add') { %>
                    required
@@ -26,25 +32,12 @@
         </div>
 
         <div class="form-group">
-            <label for="THEATRE ID">THEATRE ID</label>
-            <input class="form-control form-control-sm input-sm col-sm-6"
-                   placeholder="schedule ID"
-                   type="text"
-                   pattern="[a-z|A-Z|0-9|\s]*"
-                    <% if (schedule_option === 'Add') { %>
-                   required
-                    <% } %>
-                    <% if (schedule_option === 'Edit') { %>
-                   disabled
-                    <% } %>
-            />
-        </div>
-        <div class="form-group">
             <label for="MOVIE NAME">MOVIE NAME</label>
             <input class="form-control form-control-sm input-sm col-sm-6"
                    placeholder="input movie name"
                    type="text"
                    pattern="[a-z|A-Z|0-9|\s]*"
+                   name="moviename"
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
@@ -57,6 +50,7 @@
                    placeholder="input theatre name"
                    type="text"
                    pattern="[a-z|A-Z|0-9|\s]*"
+                   name="theatrename"
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
@@ -65,7 +59,7 @@
 
         <div class="form-group">
             <label>FORMAT</label>
-            <select class="form-control form-control-sm input-sm col-sm-4">
+            <select class="form-control form-control-sm input-sm col-sm-4" name="format">
                 <option value="iMax">iMax</option>
                 <option value="3D">3D</option>
                 <option value="Digital">Digital</option>
@@ -78,6 +72,7 @@
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
+                   name="scheduleDate"
             />
         </div>
 
@@ -90,17 +85,16 @@
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
+                   name="showtime"
             />
             </div>
         </div>
         <div class="form-group">
-            <a href=<%=PathDict.GET.MOVIE_LIST%>>
-                <% if (schedule_option === 'Add') { %>
-                    <% include ./add-button.ejs %>
-                <% } else { %>
-                    <% include ./update-button.ejs %>
-                <% } %>
-            </a>
+            <% if (schedule_option === 'Add') { %>
+                <% include ./add-button.ejs %>
+            <% } else { %>
+                <% include ./update-button.ejs %>
+            <% } %>
         </div>
 </form>
 

@@ -28,6 +28,8 @@ const dict = {
 	POST: {
 		LOGIN: '/login',
 		SIGN_UP: '/signup',
+        ADD_SCHEDULE: '/schedule/add',
+        EDIT_SCHEDULE: '/schedule/edit',
 	},
 	PUT: {
 
