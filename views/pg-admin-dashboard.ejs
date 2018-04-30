@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./meta-resources.ejs %>
+        <link rel='stylesheet' href='/stylesheets/pg-admin-dashboard.css' />
+    </head>
+    <body>
+        <% include ./header.ejs %>
+        <div class="mk-buyticket-wrapper container mt-4">
+            <h2 class="mk-sub-title">DASHBOARD</h2>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart1_div"></div>
+            </div>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart2_div"></div>
+            </div>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart3_div"></div>
+            </div>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart4_div"></div>
+            </div>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart5_div"></div>
+            </div>
+            <div class="row">
+                <div class="mk-dashboard-container mt-4" id="chart6_div"></div>
+            </div>
+                
+        </div>
+
+        <% include ./lib-url.ejs %>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="/scripts/pg-admin-dashboard.js"></script>
+    </body>
+</html>

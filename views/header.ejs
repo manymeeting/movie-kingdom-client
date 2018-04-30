@@ -68,6 +68,11 @@
                         <a href=<%=PathDict.GET.ADMIN_ORDERS%> class="nav-link mk-nav-links">ORDERS</a>
                     </li>
                 <% } %>
+                <% if (userInfo.role === Roles.SAD) { %>
+                    <li class="nav-item">
+                        <a href=<%=PathDict.GET.ADMIN_DASHBOARD%> class="nav-link mk-nav-links">DASHBOARD</a>
+                    </li>
+                <% } %>
                 <% if (userInfo.role === Roles.USER) { %>
                     <li class="nav-item">
                         <a href=<%=PathDict.GET.USER_ORDERS%> class="nav-link mk-nav-links">MY ORDERS</a>
