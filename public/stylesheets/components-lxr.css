@@ -55,48 +55,6 @@
     margin-top: 1rem;
 }
 
-.mk-buyticket-wrapper
-{
-    margin-top: 4rem;
-    margin-left: 35%;
-    margin-right: 35%;
-    border-radius: 1rem;
-    background-color: #4c5d60;
-}
-
-.mk-buyticket-wrapper > div
-{
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-}
-
-.mk-buyticket-item
-{
-    display: flex;
-    flex-direction: column;
-}
-.mk-buyticket-total
-{
-    border-bottom: 2px solid #FF7900;
-}
-
-.mk-buyticket-btn
-{
-    height: 3rem;
-    padding-top: 5px;
-    padding-right: 1rem;
-}
-
-.mk-buyticket-btn button
-{
-    float: right;
-}
-
-#mk-buyticket-title
-{
-    font-size: 1.5rem;
-}
-
 .mk-purchase-wrapper
 {
     margin-top: 4rem;

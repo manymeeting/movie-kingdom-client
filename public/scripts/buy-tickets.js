@@ -1,8 +1,9 @@
+$(function(){
 
-function getTicketNumber() {
-    let t = document.getElementById('ticketnumber');
-    let p = document.getElementById('totalprice');
-    let ticNum = Number(t.value);
-    p.value = (ticNum * 12).toFixed(2);
-    console.log(typeof p.value, p.value);
-}
+	// calculate total price on input ticket number changes
+	$(document).on("keyup", "#inputTicketNum", function(){
+		var ticketPrice = parseFloat($("#ticketPrice").text());
+		var ticketNum = $("#inputTicketNum").val();
+		$("#totalPrice").val(Math.round( ticketPrice * ticketNum * 10 ) / 10);
+	})
+})
