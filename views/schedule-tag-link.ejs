@@ -1,0 +1,25 @@
+<% // renders a li element with link, according to current user's role  %>
+<% // needs params: [movieID, movieSchedule] %>
+<% if(typeof(userInfo.role) === "undefined") {%>
+	<a href="<%= PathDict.GET.LOGIN%>" class="mk-schedule-container">
+	    <li>
+	        <span><%= movieSchedule.showtime%></span>
+	    </li>
+	</a>
+<% } else if(userInfo.role === Roles.USER) { %>
+	<a href="<%= `${PathDict.GET.BUY_TICKETS}?scheduleID=${movieSchedule.scheduleId}`%>" class="mk-schedule-container">
+	    <li>
+	        <span><%= movieSchedule.showtime%></span>
+	    </li>
+	</a>
+<% } else if(userInfo.role === Roles.HAD) { %>
+	<a href="<%=`${PathDict.GET.EDIT_SCHEDULE}?scheduleID=${movieSchedule.scheduleId}&movieID=${movieID}`%>" class="mk-schedule-container">
+	    <li>
+	        <span><%= movieSchedule.showtime%></span>
+	    </li>
+	</a>
+<% } else {%>
+	<li class="mk-schedule-container">
+        <span><%= movieSchedule.showtime%></span>
+    </li>
+<% }%>

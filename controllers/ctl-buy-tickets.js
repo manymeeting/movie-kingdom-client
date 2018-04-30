@@ -19,7 +19,6 @@ module.exports.getBuyTickets = function(req, res, next) {
 };
 
 module.exports.postBuyTickets = function(req, res, next) {
-    console.log('lxr', req.body);
     let buyInfo = req.body;
     buyInfo.scheduleId = 45;
     clientMessenger.send("/order", API_METHOD.POST, "orders", buyInfo)

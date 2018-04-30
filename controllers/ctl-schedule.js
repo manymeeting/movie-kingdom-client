@@ -4,7 +4,7 @@ let API_METHOD = require('../values/constants').API_METHOD;
 
 module.exports.getAddSchedule = function(req, res, next) {
     //must get movieID first
-    let movieId = 20;
+    let movieId = req.query.movieID;
     clientMessenger.send(`/movie-format/${movieId}`, API_METHOD.GET, "movies")
         .then(result => {
             console.log(result);
@@ -22,8 +22,8 @@ module.exports.getAddSchedule = function(req, res, next) {
 }
 
 module.exports.getEditSchedule = function(req, res, next) {
-    let movieId = 20;
-    let scheduleId = 1179642;
+    let movieId = req.query.movieID;
+    let scheduleId = req.query.scheduleID;
     clientMessenger.send(`/movie-format/${movieId}`, API_METHOD.GET, "movies")
         .then(result => {
             console.log(result);
