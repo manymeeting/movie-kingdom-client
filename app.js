@@ -10,7 +10,6 @@ var MongoStore = require('connect-mongo')(session);
 var FlashDataHandler = require('./interceptors/FlashDataHandler');
 var AuthValidation = require('./interceptors/AuthValidation');
 var router = require('./routes/router');
-var apiRouter = require('./routes/api-router');
 var PathDict = require('./values/PathDictionary');
 var Roles = require('./values/AccessControlCodes').Roles;
 
@@ -46,7 +45,6 @@ app.use(function(req, res, next) {
 app.use('/', FlashDataHandler);
 app.use('/', AuthValidation);
 app.use('/', router);
-app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
