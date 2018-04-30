@@ -17,13 +17,10 @@
     </div>
         <% if (schedule_option === 'Edit') { %>
         <div class="form-group">
-            <label >SCHEDULE ID</label>
             <input class="form-control form-control-sm input-sm"
-                   type="text"
-                   pattern="[0-9]*"
+                   type="hidden"
                    name="scheduleId"
                    value="<%= scheduleId %>"
-                   disabled
             />
         </div>
         <% } %>
