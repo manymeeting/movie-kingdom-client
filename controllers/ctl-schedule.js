@@ -11,6 +11,7 @@ module.exports.getAddSchedule = function(req, res, next) {
             res.render('pg-add-edit-schedule', {
                 schedule_option: 'Add',
                 formats: result.formats,
+                movieId: movieId,
                 scheduleId: ''
             });
         })
