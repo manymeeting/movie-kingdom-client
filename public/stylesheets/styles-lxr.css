@@ -1,7 +1,7 @@
 /* Please put your general styles here. Will be merged periodically */
 .mk-profile-img
 {
-    height: 100px;
+    height: 200px;
     width: 200px;
 }
 
@@ -24,10 +24,11 @@
 
 .mk-profile-label
 {
-    height: 20px;
     width: 200px;
-    color: black;
     text-align: center;
+    cursor: pointer;
+    line-height: 200px;
+    margin-bottom: 0;
 }
 
 #mk-image-upload

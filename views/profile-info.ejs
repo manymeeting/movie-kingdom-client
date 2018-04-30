@@ -40,8 +40,8 @@
                 </select>
             </div>
 
-            <div class="form-group card bg-dark text-white">
-                <img src="<%= currentUser.imageUrl%>"
+            <div class="form-group bg-dark text-white">
+                <img src="<%= currentUser.imageUrl !== null ? currentUser.imageUrl : "/assets/images/medium-default-avatar.png"%>"
                      alt="profile image"
                      class="mk-profile-img"
                      id="mk-image-preview"/>
