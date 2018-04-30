@@ -3,7 +3,19 @@ let API_METHOD = require('../values/constants').API_METHOD;
 let PathDict = require('../values/PathDictionary');
 
 module.exports.getBuyTickets = function(req, res, next) {
-    res.render('pg-buy-tickets');
+    clientMessenger.send("/schedule/" + req.query.scheduleID, API_METHOD.GET, "schedules")
+        .then(result => {
+            console.log(result);
+            res.render('pg-buy-tickets', {
+                "title": 'Buy Tickets', 
+                "schedule": result.schedule
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(400);
+            req.session.MKFlash.error = err;
+        });
 };
 
 module.exports.postBuyTickets = function(req, res, next) {
