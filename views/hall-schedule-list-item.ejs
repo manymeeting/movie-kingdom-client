@@ -29,7 +29,7 @@
         <div class="mk-hall-schedules-list">
             <ul>
                 <% for(let k = 0; k < hallMovie.schedules.length; k++) {%>
-                    <a href="#" class="mk-schedule-container">
+                    <a href="<%= PathDict.GET.BUY_TICKETS + "?scheduleID=" + hallMovie.schedules[k].scheduleId%>" class="mk-schedule-container">
                         <li>
                             <span><%= hallMovie.schedules[k].showtime%></span>
                         </li>
