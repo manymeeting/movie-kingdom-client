@@ -35,6 +35,9 @@
                                             <div class="mk-order-schedule-hall-info pl-3">
                                                 <h3><a href="<%= PathDict.GET.HALL_DETAILS + "?id=" + orderHall.theaterId%>"><%= orderHall.theaterName%></a></h3>
                                                 <span class="mk-text-mute"><%= orderHall.street + ", " + orderHall.city + ", " + orderHall.state + ", " + orderHall.zipcode%></span>
+                                                <% if(userInfo.role === Roles.HAD) {%>
+                                                    <a href="#"><span class="mk-order-schedule-cancel-link mr-3">Cancel</span></a>
+                                                <% }%>
                                             </div>
                                             <div class="mk-order-schedule-dt-info pl-3">
                                                 <p class="mk-order-schedule-dt-line mt-4">
