@@ -58,7 +58,7 @@ module.exports.postAddSchedule = function (req, res, next) {
 
 module.exports.postEditSchedule = function (req, res, next) {
     let content = req.body;
-    let scheduleId = 1179642;
+    let scheduleId = req.body.scheduleId;
     content.showtime = timeConversion(content.showtime);
     console.log('lxr', content);
     clientMessenger.send(`/schedule/${scheduleId}`, API_METHOD.PUT, "schedules", content)
