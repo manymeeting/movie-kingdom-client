@@ -40,7 +40,8 @@ ControlCodes[PathDict.GET.MOVIE_DETAILS_ORDERS] = Roles.HAD;
 //below lies Super Admin accessible paths
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.SAD;
 ControlCodes[PathDict.GET.EDIT_HALL] = Roles.SAD;
-ControlCodes[PathDict.GET.ADMIN_ORDERS] = Roles.SAD
+ControlCodes[PathDict.GET.ADMIN_ORDERS] = Roles.SAD;
+ControlCodes[PathDict.GET.ADMIN_DASHBOARD] = Roles.SAD;
 
 //below lies both Hall and Super accessible paths
 ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.HAD;
