@@ -44,7 +44,7 @@
     margin-top: 4rem;
     margin-left: 25%;
     margin-right: 25%;
-    border: 1.5px solid #F15500;
+    border: 2px solid #F15500;
 }
 
 .mk-profile-content
@@ -120,8 +120,8 @@
 .mk-addmovie-wrapper
 {
     margin-top: 4rem;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .mk-movie-img
@@ -156,8 +156,8 @@
 .mk-addhall-wrapper
 {
     margin-top: 4rem;
-    margin-left: 40%;
-    margin-right: 30%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .mk-addhall-adjust

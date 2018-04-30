@@ -15,7 +15,7 @@
     <% if (movie_option === 'Edit') { %>
     <div class="form-group">
         <label >MOVIE ID</label>
-        <input class="form-control form-control-sm input-sm col-sm-4"
+        <input class="form-control form-control-sm input-sm "
                type="text"
                name="movieId"
                value="<%= movie.movieId %>"
@@ -26,7 +26,7 @@
 
     <div class="form-group">
         <label >TITLE</label>
-        <input class="form-control form-control-sm input-sm col-sm-6"
+        <input class="form-control form-control-sm input-sm "
                type="text"
                placeholder="input title"
                pattern="[a-z|A-Z|0-9|\s|\.']*"
@@ -56,11 +56,11 @@
         </textarea>
     </div>
 
-    <div class="form-group card bg-dark text-white mk-moive-img-adjust">
+    <div class="form-group card bg-dark text-white">
         <img <% if (movie_option === 'Edit') { %>
                 src="<%= movie.coverImageUrl %>"
                 <% } %>
-             alt="profile image"
+             alt="movie cover image"
              class="mk-profile-img"
              id="mk-movieImg-preview"/>
         <label class="mk-movie-label">
@@ -87,7 +87,7 @@
 
     <div class="form-group">
         <label for="LENGTH">LENGTH</label>
-        <input class="form-control form-control-sm input-sm col-sm-6"
+        <input class="form-control form-control-sm input-sm "
                type="text"
                pattern="[0-9]+"
                title="must only contain digits"
@@ -104,7 +104,7 @@
 
     <div class="form-group">
         <label>MPAA ID</label>
-        <select class="form-control form-control-sm input-sm col-sm-4"
+        <select class="form-control form-control-sm input-sm "
                 name="mpaaId"
                 <% if (movie_option === 'Edit') { %>
                 <% switch (movie.mpaaRating) {
@@ -134,7 +134,7 @@
 
     <div class="form-group">
         <label>RELEASE DATE</label>
-        <input class="form-control form-control-sm input-sm col-sm-5"
+        <input class="form-control form-control-sm input-sm "
                type="date"
                name="releaseDate"
                 <% if (movie_option === 'Edit') { %>
@@ -145,7 +145,7 @@
 
     <div class="form-group">
         <label for="TRAILER">TRAILER URL</label>
-        <input class="form-control form-control-sm input-sm col-sm-6"
+        <input class="form-control form-control-sm input-sm "
                type="url"
                name="trailerUrl"
                placeholder="input trailer url"
@@ -160,7 +160,7 @@
 
     <div class="form-group">
         <label>STARS</label>
-        <select class="form-control form-control-sm input-sm col-sm-2"
+        <select class="form-control form-control-sm input-sm "
                 name="starts"
                 <% if (movie_option === 'Edit') { %>
                 value="<%= movie.stars %>"

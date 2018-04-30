@@ -18,7 +18,7 @@
         <% if (schedule_option === 'Edit') { %>
         <div class="form-group">
             <label >SCHEDULE ID</label>
-            <input class="form-control form-control-sm input-sm col-sm-6"
+            <input class="form-control form-control-sm input-sm"
                    type="text"
                    pattern="[0-9]*"
                    name="scheduleId"
@@ -31,7 +31,7 @@
     <% if (schedule_option === 'Add') { %>
         <div class="form-group">
             <label >MOVIE ID</label>
-            <input class="form-control form-control-sm input-sm col-sm-6"
+            <input class="form-control form-control-sm input-sm "
                    placeholder="input movie ID"
                    type="text"
                    pattern="[0-9]*"
@@ -44,7 +44,7 @@
 
         <div class="form-group">
             <label >THEATRE ID</label>
-            <input class="form-control form-control-sm input-sm col-sm-6"
+            <input class="form-control form-control-sm input-sm"
                    placeholder="input theatre ID"
                    type="text"
                    pattern="[0-9]*"
@@ -58,7 +58,7 @@
 
         <div class="form-group">
             <label>FORMAT</label>
-            <select class="form-control form-control-sm input-sm col-sm-4" name="formatId">
+            <select class="form-control form-control-sm input-sm" name="formatId">
                 <% formats.forEach(function (format) { %>
                 <option value="<%= format.formatId %>"><%= format.formatName%></option>
                 <% })%>
@@ -68,7 +68,7 @@
 
         <div class="form-group">
             <label>SCHEDULE DATE</label>
-            <input class="form-control form-control-sm input-sm col-sm-5" type="date"
+            <input class="form-control form-control-sm input-sm" type="date"
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
@@ -78,7 +78,7 @@
 
         <div class="form-group">
             <label>SHOW TIME</label>
-            <input class="form-control form-control-sm input-sm col-sm-4"
+            <input class="form-control form-control-sm input-sm "
                    type="time"
                     <% if (schedule_option === 'Add') { %>
                    required
@@ -89,7 +89,7 @@
 
         <div class="form-group">
             <label >TOTAL SEATS</label>
-            <input class="form-control form-control-sm input-sm col-sm-3"
+            <input class="form-control form-control-sm input-sm "
                    type="text"
                    pattern="[0-9]*"
                    name="totSeats"
@@ -101,7 +101,7 @@
 
         <div class="form-group">
             <label >AVAILABLE SEATS</label>
-            <input class="form-control form-control-sm input-sm col-sm-3"
+            <input class="form-control form-control-sm input-sm "
                    type="text"
                    pattern="[0-9]*"
                    name="availSeats"
@@ -113,7 +113,7 @@
 
         <div class="form-group">
             <label >PRICE IN US DOLLAR</label>
-            <input class="form-control form-control-sm input-sm col-sm-3"
+            <input class="form-control form-control-sm input-sm "
                    type="text"
                    pattern="[0-9]*"
                    name="price"
