@@ -38,3 +38,37 @@ module.exports.adminOrderList = function(req, res, next) {
 			res.status(400).send();
 		});
 }
+
+
+module.exports.ordersOnMovieDetails = function(req, res, next) {
+	var page = req.query.page ? req.query.page : 0;
+	var movieID = req.query.id;
+	var movie = {};
+	var movieAnalytics = {};
+	clientMessenger.send("/analytics/movie-revenue/" + movieID, API_METHOD.GET, "analytics")
+		.then(result => {
+			movieAnalytics = result.movie;
+		})
+		.then(() => {
+			return clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies");
+		})
+		.then(result => {
+			movie = result.movie;
+		})
+		.then(() => {
+			return clientMessenger.send("/orders?movieId="+ movieID , API_METHOD.GET, "orders")
+		})
+		.then(result => {
+			console.log(result);
+			res.render('movie-dt-orders', {
+				"title": 'Movie Orders',
+				"movie": movie,
+				"movieAnalytics": movieAnalytics,
+				"movieOrders": result.content
+			});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});	
+}

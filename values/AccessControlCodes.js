@@ -10,6 +10,7 @@ module.exports.Roles = Roles;
 
 // 0: GUEST, 1:User, 2: HAD (Hall Admin), 3: SAD (Super Admin)
 const ControlCodes = {};
+//below lies Guest accessible paths
 ControlCodes[PathDict.GET.ROOT] = Roles.GUEST;
 ControlCodes[PathDict.GET.SIGN_UP] = Roles.GUEST;
 ControlCodes[PathDict.GET.LOGIN] = Roles.GUEST;
@@ -24,23 +25,24 @@ ControlCodes[PathDict.GET.HALL_DETAILS] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS_SCHEDULES] = Roles.GUEST;
 ControlCodes[PathDict.GET.MOVIE_DETAILS_REVIEWS] = Roles.GUEST;
-ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;
 ControlCodes[PathDict.GET.MULTI_TYPE_SEARCH] = Roles.GUEST;
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
 
-//below lies User access
+//below lies User accessible paths
+ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;
 ControlCodes[PathDict.GET.USER_ORDERS] = Roles.USER;
 
-//below lies Hall Admin access
+//below lies Hall Admin accessible paths
 ControlCodes[PathDict.GET.ADD_SCHEDULE] = Roles.HAD;
 ControlCodes[PathDict.GET.EDIT_SCHEDULE] = Roles.HAD;
+ControlCodes[PathDict.GET.MOVIE_DETAILS_ORDERS] = Roles.HAD;
 
-//below lies Super Admin access
+//below lies Super Admin accessible paths
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.SAD;
 ControlCodes[PathDict.GET.EDIT_HALL] = Roles.SAD;
 ControlCodes[PathDict.GET.ADMIN_ORDERS] = Roles.SAD
 
-//below lies both Hall and Super access
+//below lies both Hall and Super accessible paths
 ControlCodes[PathDict.GET.ADD_MOVIE] = Roles.HAD;
 ControlCodes[PathDict.GET.EDIT_MOVIE] = Roles.HAD;
 

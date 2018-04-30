@@ -47,6 +47,7 @@ router.get(PathDict.GET.MOVIE_DETAILS, ctlMovies.movieDetails);
 router.get(PathDict.GET.MOVIE_DETAILS_SCHEDULES, ctlMovies.schedulesOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_REVIEWS, ctlMovies.reviewsOnMovie);
 router.get(PathDict.GET.MOVIE_DETAILS_POST_REVIEW, ctlMovies.reviewFormOnMovie);
+router.get(PathDict.GET.MOVIE_DETAILS_ORDERS, ctlOrders.ordersOnMovieDetails);
 router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 router.get(PathDict.GET.HALL_DETAILS, ctlHalls.hallDetails);
 
