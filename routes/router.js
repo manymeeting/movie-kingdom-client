@@ -75,7 +75,13 @@ router.get(PathDict.GET.EDIT_HALL, ctlHall.getEditHall);
 router.post(PathDict.POST.ADD_HALL, ctlHall.postAddHall);
 router.post(PathDict.POST.EDIT_HALL, ctlHall.postEditHall);
 
+router.get(PathDict.GET.SUCCESS, function(req, res, next) {
+	res.render('pg-success');	
+});
+
 router.get(PathDict.GET.NO_ACCESS, function(req, res, next) {
     res.render('pg-no-access');
 });
+
+
 module.exports = router;

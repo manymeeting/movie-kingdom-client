@@ -47,7 +47,7 @@ module.exports.postAddSchedule = function (req, res, next) {
     clientMessenger.send(`/schedule`, API_METHOD.POST, "schedules", content)
         .then(result => {
             console.log(result);
-            res.redirect(PathDict.GET.MOVIE_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);
@@ -64,7 +64,7 @@ module.exports.postEditSchedule = function (req, res, next) {
     clientMessenger.send(`/schedule/${scheduleId}`, API_METHOD.PUT, "schedules", content)
         .then(result => {
             console.log(result);
-            res.redirect(PathDict.GET.MOVIE_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);
