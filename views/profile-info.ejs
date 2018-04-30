@@ -14,7 +14,7 @@
         <a id="editTag" href="<%= PathDict.GET.EDIT_PROFILE%>" >
             <button type="submit" class="btn btn-primary btn-sm mk-profile-btn">Edit</button>
         </a>
-        <form action="<%= PathDict.GET.PROFILE%>" method="post">
+        <form action="<%= PathDict.POST.PROFILE%>" method="post">
             <a href=<%= PathDict.GET.LOGOUT%>>
                 <input type="hidden" name="userId" value="<%= currentUser.userId %>">
                 <button type="submit" class="btn btn-primary btn-sm mk-profile-del-btn">Delete Your Account</button>
@@ -127,8 +127,8 @@
                 <label>State</label>
                 <input type="text"
                        class="form-control form-control-sm input-sm"
-                       pattern="[A-Z]{2}"
-                       title="Must not contain exactly 2 uppercase letters"
+                       pattern="^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$"
+                       title="Must only contain exactly 2 uppercase US state abbreviation letters"
                        value="<%= currentUser.state%>"
                        name="state"
                         <% if (profile_option !== 'edit') { %>
