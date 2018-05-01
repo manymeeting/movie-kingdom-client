@@ -4,6 +4,78 @@ $(function(){
     google.charts.setOnLoadCallback(drawChart);
 
 
+    function renderTopTenCityRevenues()
+    {
+        // fetch data
+        var URL = '/log/report/top-10-city-revenues';
+
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        });
+        var getReq = new Request(URL, {
+            method: 'GET', 
+            headers: headers
+        });
+
+        return fetch(getReq)
+            .then(response => response.json())
+            .then(function(results) {
+                console.log(results);
+                
+                let arrayData = [['Cities', 'Revenue']];
+                for(let i = 0; i < results.length; i++)
+                {
+                    let dataEntry = results[i];
+                    arrayData.push([dataEntry.city.cityName, dataEntry.revenue]);
+                }
+
+                drawTopTenCityRevenues(arrayData);
+            })
+            .catch(function(error) {
+                console.log('Fetch Error: ', error);
+            });
+    }
+
+    function drawTopTenCityRevenues(arrayData)
+    {
+        var dataTopTenCities = google.visualization.arrayToDataTable(arrayData);
+
+        // var dataTopTenCities = google.visualization.arrayToDataTable([
+        //     ['Theater', 'Revenue2017'],
+        //     ['New York', 354],
+        //     ['Los Angeles', 331],
+        //     ['San Francisco', 306],
+        //     ['Chicago', 311],
+        //     ['Philadelphia', 278],
+        //     ['San Diego', 277],
+        //     ['Washington, DC', 268],
+        //     ['Boston', 258],
+        //     ['Houston', 244]
+        // ]);
+
+        var materialOptions = {
+            width : 800,
+            height: 400,
+            chart: {
+                title: 'Top 10 Cities'
+            },
+            hAxis: {
+                title: 'Total Revenue',
+                minValue: 0,
+            },
+            vAxis: {
+                title: 'Cities'
+            },
+            bars: 'horizontal'
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('chart3_div'));
+        materialChart.draw(dataTopTenCities, materialOptions);
+
+
+
+    }
+
     function renderTopTenHallRevenues()
     {
         // fetch data
@@ -180,43 +252,13 @@ $(function(){
             .then(()=>{
                 renderTopTenHallRevenues();
             })
+            .then(()=>{
+                renderTopTenCityRevenues();
+            })
 
         
 
-        var dataTopTenCities = google.visualization.arrayToDataTable([
-            ['Theater', 'Revenue2017'],
-            ['New York', 354],
-            ['Los Angeles', 331],
-            ['San Francisco', 306],
-            ['Chicago', 311],
-            ['Philadelphia', 278],
-            ['San Diego', 277],
-            ['Washington, DC', 268],
-            ['Boston', 258],
-            ['Houston', 244]
-
-
-        ]);
-
-        var materialOptions = {
-            width : 800,
-            height: 400,
-            chart: {
-                title: 'Top 10 Cities'
-            },
-            hAxis: {
-                title: 'Total Revenue',
-                minValue: 0,
-            },
-            vAxis: {
-                title: 'Cities'
-            },
-            bars: 'horizontal'
-        };
-        var materialChart = new google.charts.Bar(document.getElementById('chart3_div'));
-        materialChart.draw(dataTopTenCities, materialOptions);
-
-
+        
 
         var dataClicksByGenres = google.visualization.arrayToDataTable([
             ['Genres', 'Clicks'],
