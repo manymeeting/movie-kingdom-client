@@ -49,7 +49,11 @@ module.exports.postSignUp = function(req, res, next){
 		})
 		.catch(err => {
 			console.log(err);
-			res.status(400).send();
+			res.status(400);
+			req.session.MKFlash.error = {
+				message: "Sign Up Failed"
+			};
+			res.redirect(PathDict.GET.SIGN_UP);
 		});
 	
 }

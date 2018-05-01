@@ -103,6 +103,7 @@ KafkaClientService.prototype.sendMessage = function(topic, partition, content, c
     });
 }
 
+// TODO: concurrent send may fetch the same offset, thus caused multiple consumers responding to same msg.
 KafkaClientService.prototype._setResponseConsumer = function(topicRes)
 {
 	// reuse existing consumer on this topic

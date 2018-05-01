@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 	res.redirect('/login');
 });
 router.get(PathDict.GET.SIGN_UP, function(req, res, next) {
-    res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up' });
+    res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up', error: req.MK.error});
 });
 //account
 router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
@@ -60,6 +60,8 @@ router.post(PathDict.POST.LOGGER_PATH, ctlLogs.postClickLog);
 router.get(PathDict.GET.SUM_CLICK_BY_PATH, ctlLogs.sumCountByPath);
 router.get(PathDict.GET.TOP_TEN_MOVIE_REVENUES, ctlDashBoard.topMovieRevenues);
 router.get(PathDict.GET.TOP_TEN_HALL_REVENUES, ctlDashBoard.topHallRevenues);
+router.get(PathDict.GET.TOP_TEN_CITY_REVENUES, ctlDashBoard.topCityRevenues);
+router.get(PathDict.GET.TOP_TEN_REVIEWED_MOVIE, ctlDashBoard.topReviewedMoives);
 
 //buy tickets
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);

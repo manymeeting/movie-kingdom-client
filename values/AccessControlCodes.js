@@ -32,6 +32,8 @@ ControlCodes[PathDict.POST.LOGGER_PATH] = Roles.GUEST;
 ControlCodes[PathDict.GET.SUM_CLICK_BY_PATH] = Roles.GUEST;
 ControlCodes[PathDict.GET.TOP_TEN_MOVIE_REVENUES] = Roles.GUEST;
 ControlCodes[PathDict.GET.TOP_TEN_HALL_REVENUES] = Roles.GUEST;
+ControlCodes[PathDict.GET.TOP_TEN_CITY_REVENUES] = Roles.GUEST;
+ControlCodes[PathDict.GET.TOP_TEN_REVIEWED_MOVIE] = Roles.GUEST;
 
 //below lies User accessible paths
 ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;
