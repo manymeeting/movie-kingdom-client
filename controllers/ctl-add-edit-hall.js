@@ -37,7 +37,7 @@ module.exports.postAddHall = function(req, res, next) {
         })
         .then(result => {
             console.log('lxr', result);
-            res.redirect(PathDict.GET.HALL_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);
@@ -65,7 +65,7 @@ module.exports.postEditHall = function(req, res, next) {
         })
         .then(result => {
             console.log('lxr', result);
-            res.redirect(PathDict.GET.HALL_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);
