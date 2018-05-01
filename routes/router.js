@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 	res.redirect('/login');
 });
 router.get(PathDict.GET.SIGN_UP, function(req, res, next) {
-    res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up' });
+    res.render('pg-portal', { page: 'SIGN_UP', title: 'Sign Up', error: req.MK.error});
 });
 //account
 router.get(PathDict.GET.LOGIN, ctlPortal.getLogin);
