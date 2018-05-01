@@ -10,35 +10,40 @@
         <div class="container mt-4">
             <h2 class="mk-sub-title">MOVIE TIMES + TICKETS NEAR <%= typeof(locationValue) !== "undefined" ? locationValue : "95112" %></h2>
             <p>FILTER BY: </p>
-            <div class="row">
-                <div class="input-group mb-3 col">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputPriceFilter">Price (USD)</label>
+            <form action="<%= PathDict.GET.MULTI_TYPE_SEARCH%>" method="get">
+                <div class="row">
+                    <input type="hidden" name="searchValue" value="<%=searchValue%>">
+                    <input type="hidden" name="searchType" value="<%=searchType%>">
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputPriceFilter">Price (USD)</label>
+                        </div>
+                        <select name="priceFilter" class="custom-select" id="inputPriceFilter">
+                            <option <%= typeof(priceFilter)==="undefined" || priceFilter==="0" ? "selected" : ""%> value="0">All</option>
+                            <option <%= typeof(priceFilter)!=="undefined" && priceFilter==="1" ? "selected" : ""%> value="1">0-20</option>
+                            <option <%= typeof(priceFilter)!=="undefined" && priceFilter==="2" ? "selected" : ""%> value="2">21-50</option>
+                            <option <%= typeof(priceFilter)!=="undefined" && priceFilter==="3" ? "selected" : ""%> value="3">More than 50</option>
+                        </select>
                     </div>
-                    <select class="custom-select" id="inputPriceFilter">
-                        <option selected value="0">All</option>
-                        <option value="1">0-50</option>
-                        <option value="2">50-100</option>
-                        <option value="3">More than 100</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3 col">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputRatingFilter">Rating</label>
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputRatingFilter">Rating</label>
+                        </div>
+                        <select name="ratingFilter" class="custom-select" id="inputRatingFilter">
+                            <option <%= typeof(ratingFilter)==="undefined" || ratingFilter==="0" ? "selected" : ""%> value="0">All</option>
+                            <option <%= typeof(ratingFilter)!=="undefined" && ratingFilter==="1" ? "selected" : ""%> value="1">One</option>
+                            <option <%= typeof(ratingFilter)!=="undefined" && ratingFilter==="2" ? "selected" : ""%> value="2">More than two</option>
+                            <option <%= typeof(ratingFilter)!=="undefined" && ratingFilter==="3" ? "selected" : ""%> value="3">More than three</option>
+                            <option <%= typeof(ratingFilter)!=="undefined" && ratingFilter==="4" ? "selected" : ""%> value="4">More than four</option>
+                            <option <%= typeof(ratingFilter)!=="undefined" && ratingFilter==="5" ? "selected" : ""%> value="5">Five</option>
+                        </select>
                     </div>
-                    <select class="custom-select" id="inputRatingFilter">
-                        <option selected value="0">All</option>
-                        <option value="1">One</option>
-                        <option value="2">More than two</option>
-                        <option value="3">More than three</option>
-                        <option value="4">More than four</option>
-                        <option value="5">Five</option>
-                    </select>
+                    <div>
+                        <input type="submit" class="btn btn-dark" value="Refresh">
+                    </div>
+                    
                 </div>
-                <div>
-                    <button type="button" class="btn btn-dark">Refresh</button>
-                </div>
-            </div>
+            </form>
 
             <% if(typeof(halls) === "undefined" || !halls.length > 0) {%>
                 <h3>NO SCHEDULES FOR NOW : )</h3>

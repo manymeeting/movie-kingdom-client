@@ -1,4 +1,4 @@
-<% var labelDict = {"MOVIE": "Movie", "ZIPCODE": "Zip Code", "CITY": "City"};%>
+<% var labelDict = {"MOVIE": "Movie", "ZIPCODE": "Zip Code", "CITY": "City", "CITY_ID": "City ID"};%>
 <% var retainedSearchType = typeof(searchType) !== "undefined" ? searchType : "MOVIE" //set movie as default search type %>
 <form method="GET" action=<%=PathDict.GET.MULTI_TYPE_SEARCH%> class="form-inline my-2 my-lg-0">
 	<div class="input-group">
@@ -8,6 +8,7 @@
 				<span class="dropdown-item mk-header-search-options" searchType="MOVIE"><%= labelDict["MOVIE"]%></span>
 				<span class="dropdown-item mk-header-search-options" searchType="ZIPCODE"><%= labelDict["ZIPCODE"]%></span>
 				<span class="dropdown-item mk-header-search-options" searchType="CITY"><%= labelDict["CITY"]%></span>
+				<span class="dropdown-item mk-header-search-options" searchType="CITY_ID"><%= labelDict["CITY_ID"]%></span>
 			</div>
 		</div>
 		<input type="search" class="form-control mr-sm-2" placeholder="Search..." name="searchValue" required value="<%= typeof(searchValue) !== "undefined" ? searchValue : ""%>">
