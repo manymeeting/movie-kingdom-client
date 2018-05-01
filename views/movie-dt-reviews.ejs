@@ -28,7 +28,7 @@
                                 <li>
                                     <p class="mk-movie-review-rating">
                                         <% for(let j = 0; j < 5; j++){ %>
-                                            <% if(i <= Math.round(review.stars)){ %>
+                                            <% if(j < Math.round(review.stars)){ %>
                                                 <span class="fa fa-star mk-star-filled"></span>
                                             <% } else{%>
                                                 <span class="fa fa-star"></span>

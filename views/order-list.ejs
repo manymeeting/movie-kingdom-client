@@ -20,7 +20,7 @@
                         <div>
                             <p class="mk-movie-review-rating">
                                 <% for(let k = 0; k < 5; k++){ %>
-                                    <% if(k <= Math.round(orderMovie.stars)){ %>
+                                    <% if(k < Math.round(orderMovie.stars)){ %>
                                         <span class="fa fa-star mk-star-filled"></span>
                                     <% } else{%>
                                         <span class="fa fa-star"></span>
