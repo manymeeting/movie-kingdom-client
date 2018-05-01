@@ -17,9 +17,13 @@
         <label >MOVIE ID</label>
         <input class="form-control form-control-sm input-sm "
                type="text"
-               name="movieId"
                value="<%= movie.movieId %>"
                disabled
+        />
+        <input class="form-control form-control-sm input-sm "
+               type="hidden"
+               name="movieId"
+               value="<%= movie.movieId %>"
         />
     </div>
     <% } %>
