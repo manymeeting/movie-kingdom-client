@@ -31,6 +31,7 @@ const dict = {
         TOP_TEN_MOVIE_REVENUES: '/log/report/top-10-movie-revenues',
         TOP_TEN_HALL_REVENUES: '/log/report/top-10-hall-revenues',
         TOP_TEN_CITY_REVENUES: '/log/report/top-10-city-revenues',
+        TOP_TEN_REVIEWED_MOVIE: '/log/report/top-10-reviewed-movie',
         SUCCESS: '/result/success',
     	NO_ACCESS: '/noaccess',
 	},

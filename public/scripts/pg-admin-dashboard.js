@@ -4,6 +4,56 @@ $(function(){
     google.charts.setOnLoadCallback(drawChart);
 
 
+    function renderTopTenReviewedMovie()
+    {
+        // fetch data
+        var URL = '/log/report/top-10-reviewed-movie';
+
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        });
+        var getReq = new Request(URL, {
+            method: 'GET', 
+            headers: headers
+        });
+
+        return fetch(getReq)
+            .then(response => response.json())
+            .then(function(results) {
+                console.log(results);
+                
+                let arrayData = [['Reviews', 'Number']];
+                for(let i = 0; i < results.length; i++)
+                {
+                    let dataEntry = results[i];
+                    arrayData.push([dataEntry.movie.movieTitle, dataEntry.reivewNum]);
+                }
+
+                drawTopTenReviewedMovie(arrayData);
+            })
+            .catch(function(error) {
+                console.log('Fetch Error: ', error);
+            });
+    }
+
+    function drawTopTenReviewedMovie(arrayData)
+    {
+        var dataReviewsOnMovie = google.visualization.arrayToDataTable(arrayData);
+
+        var options = {
+            width : 700,
+            height: 400,
+            title: 'Reviews on movies'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart6_div'));
+
+        chart.draw(dataReviewsOnMovie, options);
+    }
+
+
+
     function renderTopTenCityRevenues()
     {
         // fetch data
@@ -41,24 +91,11 @@ $(function(){
     {
         var dataTopTenCities = google.visualization.arrayToDataTable(arrayData);
 
-        // var dataTopTenCities = google.visualization.arrayToDataTable([
-        //     ['Theater', 'Revenue2017'],
-        //     ['New York', 354],
-        //     ['Los Angeles', 331],
-        //     ['San Francisco', 306],
-        //     ['Chicago', 311],
-        //     ['Philadelphia', 278],
-        //     ['San Diego', 277],
-        //     ['Washington, DC', 268],
-        //     ['Boston', 258],
-        //     ['Houston', 244]
-        // ]);
-
         var materialOptions = {
             width : 800,
             height: 400,
             chart: {
-                title: 'Top 10 Cities'
+                title: 'Top 10 Revenue Cities'
             },
             hAxis: {
                 title: 'Total Revenue',
@@ -71,9 +108,6 @@ $(function(){
         };
         var materialChart = new google.charts.Bar(document.getElementById('chart3_div'));
         materialChart.draw(dataTopTenCities, materialOptions);
-
-
-
     }
 
     function renderTopTenHallRevenues()
@@ -255,6 +289,9 @@ $(function(){
             .then(()=>{
                 renderTopTenCityRevenues();
             })
+            .then(()=>{
+                renderTopTenReviewedMovie();
+            })
 
         
 
@@ -280,27 +317,5 @@ $(function(){
 
         chart.draw(dataClicksByGenres, options);
 
-
-
-
-        var dataReviewsOnMovie = google.visualization.arrayToDataTable([
-            ['Genres', 'Clicks'],
-            ['Star Wars: Episode VII - The Force Awakens (2015)', 32000],
-            ['Avatar (2009)', 7654],
-            ['Titanic (1997)', 6325],
-            ['Black Panther (2018)', 5623],
-            ['Jurassic World (2015)', 3500],
-            ['Others', 35000]
-        ]);
-
-        var options = {
-            width : 700,
-            height: 400,
-            title: 'Reviews on movies'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('chart6_div'));
-
-        chart.draw(dataReviewsOnMovie, options);
     }
 })
