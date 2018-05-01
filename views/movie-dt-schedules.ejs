@@ -18,35 +18,39 @@
             <div class="row">
                 <% include ./movie-dt-info.ejs %>
                 <div class="col-8">
-                    <ul>
-                        <li>
-                            <div class="mk-hall-header">
-                                <div class="mk-hall-name-wrapper">
-                                    <h3>
-                                        <a href="#">CENTURY CINEMAS 16</a>
-                                    </h3>
-                                </div>
-                                <div class="mk-hall-addr-wrapper">
-                                    <span class="mk-text-mute">3000 El Camino Real, Palo Alto, CA 94306</span>
-                                </div>
-                            </div>
-                            <div class="mk-hall-schedules-wrapper">
-                                <div><span>Select a movie time to buy Standard Showtimes</span></div>
-                                <div class="mk-hall-schedules-list">
-                                    <ul>
-                                        <li><span>1:00p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                        <li><span>1:30p</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <% if(typeof(halls) === "undefined" || !halls.length > 0) { %>
+                        <h3>NO LOCAL SCHEDULES FOR NOW : )</h3>
+                    <% } else {%>
+                        <ul>
+                            <% for(let i=0; i < halls.length; i++) {%>
+                                <% var hall = halls[i]; %>
+                                <% var movieSchedule = hall.schedules; %>
+                                <% var movieID = movie.movieId; %>
+                                <li>
+                                    <div class="mk-hall-header mt-4">
+                                        <div class="mk-hall-name-wrapper">
+                                            <h3>
+                                                <a href="<%= PathDict.GET.HALL_DETAILS + "?id=" + hall.theaterId%>"><%= hall.theaterName%></a>
+                                            </h3>
+                                            <span class="mk-text-mute"><%= hall.street + ", " + hall.city.cityName + ", " + hall.city.state + ", " + hall.zipcode%></span>
+                                        </div>
+                                    </div>
+                                    <div class="mk-hall-schedules-wrapper col-6">
+                                        <div><span>Select a movie time to buy tickets</span></div>
+                                        <div class="mk-hall-schedules-list">
+                                            <ul>
+                                                <% for(let k = 0; k < hallMovie.schedules.length; k++) {%>
+                                                    <% include ./schedule-tag-link.ejs %>
+                                                <% }%>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% } %>
+                            
+                        </ul>
+                    <% }%>
+                    
                 </div>
             </div>
             

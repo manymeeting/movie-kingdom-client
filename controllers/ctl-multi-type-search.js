@@ -1,4 +1,4 @@
-const DEFAULT_ZIPCODE = "95112"; // TODO get zipcode based on actual user location
+const DEFAULT_ZIPCODE = "92825"; // TODO get zipcode based on actual user location
 var clientMessenger = require('../kafka/ClientMessenger');
 let API_METHOD = require('../values/constants').API_METHOD;
 

@@ -1,5 +1,6 @@
 var clientMessenger = require('../kafka/ClientMessenger');
 let API_METHOD = require('../values/constants').API_METHOD;
+const DEFAULT_ZIPCODE = "92825"; // TODO get zipcode based on actual user location
 
 module.exports.movieList = function(req, res, next) {
 	// get all movies and genres
@@ -76,14 +77,22 @@ module.exports.movieDetails = function(req, res, next) {
 
 module.exports.schedulesOnMovie = function(req, res, next) {
 	var movieID = req.query.id;
+	var page = req.query.page ? req.query.page : 0;
+	var movie = {};
 
-	// TODO: fetch schedule data
 	clientMessenger.send("/movie/" + movieID, API_METHOD.GET, "movies")
 		.then(result => {
 			console.log(result);
+			movie = result.movie;	
+		})
+		.then(()=> {
+			return clientMessenger.send(`/schedules-zipcdoe/${DEFAULT_ZIPCODE}/${movieID}?page=${page}`, API_METHOD.GET, "schedules");
+		})
+		.then(result => {
 			res.render('movie-dt-schedules', {
 				"title": 'Movies Schedules', 
-				"movie": result.movie
+				"movie": movie,
+				"halls": result.content
 			});
 		})
 		.catch(err => {
