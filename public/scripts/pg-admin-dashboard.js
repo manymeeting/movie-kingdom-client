@@ -18,7 +18,7 @@ $(function(){
             headers: headers
         });
 
-        fetch(getReq)
+        return fetch(getReq)
             .then(response => response.json())
             .then(function(results) {
                 console.log(results);
@@ -27,10 +27,10 @@ $(function(){
                 for(let i = 0; i < results.length; i++)
                 {
                     let dataEntry = results[i];
-                    arrayData.push([dataEntry.movie.movieTitle, dataEntry.revenue]);
+                    arrayData.push([dataEntry.theater.theaterName, dataEntry.revenue]);
                 }
 
-                drawTopTenMovieRevnues(arrayData);
+                drawTopTenHallRevenues(arrayData);
             })
             .catch(function(error) {
                 console.log('Fetch Error: ', error);
@@ -39,25 +39,13 @@ $(function(){
 
     function drawTopTenHallRevenues(arrayData)
     {
-        var dataTopTenHalls = google.visualization.arrayToDataTable(arrayData);
-        // var dataTopTenHalls = google.visualization.arrayToDataTable([
-        //     ['Theater', 'Revenue2017', 'Revenue2016'],
-        //     ['AMC Loews', 13.2, 8.4],
-        //     ['AMC Sunset 5', 11.7, 8.1],
-        //     ['AMC Kabuki', 10.6, 6.7],
-        //     ['Regal Union Square Stadium', 10.2, 6.5],
-        //     ['AMC Mazza Gallerie', 9.5, 5.9],
-        //     ['Regal E-Walk Stadium', 9.3, 5.2],
-        //     ['AMC Empire', 8.4, 4.8],
-        //     ['Cinemark North Hollywood ', 7.8, 4.2],
-        //     ['Regal Fenway Stadium', 7.2, 4.1]
-        // ]);
+        var topTenHalls = google.visualization.arrayToDataTable(arrayData);
 
         var materialOptions = {
             width : 800,
             height: 400,
             chart: {
-                title: 'Top 10 Halls'
+                title: 'Top 10 Revenue Halls'
             },
             hAxis: {
                 title: 'Total Revenue',
@@ -69,7 +57,7 @@ $(function(){
             bars: 'horizontal'
         };
         var materialChart = new google.charts.Bar(document.getElementById('chart2_div'));
-        materialChart.draw(dataTopTenHalls, materialOptions);
+        materialChart.draw(topTenHalls, materialOptions);
 
     }
 
@@ -87,7 +75,7 @@ $(function(){
             headers: headers
         });
 
-        fetch(getReq)
+        return fetch(getReq)
             .then(response => response.json())
             .then(function(results) {
                 console.log(results);
@@ -110,19 +98,6 @@ $(function(){
     {
         var topTenMovies = google.visualization.arrayToDataTable(arrayData);
 
-        // var topTenMovies = google.visualization.arrayToDataTable([
-        //     ['Move', 'Revenue'],
-        //     ["Avatar", 2787],
-        //     ["Titanic", 2187],
-        //     ["Star Wars",2068],
-        //     ["Jurassic World", 1671],
-        //     ["The Avengers", 1518],
-        //     ["Furious 7", 1516],
-        //     ["Avengers", 1405],
-        //     ["Harry Potter Deathly Hallows", 1341],
-        //     ["Star Wars", 1332]
-        // ]);
-
         var materialOptions = {
             width : 800,
             height: 400,
@@ -131,11 +106,11 @@ $(function(){
             },
 
             hAxis: {
-                title: 'Total Population',
+                title: 'Total Revenue',
                 minValue: 0,
             },
             vAxis: {
-                title: 'City'
+                title: 'Movies'
             },
             bars: 'horizontal'
         };
@@ -180,17 +155,6 @@ $(function(){
 
     function drawSumClickByPath(arrayData)
     {
-        
-        // var dataClicksPerPage = google.visualization.arrayToDataTable([
-        //     ['Page', 'Clicks'],
-        //     ['User Profile', 3200],
-        //     ['Movie List', 12000],
-        //     ['Movie Hall List', 2532],
-        //     ['Movie Details', 2625],
-        //     ['Buy tickets', 1525],
-        //     ['Purchase List', 2153]
-        // ]);
-
         var dataClicksPerPage = google.visualization.arrayToDataTable(arrayData);
 
         var options = {
@@ -204,16 +168,20 @@ $(function(){
     }
     
 
-    
+
 
 
     function drawChart() {
 
         renderSumClickByPath();
 
-        renderTopTenMovieRevenues();
+        // TODO: fetch data via kafka sequentially for now
+        renderTopTenMovieRevenues()
+            .then(()=>{
+                renderTopTenHallRevenues();
+            })
 
-        renderTopTenHallRevenues();
+        
 
         var dataTopTenCities = google.visualization.arrayToDataTable([
             ['Theater', 'Revenue2017'],
@@ -247,13 +215,6 @@ $(function(){
         };
         var materialChart = new google.charts.Bar(document.getElementById('chart3_div'));
         materialChart.draw(dataTopTenCities, materialOptions);
-
-
-
-
-        
-
-
 
 
 
