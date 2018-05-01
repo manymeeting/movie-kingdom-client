@@ -32,7 +32,6 @@ module.exports.postAddHall = function(req, res, next) {
                 content.cityId = cityId;
                 return clientMessenger.send(`/theater`, API_METHOD.POST, "theaters", content);
             } else {
-                alert('cannot add this theatre due to unknown city');
                 return Promise.reject();
             }
         })
@@ -60,7 +59,6 @@ module.exports.postEditHall = function(req, res, next) {
                 content.cityId = cityId;
                 return clientMessenger.send(`/theater/${theatreId}`, API_METHOD.PUT, "theaters", content);
             } else {
-                alert('cannot update this theatre due to unknown city');
                 return Promise.reject();
             }
         })
