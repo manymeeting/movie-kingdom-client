@@ -18,7 +18,7 @@
                         <span class="mk-span"><%= movieAnalytics.revenue%></span>
                         <span class="mk-span mk-text-mute">Tickets Sold:</span>
                         <span class="mk-span"><%= movieAnalytics.tickets%></span>
-                        <span><a href="#" class="border-left pl-2">EDIT MOVIE</a></span>
+                        <span><a href="<%= `${PathDict.GET.EDIT_MOVIE}?movieID=${movie.movieId}`%>" class="border-left pl-2">EDIT MOVIE</a></span>
                         <span><a href="<%=`${PathDict.GET.ADD_SCHEDULE}?movieID=${movie.movieId}`%>" class="pl-1">ADD SCHEDULE</a></span>
                     </p>
                 </div>
