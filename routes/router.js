@@ -59,6 +59,7 @@ router.get(PathDict.GET.ADMIN_DASHBOARD, ctlDashBoard.renderDashBoard);
 router.post(PathDict.POST.LOGGER_PATH, ctlLogs.postClickLog);
 router.get(PathDict.GET.SUM_CLICK_BY_PATH, ctlLogs.sumCountByPath);
 router.get(PathDict.GET.TOP_TEN_MOVIE_REVENUES, ctlDashBoard.topMovieRevenues);
+router.get(PathDict.GET.TOP_TEN_HALL_REVENUES, ctlDashBoard.topHallRevenues);
 
 //buy tickets
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);

@@ -29,6 +29,7 @@ const dict = {
     	MULTI_TYPE_SEARCH: '/multi-type/search',
         SUM_CLICK_BY_PATH: '/log/report/sum-click-by-path',
         TOP_TEN_MOVIE_REVENUES: '/log/report/top-10-movie-revenues',
+        TOP_TEN_HALL_REVENUES: '/log/report/top-10-hall-revenues',
         SUCCESS: '/result/success',
     	NO_ACCESS: '/noaccess',
 	},

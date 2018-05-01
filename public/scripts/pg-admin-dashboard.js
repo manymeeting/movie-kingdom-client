@@ -3,6 +3,76 @@ $(function(){
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawChart);
 
+
+    function renderTopTenHallRevenues()
+    {
+        // fetch data
+        var URL = '/log/report/top-10-hall-revenues';
+
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        });
+        var getReq = new Request(URL, {
+            method: 'GET', 
+            headers: headers
+        });
+
+        fetch(getReq)
+            .then(response => response.json())
+            .then(function(results) {
+                console.log(results);
+                
+                let arrayData = [['Theater', 'Revenue']];
+                for(let i = 0; i < results.length; i++)
+                {
+                    let dataEntry = results[i];
+                    arrayData.push([dataEntry.movie.movieTitle, dataEntry.revenue]);
+                }
+
+                drawTopTenMovieRevnues(arrayData);
+            })
+            .catch(function(error) {
+                console.log('Fetch Error: ', error);
+            });
+    }
+
+    function drawTopTenHallRevenues(arrayData)
+    {
+        var dataTopTenHalls = google.visualization.arrayToDataTable(arrayData);
+        // var dataTopTenHalls = google.visualization.arrayToDataTable([
+        //     ['Theater', 'Revenue2017', 'Revenue2016'],
+        //     ['AMC Loews', 13.2, 8.4],
+        //     ['AMC Sunset 5', 11.7, 8.1],
+        //     ['AMC Kabuki', 10.6, 6.7],
+        //     ['Regal Union Square Stadium', 10.2, 6.5],
+        //     ['AMC Mazza Gallerie', 9.5, 5.9],
+        //     ['Regal E-Walk Stadium', 9.3, 5.2],
+        //     ['AMC Empire', 8.4, 4.8],
+        //     ['Cinemark North Hollywood ', 7.8, 4.2],
+        //     ['Regal Fenway Stadium', 7.2, 4.1]
+        // ]);
+
+        var materialOptions = {
+            width : 800,
+            height: 400,
+            chart: {
+                title: 'Top 10 Halls'
+            },
+            hAxis: {
+                title: 'Total Revenue',
+                minValue: 0,
+            },
+            vAxis: {
+                title: 'Halls'
+            },
+            bars: 'horizontal'
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('chart2_div'));
+        materialChart.draw(dataTopTenHalls, materialOptions);
+
+    }
+
     function renderTopTenMovieRevenues()
     {
         // fetch data
@@ -143,42 +213,7 @@ $(function(){
 
         renderTopTenMovieRevenues();
 
-
-        var dataTopTenHalls = google.visualization.arrayToDataTable([
-            ['Theater', 'Revenue2017', 'Revenue2016'],
-            ['AMC Loews', 13.2, 8.4],
-            ['AMC Sunset 5', 11.7, 8.1],
-            ['AMC Kabuki', 10.6, 6.7],
-            ['Regal Union Square Stadium', 10.2, 6.5],
-            ['AMC Mazza Gallerie', 9.5, 5.9],
-            ['Regal E-Walk Stadium', 9.3, 5.2],
-            ['AMC Empire', 8.4, 4.8],
-            ['Cinemark North Hollywood ', 7.8, 4.2],
-            ['Regal Fenway Stadium', 7.2, 4.1]
-
-
-        ]);
-
-        var materialOptions = {
-            width : 800,
-            height: 400,
-            chart: {
-                title: 'Top 10 Halls'
-            },
-            hAxis: {
-                title: 'Total Revenue',
-                minValue: 0,
-            },
-            vAxis: {
-                title: 'Halls'
-            },
-            bars: 'horizontal'
-        };
-        var materialChart = new google.charts.Bar(document.getElementById('chart2_div'));
-        materialChart.draw(dataTopTenHalls, materialOptions);
-
-
-
+        renderTopTenHallRevenues();
 
         var dataTopTenCities = google.visualization.arrayToDataTable([
             ['Theater', 'Revenue2017'],

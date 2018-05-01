@@ -17,3 +17,15 @@ module.exports.topMovieRevenues = function(req, res, next) {
 			res.status(400).send();
 		});	
 }
+
+module.exports.topHallRevenues = function(req, res, next) {
+	clientMessenger.send("/analytics/top10-theater-revenue", API_METHOD.GET, "analytics")
+		.then((result) => {
+			console.log(result.content);
+			res.json(result.content);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});	
+}
