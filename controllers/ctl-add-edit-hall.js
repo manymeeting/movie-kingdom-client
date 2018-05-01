@@ -3,7 +3,7 @@ let API_METHOD = require('../values/constants').API_METHOD;
 let PathDict = require('../values/PathDictionary');
 
 module.exports.getAddHall = function(req, res, next) {
-    res.render('pg-add-edit-hall', { hall_option: 'Add', hallInfo: {} });
+    res.render('pg-add-edit-hall', { hall_option: 'Add', hallInfo: {}, error: req.MK.error });
 }
 
 module.exports.getEditHall = function(req, res, next) {
@@ -12,7 +12,7 @@ module.exports.getEditHall = function(req, res, next) {
     clientMessenger.send(`/theater/${hallId}`, API_METHOD.GET, "theaters")
         .then(result => {
             console.log(result);
-            res.render('pg-add-edit-hall', { hall_option: 'Edit', hallInfo: result.theater });
+            res.render('pg-add-edit-hall', { hall_option: 'Edit', hallInfo: result.theater, error: req.MK.error });
         })
         .catch(err => {
             console.error(err);
@@ -42,7 +42,8 @@ module.exports.postAddHall = function(req, res, next) {
         .catch(err => {
             console.error(err);
             res.status(400);
-            req.session.MKFlash.error = err;
+            req.session.MKFlash.error = err || new Error('unknown city');
+            res.redirect(PathDict.GET.ADD_HALL);
         })
 }
 
@@ -69,6 +70,7 @@ module.exports.postEditHall = function(req, res, next) {
         .catch(err => {
             console.error(err);
             res.status(400);
-            req.session.MKFlash.error = err;
+            req.session.MKFlash.error = err || new Error('unknown city');
+            res.redirect(PathDict.GET.EDIT_HALL);
         })
 }
