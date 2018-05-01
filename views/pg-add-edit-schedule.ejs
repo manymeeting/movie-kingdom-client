@@ -17,29 +17,34 @@
     </div>
         <% if (schedule_option === 'Edit') { %>
         <div class="form-group">
+            <label >SCHEDULE ID</label>
             <input class="form-control form-control-sm input-sm"
                    type="hidden"
                    name="scheduleId"
-                   pattern="^([0-9]*)$"
-                   title="Must only contain number"
+                   value="<%= scheduleId %>"
+            />
+            <input class="form-control form-control-sm input-sm"
+                   disabled
                    value="<%= scheduleId %>"
             />
         </div>
         <% } %>
 
-    <% if (schedule_option === 'Add') { %>
         <div class="form-group">
+            <label >MOVIE ID</label>
+
             <input class="form-control form-control-sm input-sm "
-                   placeholder="input movie ID"
                    type="hidden"
-                   pattern="[0-9]*"
                    name="movieId"
                    value="<%=movieId%>"
-                    <% if (schedule_option === 'Add') { %>
-                   required
-                    <% } %>
+            />
+            <input class="form-control form-control-sm input-sm "
+                   disabled
+                   value="<%=movieId%>"
             />
         </div>
+
+        <% if (schedule_option === 'Add') { %>
 
         <div class="form-group">
             <label >THEATRE ID</label>
@@ -63,7 +68,7 @@
                 <% })%>
             </select>
         </div>
-    <% } %>
+        <% } %>
 
         <div class="form-group">
             <label>SCHEDULE DATE</label>
