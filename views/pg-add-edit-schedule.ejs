@@ -20,6 +20,8 @@
             <input class="form-control form-control-sm input-sm"
                    type="hidden"
                    name="scheduleId"
+                   pattern="^([0-9]*)$"
+                   title="Must only contain number"
                    value="<%= scheduleId %>"
             />
         </div>
@@ -33,6 +35,7 @@
                    type="text"
                    pattern="[0-9]*"
                    name="movieId"
+                   value="<%= movieId%>"
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
@@ -66,10 +69,11 @@
         <div class="form-group">
             <label>SCHEDULE DATE</label>
             <input class="form-control form-control-sm input-sm" type="date"
-                    <% if (schedule_option === 'Add') { %>
                    required
-                    <% } %>
                    name="scheduleDate"
+                    <% if (schedule_option === 'Edit') { %>
+                   value="<%= scheduleInfo.scheduleDate%>"
+                    <% } %>
             />
         </div>
 
@@ -77,10 +81,11 @@
             <label>SHOW TIME</label>
             <input class="form-control form-control-sm input-sm "
                    type="time"
-                    <% if (schedule_option === 'Add') { %>
                    required
-                    <% } %>
                    name="showtime"
+                    <% if (schedule_option === 'Edit') { %>
+                   value="<%= scheduleInfo.showtime%>"
+                    <% } %>
             />
         </div>
 
@@ -90,8 +95,10 @@
                    type="text"
                    pattern="[0-9]*"
                    name="totSeats"
-                    <% if (schedule_option === 'Add') { %>
+                   title="Must only contain number"
                    required
+                    <% if (schedule_option === 'Edit') { %>
+                   value="<%= scheduleInfo.totSeats%>"
                     <% } %>
             />
         </div>
@@ -102,8 +109,10 @@
                    type="text"
                    pattern="[0-9]*"
                    name="availSeats"
-                    <% if (schedule_option === 'Add') { %>
+                   title="Must only contain number"
                    required
+                    <% if (schedule_option === 'Edit') { %>
+                   value="<%= scheduleInfo.availSeats%>"
                     <% } %>
             />
         </div>
@@ -114,8 +123,10 @@
                    type="text"
                    pattern="[0-9]*"
                    name="price"
-                    <% if (schedule_option === 'Add') { %>
+                   title="Must only contain number"
                    required
+                    <% if (schedule_option === 'Edit') { %>
+                   value="<%= scheduleInfo.price%>"
                     <% } %>
             />
         </div>

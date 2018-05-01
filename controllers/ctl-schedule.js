@@ -11,7 +11,9 @@ module.exports.getAddSchedule = function(req, res, next) {
             res.render('pg-add-edit-schedule', {
                 schedule_option: 'Add',
                 formats: result.formats,
-                scheduleId: ''
+                scheduleId: '',
+                movieId: movieId,
+                scheduleInfo: {}
             });
         })
         .catch(err => {
@@ -24,13 +26,21 @@ module.exports.getAddSchedule = function(req, res, next) {
 module.exports.getEditSchedule = function(req, res, next) {
     let movieId = req.query.movieID;
     let scheduleId = req.query.scheduleID;
+    let formats = {};
     clientMessenger.send(`/movie-format/${movieId}`, API_METHOD.GET, "movies")
+        .then(result => {
+            console.log(result);
+            formats = result.formats;
+            return clientMessenger.send(`/schedule/${scheduleId}`, API_METHOD.GET, "schedules");
+        })
         .then(result => {
             console.log(result);
             res.render('pg-add-edit-schedule', {
                 schedule_option: 'Edit',
-                formats: result.formats,
-                scheduleId: scheduleId
+                formats: formats,
+                scheduleId: scheduleId,
+                movieId: movieId,
+                scheduleInfo: result.schedule
             });
         })
         .catch(err => {
@@ -59,7 +69,6 @@ module.exports.postAddSchedule = function (req, res, next) {
 module.exports.postEditSchedule = function (req, res, next) {
     let content = req.body;
     let scheduleId = req.body.scheduleId;
-    content.showtime = timeConversion(content.showtime);
     console.log('lxr', content);
     clientMessenger.send(`/schedule/${scheduleId}`, API_METHOD.PUT, "schedules", content)
         .then(result => {
