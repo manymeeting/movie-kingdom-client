@@ -8,8 +8,8 @@ module.exports.getAddHall = function(req, res, next) {
 
 module.exports.getEditHall = function(req, res, next) {
     //should get theatre info and pass it into edit hall page
-    let theatreId = 503;
-    clientMessenger.send(`/theater/${theatreId}`, API_METHOD.GET, "theaters")
+    let hallId = req.query.hallID;
+    clientMessenger.send(`/theater/${hallId}`, API_METHOD.GET, "theaters")
         .then(result => {
             console.log(result);
             res.render('pg-add-edit-hall', { hall_option: 'Edit', hallInfo: result.theater });
