@@ -1,4 +1,5 @@
 var clientMessenger = require('../kafka/ClientMessenger');
+let PathDict = require('../values/PathDictionary');
 let API_METHOD = require('../values/constants').API_METHOD;
 const DEFAULT_ZIPCODE = "92825"; // TODO get zipcode based on actual user location
 
@@ -146,5 +147,20 @@ module.exports.reviewFormOnMovie = function(req, res, next) {
 }
 
 module.exports.postReviewOnMovie = function(req, res, next) {
-
+	var params = {
+		movieId: req.body.movieID,
+		stars: req.body.stars,
+		comment: req.body.reviewComment,
+		reviewTitle: req.body.reviewTitle,
+		userId: req.session.user.userId
+	}
+	clientMessenger.send("/movie-review", API_METHOD.POST, "reviews", params)
+		.then(result => {
+			console.log(result);
+			res.redirect(`${PathDict.GET.MOVIE_DETAILS_REVIEWS}?id=${req.body.movieID}`);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});
 }

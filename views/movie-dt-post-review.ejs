@@ -19,7 +19,8 @@
             <div class="row">
                 <% include ./movie-dt-info.ejs %>
                 <div class="col-8">
-                    <form>
+                    <form method="post" action="<%=PathDict.POST.MOVIE_DETAILS_POST_REVIEW%>">
+                        <input type="hidden" name="movieID" value="<%=movie.movieId%>">
                         <div class="mk-dt-postrw-rating-wrapper">
                             <h3>PLEASE RATE THIS MOVIE FROM 1-5 STARS</h3>
                             <select class="custom-select" name="stars">
@@ -34,11 +35,11 @@
                             <h3>WRITE A REVIEW</h3>
                             <div class="form-group">
                                 <label for="inputReviewTitle">Title: </label>
-                                <input type="text" class="form-control" id="inputReviewTitle" required>
+                                <input type="text" class="form-control" name="reviewTitle" id="inputReviewTitle" required>
                             </div>
                             <div class="form-group">
                                 <label for="inputReviewContent">Body: </label>
-                                <textarea class="form-control" id="inputReviewContent" rows="3" required></textarea>
+                                <textarea class="form-control" id="inputReviewContent" name="reviewComment" rows="3" required></textarea>
                                 <small id="reviewContentHint" class="form-text text-muted">
                                     Note: Your review will appear publicly on our site. Please do not include any personal information (full street address, etc.) Allow up to 24 hours for your review to post.
                                 </small>
