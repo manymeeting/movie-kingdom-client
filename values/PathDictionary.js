@@ -32,6 +32,7 @@ const dict = {
         TOP_TEN_HALL_REVENUES: '/log/report/top-10-hall-revenues',
         TOP_TEN_CITY_REVENUES: '/log/report/top-10-city-revenues',
         TOP_TEN_REVIEWED_MOVIE: '/log/report/top-10-reviewed-movie',
+        CANCEL_ORDER: '/orders/cancel',
         SUCCESS: '/result/success',
     	NO_ACCESS: '/noaccess',
 	},

@@ -35,6 +35,7 @@ ControlCodes[PathDict.GET.TOP_TEN_HALL_REVENUES] = Roles.GUEST;
 ControlCodes[PathDict.GET.TOP_TEN_CITY_REVENUES] = Roles.GUEST;
 ControlCodes[PathDict.GET.TOP_TEN_REVIEWED_MOVIE] = Roles.GUEST;
 
+
 //below lies User accessible paths
 ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;
 ControlCodes[PathDict.GET.USER_ORDERS] = Roles.USER;
@@ -43,6 +44,7 @@ ControlCodes[PathDict.GET.USER_ORDERS] = Roles.USER;
 ControlCodes[PathDict.GET.ADD_SCHEDULE] = Roles.HAD;
 ControlCodes[PathDict.GET.EDIT_SCHEDULE] = Roles.HAD;
 ControlCodes[PathDict.GET.MOVIE_DETAILS_ORDERS] = Roles.HAD;
+ControlCodes[PathDict.GET.CANCEL_ORDER] = Roles.HAD;
 
 //below lies Super Admin accessible paths
 ControlCodes[PathDict.GET.ADD_HALL] = Roles.SAD;

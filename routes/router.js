@@ -54,6 +54,7 @@ router.get(PathDict.GET.MOVIE_DETAILS_ORDERS, ctlOrders.ordersOnMovieDetails);
 router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 router.get(PathDict.GET.HALL_DETAILS, ctlHalls.hallDetails);
 router.get(PathDict.GET.ADMIN_DASHBOARD, ctlDashBoard.renderDashBoard);
+router.get(PathDict.GET.CANCEL_ORDER, ctlOrders.cancelOrders);
 
 //logger
 router.post(PathDict.POST.LOGGER_PATH, ctlLogs.postClickLog);

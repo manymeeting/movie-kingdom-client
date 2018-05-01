@@ -72,3 +72,18 @@ module.exports.ordersOnMovieDetails = function(req, res, next) {
 			res.status(400).send();
 		});	
 }
+
+module.exports.cancelOrders = function(req, res, next) {
+	var orderId = req.query.orderID;
+	var userId = req.query.userID;
+	console.log("/cancel-order/" + userId + "/" + orderId);
+	clientMessenger.send("/cancel-order/" + userId + "/" + orderId, API_METHOD.PUT, "orders", {})
+		.then(result => {
+			console.log(result);
+            res.redirect(PathDict.GET.SUCCESS);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send();
+		});	
+}
