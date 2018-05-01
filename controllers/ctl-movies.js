@@ -86,13 +86,14 @@ module.exports.schedulesOnMovie = function(req, res, next) {
 			movie = result.movie;	
 		})
 		.then(()=> {
-			return clientMessenger.send(`/schedules-zipcdoe/${DEFAULT_ZIPCODE}/${movieID}?page=${page}`, API_METHOD.GET, "schedules");
+			return clientMessenger.send(`/schedules-zipcode/${DEFAULT_ZIPCODE}/${movieID}?page=${page}`, API_METHOD.GET, "schedules");
 		})
 		.then(result => {
 			res.render('movie-dt-schedules', {
 				"title": 'Movies Schedules', 
 				"movie": movie,
-				"halls": result.content
+				"halls": result.content,
+				"location": DEFAULT_ZIPCODE
 			});
 		})
 		.catch(err => {
@@ -142,4 +143,8 @@ module.exports.reviewFormOnMovie = function(req, res, next) {
 			console.log(err);
 			res.status(400).send();
 		});
+}
+
+module.exports.postReviewOnMovie = function(req, res, next) {
+
 }
