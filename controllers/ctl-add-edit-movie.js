@@ -7,7 +7,7 @@ module.exports.getAddMovie = function(req, res, next) {
 }
 
 module.exports.getEditMovie = function(req, res, next) {
-    let movieId = 20;
+    let movieId = req.query.movieID;
     clientMessenger.send(`/movie/${movieId}`, API_METHOD.GET, "movies")
         .then(result => {
             res.render('pg-add-edit-movie', { movie_option: 'Edit', movie: result.movie });

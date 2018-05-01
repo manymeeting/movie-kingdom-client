@@ -49,11 +49,7 @@
                required
                 <% } %>
                 name="movieDesc"
-        >
-            <% if (movie_option === 'Edit') { %>
-            <%= movie.movieDesc %>"
-            <% } %>
-        </textarea>
+        ><% if (movie_option === 'Edit') { %><%=movie.movieDesc.trim()%><% } %></textarea>
     </div>
 
     <div class="form-group card bg-dark text-white">
