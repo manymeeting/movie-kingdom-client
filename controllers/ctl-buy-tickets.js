@@ -13,19 +13,23 @@ module.exports.getBuyTickets = function(req, res, next) {
         })
         .catch(err => {
             console.error(err);
-            res.status(400);
             req.session.MKFlash.error = err;
+            res.status(400).send();
         });
 };
 
 module.exports.postBuyTickets = function(req, res, next) {
-    let buyInfo = req.body;
-    buyInfo.scheduleId = 45;
-    clientMessenger.send("/order", API_METHOD.POST, "orders", buyInfo)
+    var buyTicketsParams = {
+        scheduleId: req.body.scheduleId,
+        ticketNum: req.body.ticketNum,
+        userId: req.session.user.userId
+    }
+    // TODO: currently we combine order creation and payment into one step, it's possible to split them once we add new views for that.
+    clientMessenger.send("/order", API_METHOD.POST, "orders", buyTicketsParams)
         .then(result => {
             console.log('lxr', result);
             let orderInfo = {
-                userId: result.order.user.userId,
+                userId: req.session.user.userId,
                 orderId: result.order.orderId
             };
             let url = "/pay-order/" + orderInfo.userId + "/" + orderInfo.orderId;
@@ -37,7 +41,7 @@ module.exports.postBuyTickets = function(req, res, next) {
         })
         .catch(err => {
             console.error(err);
-            res.status(400);
             req.session.MKFlash.error = err;
+            res.status(400).send();
         });
 };

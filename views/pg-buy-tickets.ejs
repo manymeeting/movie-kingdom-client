@@ -55,6 +55,7 @@
                         <div class="ml-4 mt-4">
                             <form class="mb-4" method="post", action="<%=PathDict.POST.BUY_TICKETS%>">
                                 <div class="row">
+                                    <input type="hidden" name="scheduleId" value="<%=schedule.scheduleId%>">
                                     <div class="input-group col-4">
                                         <input type="number" required name="ticketNum" class="form-control" id="inputTicketNum" min="0" placeholder="Ticket Number">
                                     </div>
