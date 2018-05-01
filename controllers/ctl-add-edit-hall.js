@@ -42,7 +42,7 @@ module.exports.postAddHall = function(req, res, next) {
         .catch(err => {
             console.error(err);
             res.status(400);
-            req.session.MKFlash.error = err || new Error('unknown city');
+            req.session.MKFlash.error = err || {message: 'unknown city'};
             res.redirect(PathDict.GET.ADD_HALL);
         })
 }
@@ -70,7 +70,7 @@ module.exports.postEditHall = function(req, res, next) {
         .catch(err => {
             console.error(err);
             res.status(400);
-            req.session.MKFlash.error = err || new Error('unknown city');
+            req.session.MKFlash.error = err || {message: 'unknown city'};
             res.redirect(PathDict.GET.EDIT_HALL);
         })
 }

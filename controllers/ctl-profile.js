@@ -11,7 +11,7 @@ module.exports.getProfile = function(req, res, next) {
         clientMessenger.send("/user/" + id, API_METHOD.GET, "users")
             .then(result => {
                 console.log('lxr', result);
-                res.render('pg-profile', {profile_option: '', currentUser: result.user});
+                res.render('pg-profile', {profile_option: '', currentUser: result.user, error: req.MK.error});
             })
             .catch(err => {
                 console.error(err);
@@ -19,7 +19,7 @@ module.exports.getProfile = function(req, res, next) {
                 req.session.MKFlash.error = err;
             });
     } else {
-        res.render('pg-profile', {profile_option: '', currentUser: meUser});
+        res.render('pg-profile', {profile_option: '', currentUser: meUser, error: req.MK.error});
     }
 }
 
@@ -41,13 +41,13 @@ module.exports.getEditProfile = function(req, res, next) {
     if (id !== meId) {
         clientMessenger.send("/user/" + id, API_METHOD.GET, "users")
             .then(result => {
-                console.log('lxr', result);
-                res.render('pg-profile', {profile_option: 'edit', currentUser: result.user});
+                res.render('pg-profile', {profile_option: 'edit', currentUser: result.user, error: req.MK.error});
             })
             .catch(err => {
                 console.error(err);
                 res.status(400);
-                req.session.MKFlash.error = err;
+                req.session.MKFlash.error = err.message || {message: 'unknown user'};
+                res.redirect(PathDict.GET.PROFILE);
             });
     } else {
         res.render('pg-profile', {profile_option: 'edit', currentUser: meUser});
@@ -78,7 +78,8 @@ module.exports.postEditProfile = function (req, res, next) {
         .catch(err => {
             console.error(err);
             res.status(400);
-            req.session.MKFlash.error = err;
+            req.session.MKFlash.error = err.message || {message: 'unknown user'};
+            res.redirect(PathDict.GET.PROFILE);
         });
 }
 
