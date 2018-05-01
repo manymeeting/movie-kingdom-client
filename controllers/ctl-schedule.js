@@ -82,6 +82,7 @@ module.exports.postEditSchedule = function (req, res, next) {
         });
 }
 
+//TODO: use advanced time picker to remove this process
 function timeConversion(time) {
     time += ":00";
     return time;
