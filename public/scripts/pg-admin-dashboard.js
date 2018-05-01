@@ -21,6 +21,7 @@ $(function(){
 
         var materialOptions = {
             width : 800,
+            height: 400,
             chart: {
                 title: 'Top 10 Revenue Movies'
             },
@@ -55,6 +56,7 @@ $(function(){
 
         var materialOptions = {
             width : 800,
+            height: 400,
             chart: {
                 title: 'Top 10 Halls'
             },
@@ -90,6 +92,7 @@ $(function(){
 
         var materialOptions = {
             width : 800,
+            height: 400,
             chart: {
                 title: 'Top 10 Cities'
             },
@@ -119,6 +122,8 @@ $(function(){
         ]);
 
         var options = {
+            width : 700,
+            height: 400,
             title: 'Clicks per page'
         };
 
@@ -141,6 +146,8 @@ $(function(){
         ]);
 
         var options = {
+            width : 700,
+            height: 400,
             title: 'Clicks by Genres'
         };
 
@@ -162,6 +169,8 @@ $(function(){
         ]);
 
         var options = {
+            width : 700,
+            height: 400,
             title: 'Reviews on movies'
         };
 
