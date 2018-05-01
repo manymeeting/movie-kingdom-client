@@ -5,7 +5,11 @@
 </head>
     <body>
         <% include ./header.ejs %>
-        <form   action="<%= PathDict.POST.ADD_HALL %>"
+        <form   <% if (hall_option === 'Add') { %>
+                action="<%= PathDict.POST.ADD_HALL%>"
+                <% } else { %>
+                action="<%= PathDict.POST.EDIT_HALL%>"
+                <% } %>
                 method="post"
                 class="mk-addhall-wrapper">
             <div>
