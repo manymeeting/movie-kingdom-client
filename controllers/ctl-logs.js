@@ -21,3 +21,28 @@ module.exports.postClickLog = function(req, res, next) {
 		});
 	});
 }
+
+
+module.exports.sumCountByPath = function(req, res, next) {
+
+	mongoUtil.getMongoConn(function(db) {
+		db.collection('log.clicks.paths')
+		.aggregate(
+				[
+					{ $group: { "_id": "$path", "count": { $sum: 1 } } }
+				]
+			)
+		.limit(10)
+		.toArray(function(err, result) {
+			if(err)
+			{
+				throw err;
+			}
+			
+			console.log(result);
+			res.type('json');
+			res.send(JSON.stringify(result));
+			
+		});
+	});
+}

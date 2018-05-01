@@ -4,7 +4,73 @@ $(function(){
     google.charts.setOnLoadCallback(drawChart);
 
 
+    function renderSumClickByPath()
+    {
+        // fetch data
+        var URL = '/log/report/sum-click-by-path';
+
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        });
+        var getReq = new Request(URL, {
+            method: 'GET', 
+            headers: headers
+        });
+
+        fetch(getReq)
+            .then(response => response.json())
+            .then(function(results) {
+                console.log(results);
+                
+                let arrayData = [['Page', 'Clicks']];
+                for(let i = 0; i < results.length; i++)
+                {
+                    let dataEntry = results[i];
+                    arrayData.push([dataEntry._id, dataEntry.count]);
+                }
+
+                drawSumClickByPath(arrayData);
+            })
+            .catch(function(error) {
+                console.log('Fetch Error: ', error);
+            });
+    }
+
+    
+
+    function drawSumClickByPath(arrayData)
+    {
+        
+        // var dataClicksPerPage = google.visualization.arrayToDataTable([
+        //     ['Page', 'Clicks'],
+        //     ['User Profile', 3200],
+        //     ['Movie List', 12000],
+        //     ['Movie Hall List', 2532],
+        //     ['Movie Details', 2625],
+        //     ['Buy tickets', 1525],
+        //     ['Purchase List', 2153]
+        // ]);
+
+        var dataClicksPerPage = google.visualization.arrayToDataTable(arrayData);
+
+        var options = {
+            width : 700,
+            height: 400,
+            title: 'Clicks Per Page'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart4_div'));
+        chart.draw(dataClicksPerPage, options);
+    }
+    
+
+    
+
+
     function drawChart() {
+
+        renderSumClickByPath();
 
         var topTenMovies = google.visualization.arrayToDataTable([
             ['Move', 'Revenue'],
@@ -111,25 +177,7 @@ $(function(){
 
 
 
-        var dataClicksPerPage = google.visualization.arrayToDataTable([
-            ['Page', 'Clicks'],
-            ['User Profile', 3200],
-            ['Movie List', 12000],
-            ['Movie Hall List', 2532],
-            ['Movie Details', 2625],
-            ['Buy tickets', 1525],
-            ['Purchase List', 2153]
-        ]);
-
-        var options = {
-            width : 700,
-            height: 400,
-            title: 'Clicks per page'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('chart4_div'));
-
-        chart.draw(dataClicksPerPage, options);
+        
 
 
 

@@ -27,6 +27,7 @@ const dict = {
     	MOVIE_DETAILS_POST_REVIEW: '/movie/details/reviews/post',
     	MOVIE_DETAILS_ORDERS: '/movie/details/orders',
     	MULTI_TYPE_SEARCH: '/multi-type/search',
+        SUM_CLICK_BY_PATH: '/log/report/sum-click-by-path',
         SUCCESS: '/result/success',
     	NO_ACCESS: '/noaccess',
 	},

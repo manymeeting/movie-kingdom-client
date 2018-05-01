@@ -1,7 +1,6 @@
 $(function(){
 
 	let path = window.location.pathname;
-	console.log($("#loggerUserInfo").text());
 	let user = JSON.parse($("#loggerUserInfo").text());
 
 	var URL = '/logger/path';
