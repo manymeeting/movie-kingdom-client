@@ -3,6 +3,75 @@ $(function(){
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawChart);
 
+    function renderTopTenMovieRevenues()
+    {
+        // fetch data
+        var URL = '/log/report/top-10-movie-revenues';
+
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        });
+        var getReq = new Request(URL, {
+            method: 'GET', 
+            headers: headers
+        });
+
+        fetch(getReq)
+            .then(response => response.json())
+            .then(function(results) {
+                console.log(results);
+                
+                let arrayData = [['Move', 'Revenue']];
+                for(let i = 0; i < results.length; i++)
+                {
+                    let dataEntry = results[i];
+                    arrayData.push([dataEntry.movie.movieTitle, dataEntry.revenue]);
+                }
+
+                drawTopTenMovieRevnues(arrayData);
+            })
+            .catch(function(error) {
+                console.log('Fetch Error: ', error);
+            });
+    }
+
+    function drawTopTenMovieRevnues(arrayData)
+    {
+        var topTenMovies = google.visualization.arrayToDataTable(arrayData);
+
+        // var topTenMovies = google.visualization.arrayToDataTable([
+        //     ['Move', 'Revenue'],
+        //     ["Avatar", 2787],
+        //     ["Titanic", 2187],
+        //     ["Star Wars",2068],
+        //     ["Jurassic World", 1671],
+        //     ["The Avengers", 1518],
+        //     ["Furious 7", 1516],
+        //     ["Avengers", 1405],
+        //     ["Harry Potter Deathly Hallows", 1341],
+        //     ["Star Wars", 1332]
+        // ]);
+
+        var materialOptions = {
+            width : 800,
+            height: 400,
+            chart: {
+                title: 'Top 10 Revenue Movies'
+            },
+
+            hAxis: {
+                title: 'Total Population',
+                minValue: 0,
+            },
+            vAxis: {
+                title: 'City'
+            },
+            bars: 'horizontal'
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('chart1_div'));
+        materialChart.draw(topTenMovies, materialOptions);
+    }
 
     function renderSumClickByPath()
     {
@@ -72,37 +141,7 @@ $(function(){
 
         renderSumClickByPath();
 
-        var topTenMovies = google.visualization.arrayToDataTable([
-            ['Move', 'Revenue'],
-            ["Avatar", 2787],
-            ["Titanic", 2187],
-            ["Star Wars",2068],
-            ["Jurassic World", 1671],
-            ["The Avengers", 1518],
-            ["Furious 7", 1516],
-            ["Avengers", 1405],
-            ["Harry Potter Deathly Hallows", 1341],
-            ["Star Wars", 1332]
-        ]);
-
-        var materialOptions = {
-            width : 800,
-            height: 400,
-            chart: {
-                title: 'Top 10 Revenue Movies'
-            },
-
-            hAxis: {
-                title: 'Total Population',
-                minValue: 0,
-            },
-            vAxis: {
-                title: 'City'
-            },
-            bars: 'horizontal'
-        };
-        var materialChart = new google.charts.Bar(document.getElementById('chart1_div'));
-        materialChart.draw(topTenMovies, materialOptions);
+        renderTopTenMovieRevenues();
 
 
         var dataTopTenHalls = google.visualization.arrayToDataTable([
