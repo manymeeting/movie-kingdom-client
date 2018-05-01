@@ -1,3 +1,4 @@
+//TODO check and clean up paths in POST, PUT and DELETE  
 const dict = {
 	GET: {
     	ROOT: '/',
@@ -52,6 +53,7 @@ const dict = {
         MOVIE_DETAILS_REVIEWS: '/movie/details/reviews',
         MOVIE_DETAILS_POST_REVIEW: '/movie/details/reviews/post',
         MULTI_TYPE_SEARCH: '/multi-type/search',
+        LOGGER_PATH: '/logger/path',
 	},
 	PUT: {
         PROFILE: '/profile',

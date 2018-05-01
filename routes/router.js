@@ -13,6 +13,7 @@ let ctlSchedule = require('../controllers/ctl-schedule');
 let ctlMovie = require('../controllers/ctl-add-edit-movie');
 let ctlHall = require('../controllers/ctl-add-edit-hall');
 let ctlDashBoard = require('../controllers/ctl-dashboard');
+let ctlLogs = require('../controllers/ctl-logs');
 
 router.get(PathDict.GET.ROOT, function(req, res, next) {
     res.redirect(PathDict.GET.LOGIN);
@@ -53,6 +54,9 @@ router.get(PathDict.GET.MOVIE_DETAILS_ORDERS, ctlOrders.ordersOnMovieDetails);
 router.get(PathDict.GET.MULTI_TYPE_SEARCH, ctlMultiTypeSearch.multiTypeSearch);
 router.get(PathDict.GET.HALL_DETAILS, ctlHalls.hallDetails);
 router.get(PathDict.GET.ADMIN_DASHBOARD, ctlDashBoard.renderDashBoard);
+
+//logger
+router.post(PathDict.POST.LOGGER_PATH, ctlLogs.postClickLog);
 
 //buy tickets
 router.get(PathDict.GET.BUY_TICKETS, ctlBuyTickets.getBuyTickets);

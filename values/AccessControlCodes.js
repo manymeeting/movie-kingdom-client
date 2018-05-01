@@ -28,6 +28,7 @@ ControlCodes[PathDict.GET.MOVIE_DETAILS_REVIEWS] = Roles.GUEST;
 ControlCodes[PathDict.GET.MULTI_TYPE_SEARCH] = Roles.GUEST;
 ControlCodes[PathDict.GET.SUCCESS] = Roles.GUEST;
 ControlCodes[PathDict.GET.NO_ACCESS] = Roles.GUEST;
+ControlCodes[PathDict.POST.LOGGER_PATH] = Roles.GUEST;
 
 //below lies User accessible paths
 ControlCodes[PathDict.GET.MOVIE_DETAILS_POST_REVIEW] = Roles.USER;

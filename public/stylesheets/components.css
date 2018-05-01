@@ -1,3 +1,7 @@
+.mk-hidden
+{
+    display: none;
+}
 .mk-top-err
 {
     float: left;
