@@ -10,7 +10,7 @@
         <h3>RATING</h3>
         <p class="mk-movie-review-rating">
             <% for(let i = 0; i < 5; i++){ %>
-                <% if(i <= Math.round(movie.stars)){ %>
+                <% if(i < Math.round(movie.stars)){ %>
                     <span class="fa fa-star mk-star-filled"></span>
                 <% } else{%>
                     <span class="fa fa-star"></span>
