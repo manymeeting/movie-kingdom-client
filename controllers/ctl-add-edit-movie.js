@@ -25,7 +25,7 @@ module.exports.postAddMovie = function(req, res, next) {
     clientMessenger.send(`/movie`, API_METHOD.POST, "movies", content)
         .then(result => {
             console.log(result);
-            res.redirect(PathDict.GET.MOVIE_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);
@@ -41,7 +41,7 @@ module.exports.postEditMovie = function(req, res, next) {
     clientMessenger.send(`/movie/${movieId}`, API_METHOD.PUT, "movies", content)
         .then(result => {
             console.log(result);
-            res.redirect(PathDict.GET.MOVIE_LIST);
+            res.redirect(PathDict.GET.SUCCESS);
         })
         .catch(err => {
             console.error(err);

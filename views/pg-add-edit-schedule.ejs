@@ -29,13 +29,12 @@
 
     <% if (schedule_option === 'Add') { %>
         <div class="form-group">
-            <label >MOVIE ID</label>
             <input class="form-control form-control-sm input-sm "
                    placeholder="input movie ID"
-                   type="text"
+                   type="hidden"
                    pattern="[0-9]*"
                    name="movieId"
-                   value="<%= movieId%>"
+                   value="<%=movieId%>"
                     <% if (schedule_option === 'Add') { %>
                    required
                     <% } %>
