@@ -18,7 +18,12 @@
                 <input class="form-control form-control-sm input-sm "
                        type="text"
                        value="<%= hallInfo.theaterId%>"
-                        name="theatreId"
+                        disabled
+                />
+                <input class="form-control form-control-sm input-sm "
+                       type="hidden"
+                       value="<%= hallInfo.theaterId%>"
+                       name="theatreId"
                 />
             </div>
             <% } %>
