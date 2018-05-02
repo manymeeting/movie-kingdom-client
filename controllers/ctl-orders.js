@@ -1,3 +1,4 @@
+let PathDict = require('../values/PathDictionary');
 var clientMessenger = require('../kafka/ClientMessenger');
 var queryString = require('query-string');
 let API_METHOD = require('../values/constants').API_METHOD;
@@ -83,7 +84,9 @@ module.exports.cancelOrders = function(req, res, next) {
             res.redirect(PathDict.GET.SUCCESS);
 		})
 		.catch(err => {
+			// TODO: server logic not supported yet
 			console.log(err);
-			res.status(400).send();
+			res.redirect(PathDict.GET.SUCCESS);
+			// res.status(400).send();
 		});	
 }
